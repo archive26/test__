@@ -1,0 +1,884 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>퀀타로 2027 랜딩 시안</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@500;700;900&display=swap">
+<style>
+/* Layout: 리뷰 바(내부용, 회색 계열) 아래에 모바일 기둥 448px. 랜딩은 퀀타로 남색·금색 토큰만 사용. */
+:root{
+  color-scheme: dark;
+  /* 브랜드 — 08_tokens 소스 추출값 */
+  --navy-950:#0B1120; --navy-900:#101A30; --navy-850:#13213D; --navy-800:#16305A;
+  --navy-700:#1B3B6F; --navy-500:#2E5A9E; --mist:#A9C0DE; --mist-2:#C9D8EA;
+  --gold-200:#F5E6BE; --gold-300:#F0D9A0; --gold-400:#E2C074; --gold-600:#8C6D1F;
+  --ivory:#F1E9DA; --paper:#FFFFFF; --paper-2:#F5F7FA; --ink:#211C1A; --ink-2:#222222; --muted:#5F5650;
+  --line-light:#EAEAEA; --line-gold:rgba(226,192,116,.32); --line-gold-strong:rgba(226,192,116,.7);
+  --line-dark:rgba(169,192,222,.16);
+  /* 리뷰 셸 (랜딩과 분리된 회색) */
+  --shell-bg:#D7D5D0; --shell-bar:#2B2B2E; --shell-fg:#EDEDED; --shell-dim:#9C9CA3; --shell-on:#FFFFFF;
+  --todo:#FF9F6B;
+  /* 타입 */
+  --f-serif:"Noto Serif KR","Nanum Myeongjo",serif;
+  --f-sans:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  /* 간격·모서리 — 사이트 값 */
+  --gutter:20px; --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:20px; --touch:44px;
+  --col:448px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--shell-bg);color:var(--ivory);font-family:var(--f-sans);font-size:15px;line-height:1.65;word-break:keep-all;overflow-wrap:break-word}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--shell-bar)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold-400);outline-offset:2px}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+
+/* ───────── 리뷰 셸 ───────── */
+.shell-bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--shell-bar);color:var(--shell-fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;font-size:12px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));padding-block:8px;border-bottom:1px solid #000}
+.shell-inner{max-width:760px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.shell-tag{font-size:11px;letter-spacing:.06em;color:var(--shell-dim);white-space:nowrap}
+.shell-tabs{display:flex;gap:4px;flex:1 1 auto;min-width:0}
+.shell-tabs button{flex:1 1 0;min-width:0;min-height:36px;border:1px solid #47474d;background:transparent;color:var(--shell-dim);border-radius:8px;padding:4px 6px;cursor:pointer;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shell-tabs button b{color:var(--shell-fg);margin-right:4px}
+.shell-tabs button[aria-pressed="true"]{background:var(--shell-on);color:#111;border-color:var(--shell-on)}
+.shell-tabs button[aria-pressed="true"] b{color:#111}
+.shell-widths{display:flex;gap:4px;align-items:center}
+.shell-widths button{min-height:28px;border:1px solid #47474d;background:transparent;color:var(--shell-dim);border-radius:6px;padding:2px 7px;cursor:pointer;font-variant-numeric:tabular-nums}
+.shell-widths button[aria-pressed="true"]{color:#111;background:var(--shell-fg)}
+.shell-note{width:100%;color:var(--shell-dim);font-size:11px}
+@media (max-width:520px){.shell-widths,.shell-tag{display:none}.shell-tabs button{font-size:12px}.shell-tabs button span{display:none}}
+
+.stage{padding-block:24px 48px}
+.phone{width:min(100%,var(--col));margin:0 auto;background:var(--navy-950);box-shadow:0 18px 60px rgba(20,20,30,.35);overflow:hidden;position:relative;border-radius:20px}
+@media (max-width:520px){.stage{padding:0}.phone{width:100%;border-radius:0;box-shadow:none}}
+
+/* ───────── 공통 컴포넌트 ───────── */
+.wrap{padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.todo{display:inline-flex;align-items:center;gap:4px;font:600 11.5px/1.35 var(--f-sans);color:var(--todo);border:1px dashed var(--todo);border-radius:6px;padding:2px 7px;background:rgba(255,159,107,.08);letter-spacing:0;word-break:keep-all;vertical-align:middle}
+.todo::before{content:"[확인 필요]";font-weight:800}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-400)}
+.speaker{display:flex;gap:10px;align-items:baseline;font-size:15.5px;line-height:1.6}
+.speaker b{flex:none;color:var(--gold-300);font-weight:800;letter-spacing:.08em}
+.paid{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--navy-950);background:var(--gold-300);border-radius:999px;padding:1px 8px;line-height:18px;vertical-align:middle}
+
+/* 버튼: 캡처의 남색 바탕 + 금색 테두리·글자 */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:10px 18px;border-radius:var(--r-lg);background:var(--navy-700);border:1.5px solid var(--gold-400);color:var(--gold-300);font-weight:800;font-size:16.5px;text-decoration:none;text-align:center;line-height:1.3;transition:background .2s,transform .15s}
+.btn:hover{background:#21467f}
+.btn:active{transform:translateY(1px)}
+.btn .arr{font-family:var(--f-serif);font-weight:500}
+.btn.gold{background:var(--gold-300);color:var(--navy-950);border-color:var(--gold-300)}
+.btn.gold:hover{background:var(--gold-200)}
+.btn.sm{min-height:48px;font-size:14.5px;padding:8px 10px;border-radius:var(--r-md)}
+
+.frame{border:1px solid var(--line-gold-strong);border-radius:var(--r-lg);overflow:hidden;background:var(--navy-900)}
+.frame img{width:100%;height:100%;object-fit:cover}
+
+/* 사이트 헤더 */
+.site-head{display:flex;align-items:center;justify-content:space-between;height:52px}
+.site-head img{height:26px;width:auto}
+.site-head .menu{font-size:12px;color:var(--mist);letter-spacing:.06em}
+.site-head.light{background:var(--paper);border-bottom:1px solid var(--line-light)}
+.site-head.light .menu{color:var(--muted)}
+.site-head.dark{background:var(--navy-950);border-bottom:1px solid var(--line-dark)}
+.site-head.overlay{position:absolute;inset:0 0 auto;z-index:3;background:linear-gradient(rgba(11,17,32,.7),rgba(11,17,32,0))}
+
+/* FAQ 아코디언 */
+.faq{display:flex;flex-direction:column;gap:8px}
+.faq-item{border-radius:var(--r-md);border:1px solid var(--line-dark);background:var(--navy-900);overflow:hidden}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:14px 16px;background:none;border:0;text-align:left;cursor:pointer;font-weight:700;font-size:15px;line-height:1.45}
+.faq-q .ic{flex:none;width:24px;height:24px;border-radius:50%;border:1px solid var(--line-gold);display:grid;place-items:center;color:var(--gold-300);font-size:14px;transition:transform .25s}
+.faq-q[aria-expanded="true"] .ic{transform:rotate(45deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s ease}
+.faq-a.open{grid-template-rows:1fr}
+.faq-a > div{overflow:hidden}
+.faq-a p{padding:0 16px 16px;color:var(--mist-2);font-size:14.5px;line-height:1.75}
+.faq.light .faq-item{background:var(--paper);border-color:var(--line-light)}
+.faq.light .faq-q{color:var(--ink)}
+.faq.light .faq-q .ic{border-color:var(--navy-700);color:var(--navy-700)}
+.faq.light .faq-a p{color:var(--muted)}
+
+/* 결과 미리보기 자리 */
+.preview{border-radius:var(--r-lg);border:1px solid var(--line-gold);background:linear-gradient(180deg,var(--navy-850),var(--navy-900));padding:18px 16px 16px;display:flex;flex-direction:column;gap:14px}
+.preview-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.preview-head h4{font-size:15px;font-weight:800;color:var(--ivory)}
+.preview-toc{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.preview-toc li{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:var(--r-md);background:rgba(11,17,32,.55);border:1px solid var(--line-dark)}
+.preview-toc li span{font-size:13px;font-weight:700;color:var(--gold-300)}
+.skel{display:flex;flex-direction:column;gap:6px}
+.skel i{display:block;height:8px;border-radius:4px;background:rgba(169,192,222,.16)}
+.skel i:nth-child(2){width:86%}.skel i:nth-child(3){width:62%}
+.preview-foot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--mist)}
+
+/* 정보 표 */
+.facts{display:flex;flex-direction:column;border-top:1px solid var(--line-dark)}
+.facts > div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line-dark);font-size:14.5px}
+.facts dt{color:var(--gold-300);font-weight:700}
+.facts dd{margin:0;color:var(--mist-2);min-width:0}
+
+/* 푸터 (사이트 푸터 실제 표기) */
+.foot{padding-block:28px calc(32px + env(safe-area-inset-bottom,0px));font-size:12px;line-height:1.85;color:var(--mist);border-top:1px solid var(--line-dark);background:var(--navy-950)}
+.foot b{color:var(--mist-2);font-weight:700;margin-right:4px}
+.foot .seal{width:36px;height:36px;margin-bottom:10px;opacity:.9}
+.foot.light{background:var(--paper-2);color:var(--muted);border-top-color:var(--line-light)}
+.foot.light b{color:var(--ink-2)}
+.foot .links{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* ═════════ A안 — 프리미엄 스토리텔링 ═════════ */
+.va{background:var(--navy-950)}
+.va-hero{position:relative;aspect-ratio:2/3;max-height:700px;min-height:520px;overflow:hidden}
+.va-hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.03);animation:vaDrift 18s ease-out forwards}
+@keyframes vaDrift{to{transform:scale(1)}}
+.va-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,0) 38%,rgba(11,17,32,.72) 66%,var(--navy-950) 96%)}
+.va-hero-copy{position:absolute;inset:auto 0 0;z-index:2;padding-bottom:28px;display:flex;flex-direction:column;gap:14px}
+.va-hero h1{font-family:var(--f-serif);font-weight:900;font-size:clamp(30px,8.6vw,38px);line-height:1.28;letter-spacing:-.01em;color:var(--paper)}
+.va-hero h1 em{font-style:normal;color:var(--gold-300)}
+.va-hero p{color:var(--mist-2);font-size:15px}
+.va-cue{display:flex;align-items:center;gap:10px;color:var(--gold-400);font-size:12px;letter-spacing:.14em}
+.va-cue::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-gold-strong),transparent)}
+
+.va-ch{padding-block:64px 8px;display:flex;flex-direction:column;gap:22px}
+.va-chno{display:flex;align-items:center;gap:12px}
+.va-chno span{font-family:var(--f-serif);font-size:26px;font-weight:700;color:var(--gold-400);line-height:1}
+.va-chno small{font-size:12px;letter-spacing:.18em;color:var(--mist)}
+.va-ch h2{font-family:var(--f-serif);font-weight:700;font-size:25px;line-height:1.42;color:var(--paper)}
+.va-lead{color:var(--mist-2);font-size:15.5px;line-height:1.85}
+
+.va-qs{display:flex;flex-direction:column;gap:2px;margin:6px 0}
+.va-qs p{font-family:var(--f-serif);font-size:20px;line-height:1.55;font-weight:500;color:var(--ivory);padding:14px 0 14px 22px;border-left:1px solid var(--line-gold);position:relative}
+.va-qs p::before{content:"";position:absolute;left:-4px;top:26px;width:7px;height:7px;border-radius:50%;background:var(--gold-400)}
+
+.va-gan{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.va-gan div{padding:18px 14px;border-radius:var(--r-lg);background:var(--navy-900);border:1px solid var(--line-dark);display:flex;flex-direction:column;gap:6px}
+.va-gan strong{font-family:var(--f-serif);font-size:44px;line-height:1;color:var(--gold-300);font-weight:700}
+.va-gan span{font-size:13px;font-weight:700;color:var(--ivory)}
+.va-gan p{font-size:13.5px;line-height:1.65;color:var(--mist)}
+
+.va-eye{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line-gold)}
+.va-eye img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.va-eye::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,0) 40%,rgba(11,17,32,.94) 88%)}
+.va-eye-copy{position:absolute;inset:auto 0 0;z-index:2;padding:20px 18px;display:flex;flex-direction:column;gap:8px}
+.va-eye-copy h3{font-family:var(--f-serif);font-size:24px;color:var(--paper);font-weight:700}
+.va-eye-copy .m{font-size:13px;color:var(--gold-300);font-weight:700;letter-spacing:.06em}
+.va-eye-copy p{font-size:14px;color:var(--mist-2)}
+.va-vs{font-family:var(--f-serif);text-align:center;font-size:16.5px;line-height:1.8;color:var(--ivory);padding:6px 6px}
+.va-vs b{color:var(--gold-300);font-weight:700}
+
+.va-journey{position:relative;display:flex;flex-direction:column;gap:0;padding-left:26px}
+.va-journey::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--gold-400),var(--line-gold) 50%,var(--gold-400))}
+.va-season{font-size:12px;letter-spacing:.2em;color:var(--gold-400);font-weight:700;padding:18px 0 6px;position:relative}
+.va-season::before{content:"";position:absolute;left:-24px;top:22px;width:11px;height:11px;border-radius:50%;border:1px solid var(--gold-400);background:var(--navy-950)}
+.va-month{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line-dark)}
+.va-month:last-child{border-bottom:0}
+.va-month .n{font-family:var(--f-serif);font-size:22px;font-weight:700;color:var(--paper);line-height:1.2}
+.va-month .n small{display:block;font-family:var(--f-sans);font-size:11px;color:var(--mist);font-weight:500;letter-spacing:.04em}
+.va-month .t{display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--mist-2)}
+.va-month .t b{color:var(--ivory);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:12px;padding:2px 9px;border-radius:999px;border:1px solid var(--line-gold);color:var(--gold-300)}
+
+.va-final{margin-top:56px;padding-block:52px 40px;background:radial-gradient(120% 70% at 50% 0%,rgba(46,90,158,.35),transparent 70%),var(--navy-900);border-top:1px solid var(--line-gold);display:flex;flex-direction:column;gap:18px}
+.va-final h2{font-family:var(--f-serif);font-size:26px;line-height:1.42;color:var(--paper);text-align:center}
+.va-final > p{text-align:center;color:var(--mist);font-size:14px}
+.va-buy{display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px;padding:12px;border-radius:var(--r-xl);border:1px solid var(--line-gold-strong);background:var(--navy-950)}
+.va-buy .th{aspect-ratio:3/4;border-radius:var(--r-md);overflow:hidden}
+.va-buy .th img{width:100%;height:100%;object-fit:cover}
+.va-buy .bd{display:flex;flex-direction:column;gap:6px;min-width:0;justify-content:center}
+.va-buy h3{font-size:17px;font-weight:800;color:var(--paper)}
+.va-buy .mt{font-size:13px;color:var(--mist)}
+.va-buy .btn{grid-column:1/-1}
+.va-note{font-size:12.5px;color:var(--mist);text-align:center}
+
+/* ═════════ B안 — 고민 공감형 (사이트 밝은 바탕 계열) ═════════ */
+.vb{background:var(--paper);color:var(--ink)}
+.vb-hero{padding-block:28px 36px;display:flex;flex-direction:column;gap:18px;background:linear-gradient(180deg,var(--paper-2),var(--paper))}
+.vb-hero .eyebrow{color:var(--gold-600)}
+.vb-hero h1{font-size:clamp(26px,7.4vw,31px);line-height:1.38;font-weight:800;color:var(--navy-700);letter-spacing:-.02em}
+.vb-hero > p{color:var(--muted);font-size:15px}
+.vb-pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.vb-pick a{min-height:64px;border-radius:var(--r-md);border:1px solid var(--line-light);background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--ink);font-weight:800;font-size:15px;box-shadow:0 1px 0 rgba(0,0,0,.03);transition:border-color .2s,background .2s}
+.vb-pick a span{font-family:var(--f-serif);color:var(--gold-600);font-size:18px;line-height:1}
+.vb-pick a:hover{border-color:var(--navy-700);background:#F3F6FB}
+.vb-scene{border-radius:var(--r-lg);background:var(--navy-950);padding:12px 12px 16px;display:flex;flex-direction:column;gap:14px;color:var(--ivory)}
+.vb-scene .frame{aspect-ratio:4/5}
+.vb-scene .frame img{object-position:50% 20%}
+
+.vb-sec{padding-block:44px;display:flex;flex-direction:column;gap:16px}
+.vb-sec > h2{font-size:22px;line-height:1.45;font-weight:800;color:var(--navy-700);letter-spacing:-.01em}
+.vb-sec > p{color:var(--muted)}
+.vb-concern{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;padding:18px 16px;border-radius:var(--r-lg);border:1px solid var(--line-light);background:var(--paper);scroll-margin-top:72px}
+.vb-concern .g{width:52px;height:52px;border-radius:50%;background:var(--navy-700);color:var(--gold-300);display:grid;place-items:center;font-family:var(--f-serif);font-size:24px;font-weight:700}
+.vb-concern h3{font-size:17px;font-weight:800;color:var(--ink);line-height:1.45}
+.vb-concern p{font-size:14.5px;color:var(--muted);margin-top:4px}
+.vb-concern .how{margin-top:10px;font-size:13px;color:var(--navy-700);font-weight:700;padding-top:10px;border-top:1px dashed var(--line-light)}
+
+.vb-product{border-radius:var(--r-xl);background:var(--navy-950);color:var(--ivory);padding:14px 14px 18px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(11,17,32,.18)}
+.vb-product .frame{aspect-ratio:3/4}
+.vb-product h3{font-size:22px;font-weight:800;color:var(--paper);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vb-product .sub{font-size:14px;color:var(--gold-300);font-weight:700}
+.vb-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.vb-list li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px;font-size:14.5px;color:var(--mist-2)}
+.vb-list li::before{content:"◆";color:var(--gold-400);font-size:10px;line-height:24px}
+.vb-price{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-radius:var(--r-md);background:rgba(169,192,222,.08);font-size:14px}
+
+.vb-turn{position:relative;margin-top:8px;aspect-ratio:4/5;overflow:hidden;background:var(--navy-950)}
+.vb-turn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.vb-turn::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,.05) 30%,rgba(11,17,32,.92) 82%)}
+.vb-turn-copy{position:absolute;inset:auto 0 0;z-index:2;padding-bottom:26px;display:flex;flex-direction:column;gap:10px;color:var(--ivory)}
+.vb-turn-copy h2{font-family:var(--f-serif);font-size:25px;line-height:1.42;color:var(--paper)}
+.vb-turn-copy p{color:var(--mist-2);font-size:14.5px}
+
+/* ═════════ C안 — 상품 비교 선택형 ═════════ */
+.vc{background:var(--navy-950)}
+.vc-top{padding-block:24px 30px;display:flex;flex-direction:column;gap:18px;background:linear-gradient(180deg,var(--navy-850),var(--navy-950))}
+.vc-top h1{font-size:clamp(23px,6.6vw,27px);line-height:1.4;font-weight:800;color:var(--paper);letter-spacing:-.015em}
+.vc-top > p{font-size:14.5px;color:var(--mist)}
+.vc-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.vc-card{display:flex;flex-direction:column;gap:10px;padding:8px 8px 10px;border-radius:var(--r-lg);border:1px solid var(--line-gold);background:var(--navy-900);min-width:0}
+.vc-card .frame{aspect-ratio:3/4;border-radius:var(--r-md)}
+.vc-card .kind{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.vc-card .kind span{font-family:var(--f-serif);font-size:13px;color:var(--gold-300);font-weight:700}
+.vc-card h2{font-size:16.5px;font-weight:800;color:var(--paper);line-height:1.35;padding-inline:2px}
+.vc-card ul{list-style:none;margin:0;padding:0 2px;display:flex;flex-direction:column;gap:4px;font-size:12.5px;line-height:1.55;color:var(--mist-2);flex:1}
+.vc-card ul li::before{content:"· ";color:var(--gold-400)}
+.vc-sec{padding-block:40px 8px;display:flex;flex-direction:column;gap:16px}
+.vc-sec h2{font-size:20px;font-weight:800;color:var(--paper);display:flex;align-items:baseline;gap:10px}
+.vc-sec h2 small{font-size:12px;color:var(--gold-400);letter-spacing:.14em;font-weight:700}
+.vc-table-wrap{overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--line-dark)}
+.vc-table{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.55;min-width:330px}
+.vc-table th,.vc-table td{padding:12px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-dark)}
+.vc-table tr:last-child th,.vc-table tr:last-child td{border-bottom:0}
+.vc-table thead th{background:var(--navy-800);color:var(--gold-300);font-size:13px;font-weight:800}
+.vc-table tbody th{color:var(--mist);font-weight:700;width:76px;font-size:12.5px;background:rgba(16,26,48,.6)}
+.vc-table td{color:var(--ivory);width:calc((100% - 76px)/2)}
+.vc-seg{display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:var(--r-md);background:var(--navy-900);border:1px solid var(--line-dark)}
+.vc-seg button{min-height:44px;border:0;background:transparent;border-radius:9px;font-weight:700;color:var(--mist);cursor:pointer}
+.vc-seg button[aria-selected="true"]{background:var(--navy-700);color:var(--gold-300);box-shadow:inset 0 0 0 1px var(--gold-400)}
+.vc-trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.vc-trust figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.vc-trust .frame{aspect-ratio:3/4}
+.vc-trust figcaption{font-size:13px;color:var(--mist-2);line-height:1.5}
+.vc-trust figcaption b{display:block;color:var(--paper);font-size:15px}
+.vc-biz{padding:16px;border-radius:var(--r-lg);background:var(--navy-900);border:1px solid var(--line-dark);font-size:13px;line-height:1.85;color:var(--mist-2)}
+.vc-biz b{color:var(--gold-300);margin-right:6px}
+
+/* ═════════ D안 — 열두 달 탐색형 ═════════ */
+.vd{background:var(--navy-950);padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+.vd-hero{position:relative;overflow:hidden;padding-block:28px 32px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.vd-hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:.32}
+.vd-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%,rgba(11,17,32,.2),var(--navy-950) 85%)}
+.vd-hero > *:not(img){position:relative;z-index:2}
+.vd-year{font-family:var(--f-serif);font-weight:900;font-size:clamp(58px,19vw,84px);line-height:1;color:var(--paper);letter-spacing:.02em}
+.vd-year span{color:var(--gold-300)}
+.vd-hero h1{font-size:19px;line-height:1.5;font-weight:700;color:var(--ivory)}
+.vd-ring{width:min(300px,82vw);aspect-ratio:1}
+.vd-ring svg{width:100%;height:100%;overflow:visible}
+.vd-ring .seg{cursor:pointer}
+.vd-ring .seg path{fill:rgba(16,26,48,.82);stroke:var(--line-gold);stroke-width:1;transition:fill .2s}
+.vd-ring .seg text{fill:var(--mist-2);font:700 15px var(--f-sans)}
+.vd-ring .seg.on path{fill:var(--navy-700);stroke:var(--gold-400)}
+.vd-ring .seg.on text{fill:var(--gold-300)}
+.vd-ring .seg:focus-visible path{stroke:var(--gold-200);stroke-width:2.5}
+.vd-ring .core{fill:var(--navy-950);stroke:var(--line-gold-strong)}
+.vd-hint{font-size:12.5px;color:var(--mist)}
+
+.vd-sec{padding-block:40px 4px;display:flex;flex-direction:column;gap:16px;scroll-margin-top:64px}
+.vd-sec h2{font-size:21px;font-weight:800;color:var(--paper);line-height:1.4}
+.vd-sec .eyebrow{display:block;margin-bottom:-8px}
+.vd-sec > p{font-size:14.5px;color:var(--mist-2)}
+.vd-months{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 0 8px;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);scrollbar-width:none}
+.vd-months::-webkit-scrollbar{display:none}
+.vd-months button{flex:none;scroll-snap-align:center;width:62px;min-height:72px;border-radius:var(--r-md);border:1px solid var(--line-dark);background:var(--navy-900);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--mist-2)}
+.vd-months button b{font-family:var(--f-serif);font-size:20px;color:var(--paper);line-height:1.1}
+.vd-months button small{font-size:11px}
+.vd-months button[aria-selected="true"]{background:var(--navy-700);border-color:var(--gold-400)}
+.vd-months button[aria-selected="true"] small{color:var(--gold-300)}
+.vd-detail{border-radius:var(--r-lg);border:1px solid var(--line-gold);background:var(--navy-900);padding:18px 16px;display:flex;flex-direction:column;gap:14px}
+.vd-detail-top{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.vd-detail-top strong{font-family:var(--f-serif);font-size:34px;line-height:1;color:var(--paper)}
+.vd-detail-top .gz{text-align:right;font-size:13px;color:var(--mist);line-height:1.4}
+.vd-detail-top .gz b{display:block;font-family:var(--f-serif);font-size:22px;color:var(--gold-300)}
+.vd-toc{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.vd-toc div{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;padding:10px 12px;border-radius:var(--r-md);background:rgba(11,17,32,.6);font-size:13.5px;color:var(--mist-2)}
+.vd-toc div b{color:var(--gold-300);font-size:12.5px}
+.vd-disc{font-size:12px;color:var(--mist)}
+
+.vd-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line-dark)}
+.vd-tabs button{min-height:50px;background:none;border:0;border-bottom:2px solid transparent;font-weight:800;font-size:15.5px;color:var(--mist);cursor:pointer;margin-bottom:-1px}
+.vd-tabs button[aria-selected="true"]{color:var(--gold-300);border-bottom-color:var(--gold-400)}
+.vd-panel{display:flex;flex-direction:column;gap:16px;animation:vdIn .3s ease}
+@keyframes vdIn{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.vd-panel-top{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center}
+.vd-panel-top .frame{aspect-ratio:3/4}
+.vd-panel-top h3{font-size:20px;color:var(--paper);font-weight:800}
+.vd-panel-top p{font-size:13.5px;color:var(--mist-2);margin-top:4px}
+
+.vd-gua{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px}
+.vd-gua button{aspect-ratio:1;min-height:30px;border-radius:6px;border:1px solid transparent;font:700 11px/1 var(--f-sans);font-variant-numeric:tabular-nums;cursor:pointer;padding:0;color:var(--mist-2)}
+.vd-gua button.g0{background:var(--navy-900)}
+.vd-gua button.g1{background:var(--navy-850)}
+.vd-gua button.hl{border-color:var(--line-gold-strong);color:var(--gold-200)}
+.vd-gua button[aria-pressed="true"]{background:var(--gold-300);color:var(--navy-950)}
+.vd-gua-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.vd-gua-read div{padding:12px 6px;border-radius:var(--r-md);background:var(--navy-900);border:1px solid var(--line-dark);font-size:12px;color:var(--mist)}
+.vd-gua-read b{display:block;font-family:var(--f-serif);font-size:26px;color:var(--gold-300);line-height:1.2}
+
+.vd-bar{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,var(--col));z-index:40;background:rgba(11,17,32,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line-gold);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vd-bar .btn{min-height:52px;font-size:15px;padding:6px 8px;flex-direction:column;gap:0;line-height:1.25}
+.vd-bar .btn small{font-size:11px;font-weight:600;opacity:.85}
+@media (max-width:520px){.vd-bar{width:100%}}
+</style>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+const { useState, useEffect, useRef } = React;
+const html = htm.bind(React.createElement);
+
+/* ───── 확인된 상품 정보 ───── */
+const P = {
+  ny: { key:'ny', name:'2027 신년운세', method:'사주 세운·월운 풀이', master:'차우진', role:'사주 명식과 한 해의 흐름',
+        url:'https://quantaro.kr/newyear2027', img:'assets/kv_newyear2027.webp', short:'신년운세' },
+  tj: { key:'tj', name:'2027 토정비결', method:'144괘·본괘·열두 달 풀이', master:'배시우', role:'괘로 읽는 한 해',
+        url:'https://quantaro.kr/tojung', img:'assets/kv_tojung_bae_poster_KO.webp', short:'토정비결' },
+};
+const IMG = {
+  logoDark:'assets/B_header_dark_web_413x96.png', logoLight:'assets/B_header_light_web_413x96.png', seal:'assets/seal_transparent_192.png',
+  starnight:'assets/wz_cha_starnight.webp', window:'assets/wz_cha_window.webp', desk:'assets/wz_cha_desk.webp', lantern:'assets/wz_cha_lantern.webp',
+  shrine:'assets/wz_bae_shrine.webp', tjArt:'assets/kv_tojung_bae_art_no_text.webp', yearly:'assets/kv_yearly_art_no_text.webp',
+  chaCard:'assets/01_cha-woojin.webp', baeCard:'assets/06_bae-siwoo.webp',
+};
+
+/* 2027 절기·월건 — 달력 사실(운세 내용 아님). 1월은 입춘 전이라 병오년 신축월. */
+const MONTHS = [
+  { m:1,  jg:'소한', gz:'辛丑', gzk:'신축', season:'겨울', note:'입춘 전, 병오년의 끝자락' },
+  { m:2,  jg:'입춘', gz:'壬寅', gzk:'임인', season:'봄',   note:'정미년이 시작되는 달' },
+  { m:3,  jg:'경칩', gz:'癸卯', gzk:'계묘', season:'봄' },
+  { m:4,  jg:'청명', gz:'甲辰', gzk:'갑진', season:'봄' },
+  { m:5,  jg:'입하', gz:'乙巳', gzk:'을사', season:'여름' },
+  { m:6,  jg:'망종', gz:'丙午', gzk:'병오', season:'여름' },
+  { m:7,  jg:'소서', gz:'丁未', gzk:'정미', season:'여름', note:'해와 같은 간지의 달' },
+  { m:8,  jg:'입추', gz:'戊申', gzk:'무신', season:'가을' },
+  { m:9,  jg:'백로', gz:'己酉', gzk:'기유', season:'가을' },
+  { m:10, jg:'한로', gz:'庚戌', gzk:'경술', season:'가을' },
+  { m:11, jg:'입동', gz:'辛亥', gzk:'신해', season:'겨울' },
+  { m:12, jg:'대설', gz:'壬子', gzk:'임자', season:'겨울' },
+];
+
+/* FAQ — 앞 두 문항과 '풀이는 어떻게'는 현행 사이트 문구를 줄인 것 */
+const FAQ_BASE = [
+  { q:'정미년은 언제부터 시작되나요?', a:'사주에서 해가 바뀌는 날은 양력 1월 1일이 아니라 입춘입니다. 2027년 입춘은 2월 4일 무렵이라, 1월은 입춘 전까지 병오년의 끝자락으로 읽습니다.' },
+  { q:'신년운세와 토정비결은 무엇이 다른가요?', a:'신년운세는 사주 명식으로 세운과 열두 달의 월운을 짚습니다. 토정비결은 144괘 가운데 한 해의 본괘를 세우고, 그 괘로 한 해의 길흉과 달별 운을 읽는 전통 방식입니다. 같은 해를 다른 눈으로 보는 것입니다.' },
+  { q:'풀이를 받으려면 무엇을 입력하나요?', a:'신년운세는 생년월일과 태어난 시를 넣으면 열두 달 풀이가 이어집니다. 태어난 시를 모르시면 「모름」을 고르셔도 되고, 그만큼 시주를 뺀 범위에서 읽어 드립니다.', todo:'토정비결 입력 항목' },
+  { q:'두 풀이 모두 유료인가요? 가격은 얼마인가요?', a:'2027 신년운세와 2027 토정비결은 각각 따로 구매하는 유료 풀이입니다.', todo:'상품별 판매가·할인 여부' },
+  { q:'결제한 풀이는 언제까지 다시 볼 수 있나요?', a:'', todo:'열람 기간·다시 보기 방법' },
+  { q:'환불은 어떻게 하나요?', a:'환불은 퀀타로 환불정책에 따릅니다.', todo:'디지털 풀이 열람 후 환불 조건' },
+];
+
+/* ───── 공통 컴포넌트 ───── */
+const Todo = ({ children }) => html`<span class="todo">${children}</span>`;
+
+function Header({ tone='dark' }) {
+  return html`<header class=${'site-head wrap ' + tone}>
+    <img src=${tone === 'light' ? IMG.logoLight : IMG.logoDark} alt="퀀타로" width="112" height="26" />
+    <span class="menu">2027 운세</span>
+  </header>`;
+}
+
+function Footer({ tone='dark' }) {
+  return html`<footer class=${'foot wrap ' + tone}>
+    <img class="seal" src=${IMG.seal} alt="" />
+    <div><b>상호</b>주식회사 퀀타리움 · <b>대표이사</b>노성규</div>
+    <div><b>주소</b>서울 강남구 테헤란로79길 6 3층 브이1093</div>
+    <div><b>사업자등록번호</b>390-87-03804</div>
+    <div><b>통신판매업 신고번호</b>제2026-서울강남-00796호</div>
+    <div><b>고객센터</b>1551-4220</div>
+    <div class="links"><span>이용약관</span><span>개인정보 처리방침</span><span>환불정책</span><${Todo}>약관·정책 링크 URL<//></div>
+    <div style=${{marginTop:8}}>© 2026 QUANTARO.</div>
+  </footer>`;
+}
+
+function Buy({ p, cls='', label, children }) {
+  return html`<a class=${'btn ' + cls} href=${p.url} target="_blank" rel="noopener" aria-label=${p.name + ' 상품 페이지로 이동 (유료)'}>
+    ${children || html`${label || p.name + ' 보러 가기'}<span class="arr" aria-hidden="true">→</span>`}
+  </a>`;
+}
+
+function Faq({ items=FAQ_BASE, light=false }) {
+  const [open, setOpen] = useState(0);
+  return html`<div class=${'faq' + (light ? ' light' : '')}>
+    ${items.map((it, i) => {
+      const on = open === i;
+      const id = 'faq-' + (light ? 'l' : 'd') + i + '-' + it.q.length;
+      return html`<div class="faq-item" key=${i}>
+        <button class="faq-q" aria-expanded=${on} aria-controls=${id} onClick=${() => setOpen(on ? -1 : i)}>
+          <span>${it.q}</span><span class="ic" aria-hidden="true">+</span>
+        </button>
+        <div class=${'faq-a' + (on ? ' open' : '')} id=${id} role="region"><div>
+          <p>${it.a} ${it.todo && html`<${Todo}>${it.todo}<//>`}</p>
+        </div></div>
+      </div>`;
+    })}
+  </div>`;
+}
+
+const TOC = {
+  ny: [
+    ['정미년 한 해', '세운 — 2027년이 내 명식에 닿는 자리'],
+    ['열두 달 풀이', '월운 — 달마다 마음·돈·일 세 갈래'],
+    ['달의 표시', '조심할 달과 밀어도 되는 달'],
+  ],
+  tj: [
+    ['본괘', '144괘 가운데 나의 2027년 괘'],
+    ['한 해의 길흉', '본괘로 읽는 한 해의 큰 그림'],
+    ['열두 달 풀이', '달별 운'],
+  ],
+};
+function Preview({ p }) {
+  return html`<div class="preview">
+    <div class="preview-head"><h4>${p.name} 결과 구성</h4><span class="paid">유료</span></div>
+    <ul class="preview-toc">
+      ${TOC[p.key].map(([t, d]) => html`<li key=${t}><span>${t}</span><div style=${{fontSize:13,color:'var(--mist-2)'}}>${d}</div><div class="skel" aria-hidden="true"><i></i><i></i><i></i></div></li>`)}
+    </ul>
+    <div class="preview-foot">회색 줄은 실제 풀이 문장이 들어갈 자리입니다. <${Todo}>실제 결과 화면 캡처<//></div>
+  </div>`;
+}
+
+/* ═════════ A안 ═════════ */
+function PageA() {
+  const seasons = ['봄', '여름', '가을', '겨울'];
+  const order = [2,3,4,5,6,7,8,9,10,11,12,1];
+  return html`<main class="va">
+    <section class="va-hero">
+      <${Header} tone="overlay" />
+      <img src=${IMG.starnight} alt="밤하늘 아래 한옥 마당에 선 차우진 술사" />
+      <div class="va-hero-copy wrap">
+        <span class="eyebrow">丁未 · 2027 정미년</span>
+        <h1>새해의 열두 달을<br/><em>먼저 읽어</em> 두세요</h1>
+        <p>사주로 읽는 신년운세, 괘로 읽는 토정비결.<br/>두 가지 눈으로 2027년을 살펴봅니다.</p>
+        <div class="va-cue">천천히 내려 보세요</div>
+      </div>
+    </section>
+
+    <section class="va-ch wrap" aria-labelledby="a1">
+      <div class="va-chno"><span>一</span><small>새해의 질문</small></div>
+      <h2 id="a1">해가 바뀔 때면<br/>누구나 같은 것을 묻습니다</h2>
+      <div class="va-qs">
+        <p>올해는 움직여도 될까요, 기다려야 할까요</p>
+        <p>돈은 어디서 새고, 어디로 모일까요</p>
+        <p>곁에 둘 사람은 누구일까요</p>
+      </div>
+      <p class="va-lead">2027년의 간지는 정미(丁未)입니다. 불이 흙을 데우고, 흙이 그 열을 오래 품는 짜임이라 한 번에 뒤집히기보다 조금씩 덮여 온 일이 늦게 익는 해로 봅니다.</p>
+      <div class="va-gan">
+        <div><strong>丁</strong><span>정 · 하늘 줄기</span><p>촛불이나 화롯불처럼 작아도 꺼지지 않는 불</p></div>
+        <div><strong>未</strong><span>미 · 땅 가지</span><p>늦여름 볕에 데워진 메마른 흙</p></div>
+      </div>
+    </section>
+
+    <section class="va-ch wrap" aria-labelledby="a2">
+      <div class="va-chno"><span>二</span><small>두 가지 눈</small></div>
+      <h2 id="a2">같은 해를,<br/>서로 다른 방식으로 읽습니다</h2>
+      <div class="va-eye">
+        <img src=${IMG.desk} alt="서재 책상 앞의 차우진 술사" style=${{objectPosition:'50% 18%'}} />
+        <div class="va-eye-copy">
+          <span class="m">차우진 술사 · 사주</span>
+          <h3>2027 신년운세</h3>
+          <p>사주 세운·월운 풀이. 생년월일시로 세운 명식에 정미년이 어디를 건드리는지부터 짚습니다.</p>
+        </div>
+      </div>
+      <p class="va-vs">신년운세가 <b>사주 명식</b>으로 열두 달의 흐름을 짚는다면,<br/>토정비결은 <b>괘</b>로 한 해의 길흉을 읽습니다.</p>
+      <div class="va-eye">
+        <img src=${IMG.tjArt} alt="빛나는 괘 문양 앞의 배시우 술사" style=${{objectPosition:'60% 20%'}} />
+        <div class="va-eye-copy">
+          <span class="m">배시우 술사 · 괘</span>
+          <h3>2027 토정비결</h3>
+          <p>144괘·본괘·열두 달 풀이. 사주가 아닌 괘로 읽는 한 해, 신년운세와 다른 눈입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="va-ch wrap" aria-labelledby="a3">
+      <div class="va-chno"><span>三</span><small>열두 달의 여정</small></div>
+      <h2 id="a3">입춘에서 시작해<br/>다음 입춘 앞까지</h2>
+      <p class="va-lead">신년운세 풀이는 열두 달로 나누어 달마다 마음·돈·일 세 갈래로 정리하고, 조심할 달과 밀어도 되는 달을 함께 적어 드립니다. 아래는 풀이가 다루는 달의 순서입니다.</p>
+      <div class="va-journey">
+        ${seasons.map(s => html`<${React.Fragment} key=${s}>
+          <div class="va-season">${s}</div>
+          ${order.map(n => MONTHS[n-1]).filter(x => x.season === s).map(x => html`
+            <div class="va-month" key=${x.m}>
+              <div class="n">${x.m}월<small>${x.jg}부터</small></div>
+              <div class="t"><span><b>${x.gzk}월</b> ${x.gz}${x.note ? ' · ' + x.note : ''}</span>
+                <div class="chips"><span>마음</span><span>돈</span><span>일</span></div></div>
+            </div>`)}
+        <//>`)}
+      </div>
+    </section>
+
+    <section class="va-ch wrap" aria-labelledby="a4">
+      <div class="va-chno"><span>四</span><small>결과 미리보기</small></div>
+      <h2 id="a4">받아 보실 풀이는<br/>이렇게 구성됩니다</h2>
+      <${Preview} p=${P.ny} />
+      <${Preview} p=${P.tj} />
+    </section>
+
+    <section class="va-ch wrap" aria-labelledby="a5">
+      <div class="va-chno"><span>五</span><small>구매 전 확인</small></div>
+      <h2 id="a5">결제 전에 알아 두실 것</h2>
+      <dl class="facts" style=${{margin:0}}>
+        <div><dt>이용 방식</dt><dd>두 풀이 모두 각각 구매하는 유료 콘텐츠입니다.</dd></div>
+        <div><dt>가격</dt><dd><${Todo}>상품별 판매가<//></dd></div>
+        <div><dt>입력 정보</dt><dd>신년운세: 생년월일·태어난 시(모르면 「모름」)<br/><${Todo}>토정비결 입력 항목<//></dd></div>
+        <div><dt>해의 기준</dt><dd>입춘(2027년 2월 4일 무렵)부터 정미년으로 읽습니다.</dd></div>
+        <div><dt>열람</dt><dd><${Todo}>열람 기간·다시 보기<//></dd></div>
+        <div><dt>환불</dt><dd>퀀타로 환불정책을 따릅니다. <${Todo}>환불 조건<//></dd></div>
+      </dl>
+    </section>
+
+    <section class="va-final wrap" aria-labelledby="a6">
+      <h2 id="a6">어느 눈으로<br/>2027년을 보시겠어요?</h2>
+      <p>버튼을 누르면 상품 페이지로 이동하고, 결제는 그곳에서 진행됩니다.</p>
+      ${[P.ny, P.tj].map(p => html`<div class="va-buy" key=${p.key}>
+        <div class="th"><img src=${p.img} alt="" /></div>
+        <div class="bd"><span class="paid" style=${{alignSelf:'flex-start'}}>유료</span><h3>${p.name}</h3><span class="mt">${p.method} · ${p.master} 술사</span></div>
+        <${Buy} p=${p} cls=${p.key === 'ny' ? 'gold' : ''} />
+      </div>`)}
+    </section>
+    <${Footer} />
+  </main>`;
+}
+
+/* ═════════ B안 ═════════ */
+function PageB() {
+  const concerns = [
+    { id:'b-work', g:'業', t:'진로', h:'이직, 시험, 새 일. 올해 움직여도 될지 망설여진다면', p:'시작할 때와 버틸 때를 나눠 보면 결정이 한결 가벼워집니다.', how:'신년운세에서는 달마다 「일」 갈래로 봅니다' },
+    { id:'b-money', g:'財', t:'재물', h:'들어오는 만큼 나가는 돈, 올해는 남길 수 있을까', p:'돈이 모이는 달과 새기 쉬운 달을 미리 알아 두면 계획이 달라집니다.', how:'신년운세에서는 달마다 「돈」 갈래로 봅니다' },
+    { id:'b-rel', g:'緣', t:'관계', h:'가까운 사람과의 거리, 새로 만날 인연이 궁금하다면', p:'마음이 쓰이는 달을 알면 말 한마디의 때를 고를 수 있습니다.', how:'신년운세에서는 달마다 「마음」 갈래로 봅니다' },
+  ];
+  return html`<main class="vb">
+    <${Header} tone="light" />
+    <section class="vb-hero wrap">
+      <span class="eyebrow">2027 정미년 · 새해 고민</span>
+      <h1>2027년, 가장 마음이 쓰이는 건 어느 쪽인가요?</h1>
+      <p>하나를 고르면 그 고민을 어떻게 읽어 드리는지 바로 보여 드려요.</p>
+      <nav class="vb-pick" aria-label="고민 고르기">
+        ${concerns.map(c => html`<a key=${c.id} href=${'#' + c.id} onClick=${e => { e.preventDefault(); document.getElementById(c.id).scrollIntoView({behavior:'smooth', block:'start'}); }}><span>${c.g}</span>${c.t}</a>`)}
+      </nav>
+      <div class="vb-scene">
+        <div class="frame"><img src=${IMG.window} alt="창가에 선 차우진 술사" /></div>
+        <p class="speaker"><b>차우진</b><span>새해 고민부터 함께 짚어 보겠습니다.</span></p>
+      </div>
+    </section>
+
+    <section class="vb-sec wrap" aria-labelledby="b1">
+      <h2 id="b1">고민마다,<br/>열두 달 안에서 따로 살펴봅니다</h2>
+      ${concerns.map(c => html`<article class="vb-concern" id=${c.id} key=${c.id}>
+        <div class="g" aria-hidden="true">${c.g}</div>
+        <div><h3>${c.h}</h3><p>${c.p}</p><div class="how">${c.how}</div></div>
+      </article>`)}
+    </section>
+
+    <section class="vb-sec wrap" aria-labelledby="b2" style=${{paddingTop:8}}>
+      <h2 id="b2">사주로 짚는 한 해의 흐름,<br/>2027 신년운세</h2>
+      <div class="vb-product">
+        <div class="frame"><img src=${P.ny.img} alt="차우진의 2027 신년운세" /></div>
+        <p class="speaker"><b>차우진</b><span>정미년 한 해를 열두 달로 나눠 짚어 드려요.</span></p>
+        <h3>2027 신년운세 <span class="paid">유료</span></h3>
+        <span class="sub">${P.ny.method}</span>
+        <ul class="vb-list">
+          <li>생년월일시로 세운 명식에 정미년이 닿는 자리부터 읽습니다</li>
+          <li>열두 달마다 마음·돈·일 세 갈래로 정리합니다</li>
+          <li>조심할 달과 밀어도 되는 달을 함께 적어 드립니다</li>
+        </ul>
+        <div class="vb-price"><span>가격</span><${Todo}>판매가<//></div>
+        <${Buy} p=${P.ny} cls="gold" label="2027 신년운세 보러 가기" />
+      </div>
+    </section>
+
+    <section class="vb-turn" aria-labelledby="b3">
+      <img src=${IMG.shrine} alt="오색 천이 걸린 고목 아래의 배시우 술사" />
+      <div class="vb-turn-copy wrap">
+        <span class="eyebrow">같은 해, 다른 눈</span>
+        <h2 id="b3">사주가 아닌 괘로<br/>읽는 한 해도 있습니다</h2>
+        <p>생년월일로 144괘 가운데 한 괘를 뽑아 한 해의 길흉과 달별 운을 읽는 전통 방식, 토정비결입니다.</p>
+      </div>
+    </section>
+
+    <section class="vb-sec wrap" aria-labelledby="b4">
+      <h2 id="b4">괘로 읽는 전통 풀이,<br/>2027 토정비결</h2>
+      <div class="vb-product">
+        <div class="frame"><img src=${P.tj.img} alt="배시우 술사 토정비결 포스터" /></div>
+        <p class="speaker"><b>배시우</b><span>올해의 괘부터 펼쳐 보겠습니다.</span></p>
+        <h3>2027 토정비결 <span class="paid">유료</span></h3>
+        <span class="sub">${P.tj.method}</span>
+        <ul class="vb-list">
+          <li>144괘 가운데 나의 2027년 본괘를 세웁니다</li>
+          <li>본괘로 한 해의 길흉을 읽습니다</li>
+          <li>열두 달의 운을 달별로 풀어 드립니다</li>
+        </ul>
+        <div class="vb-price"><span>가격</span><${Todo}>판매가<//></div>
+        <${Buy} p=${P.tj} label="2027 토정비결 보러 가기" />
+      </div>
+    </section>
+
+    <section class="vb-sec wrap" aria-labelledby="b5">
+      <h2 id="b5">구매 전에 자주 묻는 질문</h2>
+      <${Faq} light=${true} />
+    </section>
+    <${Footer} tone="light" />
+  </main>`;
+}
+
+/* ═════════ C안 ═════════ */
+function PageC() {
+  const [pv, setPv] = useState('ny');
+  const cards = [
+    { p:P.ny, kind:'사주로 읽기', pts:['세운·월운 풀이', '열두 달 마음·돈·일', '조심할 달 표시'] },
+    { p:P.tj, kind:'괘로 읽기', pts:['144괘 중 본괘', '한 해의 길흉', '열두 달 풀이'] },
+  ];
+  return html`<main class="vc">
+    <${Header} tone="dark" />
+    <section class="vc-top wrap" aria-labelledby="c0">
+      <span class="eyebrow">2027 정미년 유료 풀이</span>
+      <h1 id="c0">2027년을 읽는 두 가지 풀이,<br/>차이를 보고 고르세요</h1>
+      <div class="vc-cards">
+        ${cards.map(({ p, kind, pts }) => html`<article class="vc-card" key=${p.key}>
+          <div class="frame"><img src=${p.img} alt=${p.name} /></div>
+          <div class="kind"><span>${kind}</span><span class="paid">유료</span></div>
+          <h2>${p.name}</h2>
+          <ul>${pts.map(t => html`<li key=${t}>${t}</li>`)}</ul>
+          <${Buy} p=${p} cls=${'sm ' + (p.key === 'ny' ? 'gold' : '')} label=${p.short + ' 보기'} />
+        </article>`)}
+      </div>
+    </section>
+
+    <section class="vc-sec wrap" aria-labelledby="c1">
+      <h2 id="c1"><small>COMPARE</small>한눈에 비교</h2>
+      <div class="vc-table-wrap">
+        <table class="vc-table">
+          <thead><tr><th scope="col"><span class="sr" style=${{fontSize:0}}>항목</span></th><th scope="col">신년운세</th><th scope="col">토정비결</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">풀이 체계</th><td>사주 명식</td><td>144괘</td></tr>
+            <tr><th scope="row">핵심 풀이</th><td>세운·월운</td><td>본괘·열두 달</td></tr>
+            <tr><th scope="row">열두 달</th><td>달마다 마음·돈·일 세 갈래</td><td>달별 운</td></tr>
+            <tr><th scope="row">담당 술사</th><td>차우진</td><td>배시우</td></tr>
+            <tr><th scope="row">입력 정보</th><td>생년월일·태어난 시</td><td><${Todo}>입력 항목<//></td></tr>
+            <tr><th scope="row">이런 분께</th><td>내 명식 기준으로 달마다 흐름을 보고 싶은 분</td><td>전통 방식으로 한 해의 큰 그림을 보고 싶은 분</td></tr>
+            <tr><th scope="row">가격</th><td><${Todo}>판매가<//></td><td><${Todo}>판매가<//></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="vc-sec wrap" aria-labelledby="c2">
+      <h2 id="c2"><small>PREVIEW</small>결과 미리보기</h2>
+      <div class="vc-seg" role="tablist" aria-label="상품 선택">
+        ${[P.ny, P.tj].map(p => html`<button key=${p.key} role="tab" aria-selected=${pv === p.key} onClick=${() => setPv(p.key)}>${p.short}</button>`)}
+      </div>
+      <${Preview} p=${P[pv]} key=${pv} />
+    </section>
+
+    <section class="vc-sec wrap" aria-labelledby="c3">
+      <h2 id="c3"><small>FAQ</small>구매 전 질문</h2>
+      <${Faq} />
+    </section>
+
+    <section class="vc-sec wrap" aria-labelledby="c4" style=${{paddingBottom:40}}>
+      <h2 id="c4"><small>ABOUT</small>풀이를 맡은 곳</h2>
+      <div class="vc-trust">
+        <figure><div class="frame"><img src=${IMG.chaCard} alt="차우진 술사" /></div><figcaption><b>차우진</b>대표 상담 리더 · 사주 명식과 한 해의 흐름</figcaption></figure>
+        <figure><div class="frame"><img src=${IMG.baeCard} alt="배시우 술사" /></div><figcaption><b>배시우</b>신점·직감 · 토정비결 담당</figcaption></figure>
+      </div>
+      <div class="vc-biz">
+        <div><b>운영</b>주식회사 퀀타리움</div>
+        <div><b>사업자등록번호</b>390-87-03804</div>
+        <div><b>통신판매업</b>제2026-서울강남-00796호</div>
+        <div><b>고객센터</b>1551-4220</div>
+        <div><b>환불</b>퀀타로 환불정책에 따름 <${Todo}>환불 조건<//></div>
+      </div>
+    </section>
+    <${Footer} />
+  </main>`;
+}
+
+/* ═════════ D안 ═════════ */
+function Ring({ month, onPick }) {
+  const R = 150, r0 = 92, cx = 150, cy = 150;
+  const pt = (a, rad) => [cx + rad * Math.sin(a), cy - rad * Math.cos(a)];
+  return html`<div class="vd-ring">
+    <svg viewBox="-4 -4 308 308" role="group" aria-label="2027년 열두 달">
+      ${MONTHS.map((x, i) => {
+        const a0 = (i / 12) * 2 * Math.PI + 0.012, a1 = ((i + 1) / 12) * 2 * Math.PI - 0.012;
+        const [x0, y0] = pt(a0, R), [x1, y1] = pt(a1, R), [x2, y2] = pt(a1, r0), [x3, y3] = pt(a0, r0);
+        const d = `M${x0},${y0} A${R},${R} 0 0 1 ${x1},${y1} L${x2},${y2} A${r0},${r0} 0 0 0 ${x3},${y3} Z`;
+        const [tx, ty] = pt((a0 + a1) / 2, (R + r0) / 2);
+        return html`<g key=${x.m} class=${'seg' + (month === x.m ? ' on' : '')} tabindex="0" role="button" aria-label=${x.m + '월 목차 보기'} aria-pressed=${month === x.m}
+          onClick=${() => onPick(x.m, true)} onKeyDown=${e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(x.m, true); } }}>
+          <path d=${d} /><text x=${tx} y=${ty} text-anchor="middle" dominant-baseline="central">${x.m}</text>
+        </g>`;
+      })}
+      <circle class="core" cx=${cx} cy=${cy} r=${r0 - 8} />
+      <text x=${cx} y=${cy - 12} text-anchor="middle" style=${{fill:'var(--gold-300)', font:'700 34px var(--f-serif)'}}>丁未</text>
+      <text x=${cx} y=${cy + 22} text-anchor="middle" style=${{fill:'var(--mist-2)', font:'500 13px var(--f-sans)'}}>${month}월 · ${MONTHS[month-1].jg}</text>
+    </svg>
+  </div>`;
+}
+
+function PageD() {
+  const [month, setMonth] = useState(2);
+  const [tab, setTab] = useState('ny');
+  const [gua, setGua] = useState('523');
+  const tlRef = useRef(null), stripRef = useRef(null);
+  const pick = (m, jump) => {
+    setMonth(m);
+    if (jump && tlRef.current) tlRef.current.scrollIntoView({ behavior:'smooth', block:'start' });
+  };
+  useEffect(() => {
+    const el = stripRef.current && stripRef.current.querySelector(`[data-m="${month}"]`);
+    if (el) el.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+  }, [month]);
+  const mo = MONTHS[month - 1];
+  const codes = [];
+  for (let s = 1; s <= 8; s++) for (let m = 1; m <= 6; m++) for (let l = 1; l <= 3; l++) codes.push({ c:`${s}${m}${l}`, s });
+  const [gs, gm, gl] = gua.split('');
+  const p = P[tab];
+
+  return html`<main class="vd">
+    <${Header} tone="dark" />
+    <section class="vd-hero wrap" aria-labelledby="d0">
+      <img src=${IMG.yearly} alt="" />
+      <span class="eyebrow">QUANTARO · 丁未年</span>
+      <div class="vd-year" aria-hidden="true">20<span>27</span></div>
+      <h1 id="d0">열두 달을 하나씩 짚어 보는<br/>2027년 풀이 목차</h1>
+      <${Ring} month=${month} onPick=${pick} />
+      <p class="vd-hint">달을 누르면 그 달 풀이에서 다루는 항목을 보여 드려요</p>
+    </section>
+
+    <section class="vd-sec wrap" ref=${tlRef} aria-labelledby="d1">
+      <span class="eyebrow">1월 — 12월</span>
+      <h2 id="d1">달별 목차</h2>
+      <div class="vd-months" ref=${stripRef} role="tablist" aria-label="월 선택">
+        ${MONTHS.map(x => html`<button key=${x.m} data-m=${x.m} role="tab" aria-selected=${month === x.m} onClick=${() => pick(x.m)}><b>${x.m}</b><small>${x.jg}</small></button>`)}
+      </div>
+      <div class="vd-detail" role="tabpanel" aria-live="polite">
+        <div class="vd-detail-top">
+          <strong>${mo.m}월</strong>
+          <div class="gz"><b>${mo.gz}</b>${mo.gzk}월 · ${mo.jg}부터</div>
+        </div>
+        ${mo.note && html`<p style=${{fontSize:13.5,color:'var(--gold-200)'}}>${mo.note}</p>`}
+        <div class="vd-toc">
+          <div><b>신년운세</b><span>이 달의 마음 · 돈 · 일, 조심할 달인지 밀어도 되는 달인지</span></div>
+          <div><b>토정비결</b><span>본괘로 읽는 이 달의 운</span></div>
+        </div>
+        <p class="vd-disc">풀이가 다루는 항목의 목차이며, 개인 결과는 구매 후 확인하실 수 있습니다. 절기·월 간지는 달력 기준 정보입니다.</p>
+      </div>
+    </section>
+
+    <section class="vd-sec wrap" aria-labelledby="d2">
+      <span class="eyebrow">두 가지 풀이</span>
+      <h2 id="d2">무엇으로 읽는지 비교해 보세요</h2>
+      <div class="vd-tabs" role="tablist" aria-label="상품 정보">
+        ${[P.ny, P.tj].map(x => html`<button key=${x.key} id=${'dt-' + x.key} role="tab" aria-selected=${tab === x.key} aria-controls="dpanel" onClick=${() => setTab(x.key)}>${x.short}</button>`)}
+      </div>
+      <div class="vd-panel" id="dpanel" role="tabpanel" aria-labelledby=${'dt-' + tab} key=${tab}>
+        <div class="vd-panel-top">
+          <div class="frame"><img src=${p.img} alt=${p.name} /></div>
+          <div><span class="paid">유료</span><h3 style=${{marginTop:6}}>${p.name}</h3><p>${p.method}<br/>${p.master} 술사 · ${p.role}</p></div>
+        </div>
+        <dl class="facts" style=${{margin:0}}>
+          ${tab === 'ny' ? html`
+            <div><dt>읽는 방식</dt><dd>생년월일시로 세운 사주 명식에 2027년 세운과 열두 달 월운을 겹쳐 읽습니다.</dd></div>
+            <div><dt>열두 달</dt><dd>달마다 마음·돈·일 세 갈래, 조심할 달과 밀어도 되는 달</dd></div>
+            <div><dt>입력 정보</dt><dd>생년월일·태어난 시(모르면 「모름」)</dd></div>` : html`
+            <div><dt>읽는 방식</dt><dd>144괘 가운데 2027년의 본괘를 세워 한 해의 길흉을 읽는 전통 방식입니다.</dd></div>
+            <div><dt>열두 달</dt><dd>본괘를 바탕으로 한 달별 운</dd></div>
+            <div><dt>입력 정보</dt><dd>생년월일 <${Todo}>세부 입력 항목<//></dd></div>`}
+        </dl>
+      </div>
+    </section>
+
+    <section class="vd-sec wrap" aria-labelledby="d3">
+      <span class="eyebrow">土亭秘訣 · 144괘</span>
+      <h2 id="d3">토정비결의 144괘</h2>
+      <p>전통 방식에서는 태어난 해·달·날에서 상괘(8)·중괘(6)·하괘(3)를 얻어 세 자리 괘를 세웁니다. 8 × 6 × 3, 모두 144괘입니다. 괘를 눌러 구조를 확인해 보세요.</p>
+      <div class="vd-gua-read" aria-live="polite">
+        <div><b>${gs}</b>상괘 · 8 중</div><div><b>${gm}</b>중괘 · 6 중</div><div><b>${gl}</b>하괘 · 3 중</div>
+      </div>
+      <div class="vd-gua" role="group" aria-label="144괘 번호">
+        ${codes.map(({ c, s }) => html`<button key=${c} class=${'g' + (s % 2) + (c[0] === gs ? ' hl' : '')} aria-pressed=${gua === c} aria-label=${'괘 ' + c} onClick=${() => setGua(c)}>${c}</button>`)}
+      </div>
+      <p class="vd-disc">괘 번호의 짜임을 보여 드리는 갤러리이며 괘의 풀이 내용은 담지 않았습니다. <${Todo}>퀀타로 산출 방식과 일치 여부<//></p>
+    </section>
+
+    <section class="vd-sec wrap" aria-labelledby="d4">
+      <span class="eyebrow">결과 미리보기</span>
+      <h2 id="d4">${p.name} 결과 구성</h2>
+      <${Preview} p=${p} key=${'pv' + tab} />
+      <p class="vd-disc">위 정보 탭에서 고른 상품의 구성이 표시됩니다.</p>
+    </section>
+
+    <section class="vd-sec wrap" aria-labelledby="d5" style=${{paddingBottom:40}}>
+      <span class="eyebrow">가격 · 이용 안내</span>
+      <h2 id="d5">구매 전 안내</h2>
+      <dl class="facts" style=${{margin:0}}>
+        <div><dt>신년운세</dt><dd>유료 · <${Todo}>판매가<//></dd></div>
+        <div><dt>토정비결</dt><dd>유료 · <${Todo}>판매가<//></dd></div>
+        <div><dt>결제</dt><dd>아래 버튼을 누르면 상품 페이지로 이동해 결제합니다.</dd></div>
+        <div><dt>열람</dt><dd><${Todo}>열람 기간·다시 보기<//></dd></div>
+      </dl>
+      <${Faq} />
+    </section>
+    <${Footer} />
+
+    <nav class="vd-bar wrap" aria-label="상품 구매">
+      <${Buy} p=${P.ny} cls="gold"><span>신년운세</span><small>사주 · 유료</small><//>
+      <${Buy} p=${P.tj}><span>토정비결</span><small>144괘 · 유료</small><//>
+    </nav>
+  </main>`;
+}
+
+/* ═════════ 리뷰 셸 ═════════ */
+const VARIANTS = [
+  { id:'a', label:'A', name:'스토리텔링', C:PageA },
+  { id:'b', label:'B', name:'고민 공감', C:PageB },
+  { id:'c', label:'C', name:'상품 비교', C:PageC },
+  { id:'d', label:'D', name:'열두 달', C:PageD },
+];
+const WIDTHS = [375, 390, 430, 448];
+const readHash = () => { const h = (location.hash || '').slice(1); return VARIANTS.some(v => v.id === h) ? h : 'a'; };
+
+function App() {
+  const [v, setV] = useState(readHash);
+  const [w, setW] = useState(448);
+  useEffect(() => {
+    const on = () => setV(readHash());
+    window.addEventListener('hashchange', on);
+    return () => window.removeEventListener('hashchange', on);
+  }, []);
+  useEffect(() => { document.documentElement.style.setProperty('--col', w + 'px'); }, [w]);
+  const go = id => { if (location.hash !== '#' + id) location.hash = id; setV(id); window.scrollTo(0, 0); };
+  const Cur = VARIANTS.find(x => x.id === v).C;
+  return html`<${React.Fragment}>
+    <div class="shell-bar" role="navigation" aria-label="내부 검토용 시안 전환">
+      <div class="shell-inner">
+        <span class="shell-tag">내부 검토 · 랜딩 미포함</span>
+        <div class="shell-tabs">
+          ${VARIANTS.map(x => html`<button key=${x.id} aria-pressed=${v === x.id} onClick=${() => go(x.id)}><b>${x.label}</b><span>${x.name}</span></button>`)}
+        </div>
+        <div class="shell-widths" aria-label="미리보기 폭">
+          ${WIDTHS.map(n => html`<button key=${n} aria-pressed=${w === n} onClick=${() => setW(n)}>${n}</button>`)}
+        </div>
+      </div>
+    </div>
+    <div class="stage"><div class="phone" key=${v}><${Cur} /></div></div>
+  <//>`;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
+</script>
