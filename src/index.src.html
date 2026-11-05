@@ -1,4 +1,4 @@
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>퀀타로 2027 랜딩 시안</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,8 +57,8 @@ h1,h2,h3{text-wrap:balance}
 
 /* ───────── 공통 컴포넌트 ───────── */
 .wrap{padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
-.todo{display:inline-flex;align-items:center;gap:4px;font:600 11.5px/1.35 var(--f-sans);color:var(--todo);border:1px dashed var(--todo);border-radius:6px;padding:2px 7px;background:rgba(255,159,107,.08);letter-spacing:0;word-break:keep-all;vertical-align:middle}
-.todo::before{content:"[확인 필요]";font-weight:800}
+.todo{display:inline-block;max-width:100%;font:600 11.5px/1.45 var(--f-sans);color:var(--todo);border:1px dashed var(--todo);border-radius:6px;padding:2px 7px;background:rgba(255,159,107,.08);letter-spacing:0;word-break:keep-all;vertical-align:middle}
+.todo::before{content:"[확인 필요] ";font-weight:800}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-400)}
 .speaker{display:flex;gap:10px;align-items:baseline;font-size:15.5px;line-height:1.6}
 .speaker b{flex:none;color:var(--gold-300);font-weight:800;letter-spacing:.08em}
@@ -241,7 +241,7 @@ h1,h2,h3{text-wrap:balance}
 .vc-card{display:flex;flex-direction:column;gap:10px;padding:8px 8px 10px;border-radius:var(--r-lg);border:1px solid var(--line-gold);background:var(--navy-900);min-width:0}
 .vc-card .frame{aspect-ratio:3/4;border-radius:var(--r-md)}
 .vc-card .kind{display:flex;justify-content:space-between;align-items:center;gap:4px}
-.vc-card .kind span{font-family:var(--f-serif);font-size:13px;color:var(--gold-300);font-weight:700}
+.vc-card .kind > span:first-child{font-family:var(--f-serif);font-size:13px;color:var(--gold-300);font-weight:700}
 .vc-card h2{font-size:16.5px;font-weight:800;color:var(--paper);line-height:1.35;padding-inline:2px}
 .vc-card ul{list-style:none;margin:0;padding:0 2px;display:flex;flex-direction:column;gap:4px;font-size:12.5px;line-height:1.55;color:var(--mist-2);flex:1}
 .vc-card ul li::before{content:"· ";color:var(--gold-400)}
@@ -331,6 +331,100 @@ h1,h2,h3{text-wrap:balance}
 .vd-bar .btn{min-height:52px;font-size:15px;padding:6px 8px;flex-direction:column;gap:0;line-height:1.25}
 .vd-bar .btn small{font-size:11px;font-weight:600;opacity:.85}
 @media (max-width:520px){.vd-bar{width:100%}}
+
+/* ═════════ 2026-11-05 기획 보완 — 공통 ═════════ */
+/* 스크롤 진입: JS가 .rv를 붙인 요소만 숨겼다가 화면에 들어오면 .in */
+.rv{transition:opacity .55s ease,transform .55s ease}
+.rv:not(.in){opacity:0;transform:translateY(14px)}
+@media (prefers-reduced-motion:reduce){.rv:not(.in){opacity:1;transform:none}}
+.rv-now{animation:rvIn .5s ease both}
+@keyframes rvIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.price1 b{color:var(--paper);font-weight:800;font-variant-numeric:tabular-nums}
+.price1 small{font-size:11.5px;color:var(--mist);font-weight:500}
+
+.bundle{border-radius:var(--r-lg);border:1px solid var(--line-gold);background:linear-gradient(180deg,rgba(226,192,116,.09),rgba(226,192,116,.02));padding:14px 14px 12px;display:flex;flex-direction:column;gap:10px;color:var(--mist-2)}
+.bundle-h{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.bundle-h b{font-size:15px;line-height:1.45;color:var(--gold-200);font-weight:800}
+.rev{flex:none;font-size:10.5px;font-weight:800;color:var(--todo);border:1px dashed var(--todo);border-radius:6px;padding:1px 6px;line-height:16px;margin-top:2px}
+.bundle-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.bundle-l li{display:grid;grid-template-columns:minmax(0,1fr) auto 86px;align-items:baseline;gap:8px;padding:9px 10px;border-radius:var(--r-sm);background:rgba(11,17,32,.55);border:1px solid transparent;font-size:13.5px}
+.bundle-l b{color:var(--paper);font-weight:800;font-variant-numeric:tabular-nums}
+.bundle-l em{font-style:normal;font-size:12px;color:var(--gold-300);font-weight:700;text-align:right}
+.bundle-l em.dim{color:var(--mist);font-weight:500}
+.bundle-l li.best{border-color:var(--line-gold-strong)}
+.bundle-n{font-size:11.5px;line-height:1.6;color:var(--mist)}
+
+.yclock{display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 12px;border-radius:var(--r-lg);border:1px solid var(--line-dark);background:rgba(11,17,32,.6);text-align:center}
+.yclock-h{font-size:12px;letter-spacing:.14em;color:var(--gold-400);font-weight:700}
+.yclock-n{display:flex;gap:6px;justify-content:center}
+.yclock-n span{min-width:60px;padding:8px 4px;border-radius:var(--r-md);background:var(--navy-900);border:1px solid var(--line-gold);display:flex;flex-direction:column;align-items:center}
+.yclock-n b{font-family:var(--f-serif);font-size:24px;line-height:1.15;color:var(--paper);font-variant-numeric:tabular-nums}
+.yclock-n small{font-size:11px;color:var(--mist)}
+.yclock-f{font-size:11.5px;color:var(--mist);line-height:1.6}
+
+/* A */
+.va-year{font-family:var(--f-serif);font-weight:900;font-size:clamp(64px,20vw,92px);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(240,217,160,.62);letter-spacing:.03em;animation:vaRise .48s ease-out .12s both}
+@keyframes vaRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.va-open-gan{padding-top:8px}
+.va-qs .k{display:block;font-family:var(--f-sans);font-size:12px;letter-spacing:.1em;color:var(--gold-400);font-weight:700;margin-bottom:2px}
+.va-eye-copy .m .paid{margin-left:6px}
+.va-month{position:relative;transition:background .3s}
+.va-month::before{content:"";position:absolute;left:-23.5px;top:22px;width:7px;height:7px;border-radius:50%;background:var(--line-gold);transition:background .3s,box-shadow .3s}
+.va-month .n{transition:color .3s}
+.va-month.cur::before{background:var(--gold-300);box-shadow:0 0 0 4px rgba(226,192,116,.18)}
+.va-month.cur .n{color:var(--gold-300)}
+.va-promo{margin-top:64px;border-top:1px solid var(--line-gold)}
+.va-promo-art{position:relative;aspect-ratio:16/11;overflow:hidden}
+.va-promo-art img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.va-promo-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,.1) 30%,var(--navy-950) 96%)}
+.va-promo-year{position:absolute;left:0;right:0;bottom:4px;z-index:2;text-align:center;font:900 clamp(72px,22vw,104px)/1 var(--f-serif);color:transparent;-webkit-text-stroke:1px rgba(240,217,160,.75);letter-spacing:.03em}
+.va-promo-body{display:flex;flex-direction:column;gap:20px;padding-top:16px}
+.va-promo h2{font-family:var(--f-serif);font-weight:700;font-size:25px;line-height:1.42;color:var(--paper)}
+.va-dual{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.va-dual div{padding:16px 14px;border-radius:var(--r-lg);background:var(--navy-900);border:1px solid var(--line-dark);display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.va-dual b{font-family:var(--f-serif);font-size:20px;color:var(--gold-300)}
+.va-dual p{font-size:13.5px;color:var(--mist-2)}
+.va-buy .mt .price1 small{display:none}
+
+/* B */
+.vb-kicker{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gold-600)}
+.vb-shot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;min-height:64px;padding:12px 14px;border-radius:var(--r-md);border:1px dashed rgba(169,192,222,.35);font-size:13px;color:var(--mist)}
+.vb-turn img.b{opacity:0;transition:opacity 1.4s ease .2s}
+.vb-turn.in img.b{opacity:1}
+.vb-story{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.vb-story li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:18px 16px;border-radius:var(--r-lg);border:1px solid var(--line-light);background:var(--paper-2)}
+.vb-story .no{font-family:var(--f-serif);font-size:22px;font-weight:700;color:var(--gold-600);line-height:1.2}
+.vb-story b{display:block;font-size:12.5px;color:var(--navy-500);font-weight:700}
+.vb-story strong{display:block;font-size:17px;color:var(--ink);font-weight:800;margin-top:2px}
+.vb-story p{font-size:14px;color:var(--muted);margin-top:4px}
+
+/* C */
+.vc-card .kind{flex-wrap:wrap}
+.vc-recap{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vc-recap div{padding:16px 14px;border-radius:var(--r-lg);border:1px solid var(--line-gold);background:var(--navy-900);display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.vc-recap b{font-size:17px;color:var(--paper);font-weight:800}
+.vc-recap .k{font-size:12.5px;color:var(--gold-300);font-weight:700}
+.vc-recap p{font-size:13px;color:var(--mist-2);line-height:1.6}
+.vc-back{align-self:center;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 6px;font-size:14px;font-weight:700;color:var(--mist-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-gold-strong)}
+
+/* D */
+.vd-sub{font-size:14px;color:var(--mist-2)}
+.vd-lead{font-size:14px!important;color:var(--gold-200)!important;font-weight:700}
+.vd-outro-mark{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:24px;border-top:1px solid var(--line-gold)}
+.vd-outro-mark b{font:900 clamp(56px,17vw,78px)/1 var(--f-serif);color:transparent;-webkit-text-stroke:1px var(--gold-300);letter-spacing:.03em}
+.vd-outro-mark span{font-size:12px;letter-spacing:.4em;color:var(--gold-400);font-weight:700}
+.vd-outro h2{text-align:center}
+.vd-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.vd-tiles span{padding:10px 4px;border-radius:var(--r-md);border:1px solid var(--line-dark);background:var(--navy-900);display:flex;flex-direction:column;align-items:center}
+.vd-tiles span.in{border-color:var(--line-gold)}
+.vd-tiles b{font-family:var(--f-serif);font-size:20px;color:var(--paper);line-height:1.15}
+.vd-tiles small{font-size:11px;color:var(--mist)}
+.vd-dual{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vd-dual div{padding:14px 12px;border-radius:var(--r-lg);background:var(--navy-900);border:1px solid var(--line-dark);display:flex;flex-direction:column;gap:4px}
+.vd-dual b{font-size:16px;color:var(--paper)}
+.vd-dual span{font-size:12.5px;color:var(--gold-300);font-weight:700}
+.vd-dual p{font-size:13px;color:var(--mist-2);line-height:1.6}
 </style>
 
 <div id="root"></div>
@@ -451,102 +545,199 @@ function Preview({ p }) {
   </div>`;
 }
 
-/* ═════════ A안 ═════════ */
+/* ───── 가격 — 2026-11-05 결제 화면 캡처 기준 (내부 검토용) ─────
+   현행 판매가·할인 운영 조건은 최종 승인 전입니다.
+   공개용으로 내보낼 때는 REVIEW_PRICING을 false로 바꾸면 모든 가격·할인 문구가 [확인 필요] 자리로 바뀝니다. */
+const REVIEW_PRICING = true;
+const PRICE = { single:33000, two:55000, twoSum:66000, four:69000, fourSum:132000 };
+const won = n => n.toLocaleString('ko-KR') + '원';
+
+function Price() {
+  if (!REVIEW_PRICING) return html`<${Todo}>판매가<//>`;
+  return html`<span class="price1"><b>${won(PRICE.single)}</b> <small>단품 · 결제 화면 캡처 기준</small></span>`;
+}
+
+function Bundle({ title='묶음 구성 혜택' }) {
+  if (!REVIEW_PRICING) return html`<${Todo}>묶음 가격·할인 조건<//>`;
+  return html`<div class="bundle">
+    <div class="bundle-h"><b>${title}</b><span class="rev">내부 검토용</span></div>
+    <ul class="bundle-l">
+      <li><span>기본 상품</span><b>${won(PRICE.single)}</b><em class="dim">단품</em></li>
+      <li><span>2종 묶음</span><b>${won(PRICE.two)}</b><em>${won(PRICE.twoSum - PRICE.two)} 절약</em></li>
+      <li class="best"><span>4종 묶음</span><b>${won(PRICE.four)}</b><em>${won(PRICE.fourSum - PRICE.four)} 절약</em></li>
+    </ul>
+    <p class="bundle-n">절약액은 개별 구매 합계(2종 66,000원 · 4종 132,000원) 대비입니다. 4종은 기본 상품·연애운·궁합·사업운 구성입니다. 2026-11-05 결제 화면 기준이며 현행 가격과 할인 운영 조건은 확인 전입니다.</p>
+  </div>`;
+}
+
+/* ───── 2027년 종료까지 남은 시간 — 달력 정보일 뿐, 할인·판매 마감이 아님 ───── */
+function useReducedMotion() {
+  const q = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  const [r, setR] = useState(q ? q.matches : false);
+  useEffect(() => {
+    if (!q) return;
+    const f = e => setR(e.matches);
+    q.addEventListener ? q.addEventListener('change', f) : q.addListener(f);
+    return () => { q.removeEventListener ? q.removeEventListener('change', f) : q.removeListener(f); };
+  }, []);
+  return r;
+}
+const YEAR_END = Date.UTC(2027, 11, 31, 15, 0, 0); /* 2028-01-01 00:00 KST */
+function YearClock() {
+  const reduce = useReducedMotion();
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => {
+    const t = setInterval(() => setNow(Date.now()), reduce ? 60000 : 1000);
+    return () => clearInterval(t);
+  }, [reduce]);
+  let s = Math.max(0, Math.floor((YEAR_END - now) / 1000));
+  const d = Math.floor(s / 86400); s %= 86400;
+  const h = Math.floor(s / 3600); s %= 3600;
+  const m = Math.floor(s / 60), sec = s % 60;
+  const pad = n => String(n).padStart(2, '0');
+  const cells = [[d, '일'], [pad(h), '시간'], [pad(m), '분']].concat(reduce ? [] : [[pad(sec), '초']]);
+  return html`<div class="yclock" role="timer" aria-label=${'2027년이 끝나기까지 ' + d + '일 ' + h + '시간 ' + m + '분'}>
+    <span class="yclock-h">2027년이 끝나기까지</span>
+    <div class="yclock-n" aria-hidden="true">${cells.map(([v, l]) => html`<span key=${l}><b>${v}</b><small>${l}</small></span>`)}</div>
+    <span class="yclock-f">2028년 1월 1일 0시(한국 시간)까지 남은 달력상의 시간입니다.<br/>할인이나 판매 기간과는 관계가 없습니다.</span>
+  </div>`;
+}
+
+/* 시안별 FAQ 묶음 — 확인된 문장만, 나머지는 [확인 필요] */
+const FQ = {
+  year: FAQ_BASE[0],
+  diff: { q:'두 풀이가 어떻게 다른가요?', a:FAQ_BASE[1].a },
+  input: FAQ_BASE[2],
+  view: { q:'결제 후 결과는 어떻게 확인하나요?', a:'버튼을 누르면 각 상품 페이지로 이동하며, 결제와 결과 확인은 그 페이지에서 진행됩니다.', todo:'결제 후 열람 방법·열람 기간' },
+  price: { q:'가격과 환불은 어떻게 되나요?',
+    a: REVIEW_PRICING
+      ? '두 풀이 모두 유료입니다. 2026-11-05 결제 화면에는 단품 33,000원, 2종 묶음 55,000원, 4종 묶음 69,000원으로 표시되어 있습니다. 환불은 퀀타로 환불정책에 따릅니다.'
+      : '두 풀이 모두 각각 구매하는 유료 풀이입니다. 환불은 퀀타로 환불정책에 따릅니다.',
+    todo:'현행 판매가·할인 조건·환불 조건' },
+  refund: FAQ_BASE[5],
+};
+
+/* ═════════ A안 — 8구획, 구매 CTA는 A-08 두 개뿐 ═════════ */
 function PageA() {
-  const seasons = ['봄', '여름', '가을', '겨울'];
-  const order = [2,3,4,5,6,7,8,9,10,11,12,1];
+  const seasonOf = x => x.season;
+  const pad = n => String(n).padStart(2, '0');
+  const worries = [
+    ['진로 · 새해의 선택', '올해는 움직여도 될까요, 기다려야 할까요'],
+    ['재물 · 금전의 흐름', '돈은 어디서 새고, 어디로 모일까요'],
+    ['관계 · 관계의 변화', '곁에 둘 사람은 누구일까요'],
+  ];
   return html`<main class="va">
-    <section class="va-hero">
-      <${Header} tone="overlay" />
-      <img src=${IMG.starnight} alt="밤하늘 아래 한옥 마당에 선 차우진 술사" />
-      <div class="va-hero-copy wrap">
-        <span class="eyebrow">丁未 · 2027 정미년</span>
-        <h1>새해의 열두 달을<br/><em>먼저 읽어</em> 두세요</h1>
-        <p>사주로 읽는 신년운세, 괘로 읽는 토정비결.<br/>두 가지 눈으로 2027년을 살펴봅니다.</p>
-        <div class="va-cue">천천히 내려 보세요</div>
+    <section class="va-open" aria-labelledby="a0">
+      <div class="va-hero">
+        <${Header} tone="overlay" />
+        <img src=${IMG.starnight} alt="밤하늘 아래 한옥 마당에 선 차우진 술사" />
+        <div class="va-hero-copy wrap">
+          <div class="va-year" aria-hidden="true">2027</div>
+          <span class="eyebrow">丁未 · 2027 정미년</span>
+          <h1 id="a0">2027년, 나의 한 해를<br/><em>어떤 방식으로</em> 읽어볼까요?</h1>
+          <p>정미년의 흐름을 읽는 두 가지 방법.<br/>신년운세와 토정비결을 만나보세요.</p>
+          <div class="va-cue">천천히 내려 보세요</div>
+        </div>
+      </div>
+      <div class="wrap va-open-gan">
+        <div class="va-gan">
+          <div><strong>丁</strong><span>정 · 하늘 줄기</span><p>촛불이나 화롯불처럼 작아도 꺼지지 않는 불</p></div>
+          <div><strong>未</strong><span>미 · 땅 가지</span><p>늦여름 볕에 데워진 메마른 흙</p></div>
+        </div>
       </div>
     </section>
 
     <section class="va-ch wrap" aria-labelledby="a1">
-      <div class="va-chno"><span>一</span><small>새해의 질문</small></div>
-      <h2 id="a1">해가 바뀔 때면<br/>누구나 같은 것을 묻습니다</h2>
+      <div class="va-chno"><span>一</span><small>새해의 고민</small></div>
+      <h2 id="a1">새해가 다가오면,<br/>새로운 기회만큼<br/>새로운 고민도 생기니까</h2>
       <div class="va-qs">
-        <p>올해는 움직여도 될까요, 기다려야 할까요</p>
-        <p>돈은 어디서 새고, 어디로 모일까요</p>
-        <p>곁에 둘 사람은 누구일까요</p>
+        ${worries.map(([k, t]) => html`<p key=${k}><span class="k">${k}</span>${t}</p>`)}
       </div>
-      <p class="va-lead">2027년의 간지는 정미(丁未)입니다. 불이 흙을 데우고, 흙이 그 열을 오래 품는 짜임이라 한 번에 뒤집히기보다 조금씩 덮여 온 일이 늦게 익는 해로 봅니다.</p>
-      <div class="va-gan">
-        <div><strong>丁</strong><span>정 · 하늘 줄기</span><p>촛불이나 화롯불처럼 작아도 꺼지지 않는 불</p></div>
-        <div><strong>未</strong><span>미 · 땅 가지</span><p>늦여름 볕에 데워진 메마른 흙</p></div>
-      </div>
+      <p class="va-lead">답을 정해 두기보다, 한 해를 어떤 흐름으로 바라볼지 먼저 살펴봅니다.</p>
     </section>
 
     <section class="va-ch wrap" aria-labelledby="a2">
-      <div class="va-chno"><span>二</span><small>두 가지 눈</small></div>
-      <h2 id="a2">같은 해를,<br/>서로 다른 방식으로 읽습니다</h2>
+      <div class="va-chno"><span>二</span><small>한 해를 읽는 두 방식</small></div>
+      <h2 id="a2">같은 2027년,<br/>읽어내는 방법은 서로 다릅니다</h2>
       <div class="va-eye">
         <img src=${IMG.desk} alt="서재 책상 앞의 차우진 술사" style=${{objectPosition:'50% 18%'}} />
         <div class="va-eye-copy">
-          <span class="m">차우진 술사 · 사주</span>
+          <span class="m">차우진 술사 · 사주 <span class="paid">유료</span></span>
           <h3>2027 신년운세</h3>
           <p>사주 세운·월운 풀이. 생년월일시로 세운 명식에 정미년이 어디를 건드리는지부터 짚습니다.</p>
         </div>
       </div>
-      <p class="va-vs">신년운세가 <b>사주 명식</b>으로 열두 달의 흐름을 짚는다면,<br/>토정비결은 <b>괘</b>로 한 해의 길흉을 읽습니다.</p>
+      <p class="va-vs">신년운세가 <b>사주 세운·월운</b>으로 한 해와 달을 짚는다면,<br/>토정비결은 <b>144괘·본괘·열두 달</b>로 읽습니다.</p>
       <div class="va-eye">
         <img src=${IMG.tjArt} alt="빛나는 괘 문양 앞의 배시우 술사" style=${{objectPosition:'60% 20%'}} />
         <div class="va-eye-copy">
-          <span class="m">배시우 술사 · 괘</span>
+          <span class="m">배시우 술사 · 괘 <span class="paid">유료</span></span>
           <h3>2027 토정비결</h3>
-          <p>144괘·본괘·열두 달 풀이. 사주가 아닌 괘로 읽는 한 해, 신년운세와 다른 눈입니다.</p>
+          <p>144괘·본괘·열두 달 풀이. 사주가 아닌 괘로 읽는 한 해, 신년운세와 다른 방식입니다.</p>
         </div>
       </div>
     </section>
 
     <section class="va-ch wrap" aria-labelledby="a3">
-      <div class="va-chno"><span>三</span><small>열두 달의 여정</small></div>
-      <h2 id="a3">입춘에서 시작해<br/>다음 입춘 앞까지</h2>
-      <p class="va-lead">신년운세 풀이는 열두 달로 나누어 달마다 마음·돈·일 세 갈래로 정리하고, 조심할 달과 밀어도 되는 달을 함께 적어 드립니다. 아래는 풀이가 다루는 달의 순서입니다.</p>
+      <div class="va-chno"><span>三</span><small>2027 여정</small></div>
+      <h2 id="a3">한 해를 한 문장으로<br/>끝내지 마세요</h2>
+      <p class="va-lead">연간·월별 흐름을 1~12월 챕터 형식으로 안내합니다. 아래는 유료 풀이가 다루는 달의 목차이며, 개인 결과는 구매 후 확인하실 수 있습니다.</p>
       <div class="va-journey">
-        ${seasons.map(s => html`<${React.Fragment} key=${s}>
-          <div class="va-season">${s}</div>
-          ${order.map(n => MONTHS[n-1]).filter(x => x.season === s).map(x => html`
-            <div class="va-month" key=${x.m}>
-              <div class="n">${x.m}월<small>${x.jg}부터</small></div>
-              <div class="t"><span><b>${x.gzk}월</b> ${x.gz}${x.note ? ' · ' + x.note : ''}</span>
-                <div class="chips"><span>마음</span><span>돈</span><span>일</span></div></div>
-            </div>`)}
+        ${MONTHS.map((x, i) => html`<${React.Fragment} key=${x.m}>
+          ${(i === 0 || seasonOf(MONTHS[i-1]) !== x.season) && html`<div class="va-season">${x.season}</div>`}
+          <div class="va-month" data-spot>
+            <div class="n">${pad(x.m)}월<small>${x.jg}부터</small></div>
+            <div class="t"><span><b>${x.gzk}월</b> ${x.gz}${x.note ? ' · ' + x.note : ''}</span>
+              <div class="chips"><span>마음</span><span>돈</span><span>일</span></div></div>
+          </div>
         <//>`)}
       </div>
     </section>
 
     <section class="va-ch wrap" aria-labelledby="a4">
       <div class="va-chno"><span>四</span><small>결과 미리보기</small></div>
-      <h2 id="a4">받아 보실 풀이는<br/>이렇게 구성됩니다</h2>
+      <h2 id="a4">결제 후 어떤 내용을<br/>읽게 될까요?</h2>
       <${Preview} p=${P.ny} />
       <${Preview} p=${P.tj} />
     </section>
 
     <section class="va-ch wrap" aria-labelledby="a5">
-      <div class="va-chno"><span>五</span><small>구매 전 확인</small></div>
-      <h2 id="a5">결제 전에 알아 두실 것</h2>
+      <div class="va-chno"><span>五</span><small>선택 전 확인</small></div>
+      <h2 id="a5">결제 전에 확인할 정보</h2>
       <dl class="facts" style=${{margin:0}}>
-        <div><dt>이용 방식</dt><dd>두 풀이 모두 각각 구매하는 유료 콘텐츠입니다.</dd></div>
-        <div><dt>가격</dt><dd><${Todo}>상품별 판매가<//></dd></div>
+        <div><dt>상품 구성</dt><dd>2027 신년운세, 2027 토정비결. 두 풀이 모두 각각 구매하는 유료 콘텐츠입니다.</dd></div>
+        <div><dt>가격</dt><dd><${Price} /> <${Todo}>현행 판매가<//></dd></div>
         <div><dt>입력 정보</dt><dd>신년운세: 생년월일·태어난 시(모르면 「모름」)<br/><${Todo}>토정비결 입력 항목<//></dd></div>
         <div><dt>해의 기준</dt><dd>입춘(2027년 2월 4일 무렵)부터 정미년으로 읽습니다.</dd></div>
-        <div><dt>열람</dt><dd><${Todo}>열람 기간·다시 보기<//></dd></div>
+        <div><dt>결제·열람</dt><dd>상품 페이지에서 결제합니다. <${Todo}>열람 기간·다시 보기<//></dd></div>
         <div><dt>환불</dt><dd>퀀타로 환불정책을 따릅니다. <${Todo}>환불 조건<//></dd></div>
       </dl>
     </section>
 
-    <section class="va-final wrap" aria-labelledby="a6">
-      <h2 id="a6">어느 눈으로<br/>2027년을 보시겠어요?</h2>
-      <p>버튼을 누르면 상품 페이지로 이동하고, 결제는 그곳에서 진행됩니다.</p>
+    <section class="va-promo" aria-labelledby="a6">
+      <div class="va-promo-art">
+        <img src=${IMG.yearly} alt="" />
+        <div class="va-promo-year" aria-hidden="true">2027</div>
+      </div>
+      <div class="wrap va-promo-body">
+        <div class="va-chno"><span>六</span><small>다시, 두 가지 방식</small></div>
+        <h2 id="a6">2027년, 하나의 해를 읽는<br/>서로 다른 두 방식</h2>
+        <p class="va-lead">같은 정미년이라도 무엇으로 읽느냐에 따라 보이는 것이 다릅니다.</p>
+        <div class="va-dual">
+          <div><span class="paid">유료</span><b>신년운세</b><p>사주 세운·월운</p></div>
+          <div><span class="paid">유료</span><b>토정비결</b><p>144괘·본괘·열두 달</p></div>
+        </div>
+        <${Bundle} title="4종 묶음으로 최대 63,000원 절약" />
+        <${YearClock} />
+      </div>
+    </section>
+
+    <section class="va-final wrap" aria-labelledby="a7">
+      <h2 id="a7">이제, 나에게 맞는<br/>2027년 운세를 선택하세요</h2>
+      <p>두 풀이 모두 유료이며, 버튼을 누르면 각 상품 페이지에서 결제를 진행합니다.</p>
       ${[P.ny, P.tj].map(p => html`<div class="va-buy" key=${p.key}>
         <div class="th"><img src=${p.img} alt="" /></div>
-        <div class="bd"><span class="paid" style=${{alignSelf:'flex-start'}}>유료</span><h3>${p.name}</h3><span class="mt">${p.method} · ${p.master} 술사</span></div>
+        <div class="bd"><span class="paid" style=${{alignSelf:'flex-start'}}>유료</span><h3>${p.name}</h3><span class="mt">${p.method} · ${p.master} 술사</span><span class="mt"><${Price} /></span></div>
         <${Buy} p=${p} cls=${p.key === 'ny' ? 'gold' : ''} />
       </div>`)}
     </section>
@@ -554,19 +745,20 @@ function PageA() {
   </main>`;
 }
 
-/* ═════════ B안 ═════════ */
+/* ═════════ B안 — 7구획, CTA는 B-03 신년운세 · B-05 토정비결 ═════════ */
 function PageB() {
   const concerns = [
     { id:'b-work', g:'業', t:'진로', h:'이직, 시험, 새 일. 올해 움직여도 될지 망설여진다면', p:'시작할 때와 버틸 때를 나눠 보면 결정이 한결 가벼워집니다.', how:'신년운세에서는 달마다 「일」 갈래로 봅니다' },
     { id:'b-money', g:'財', t:'재물', h:'들어오는 만큼 나가는 돈, 올해는 남길 수 있을까', p:'돈이 모이는 달과 새기 쉬운 달을 미리 알아 두면 계획이 달라집니다.', how:'신년운세에서는 달마다 「돈」 갈래로 봅니다' },
     { id:'b-rel', g:'緣', t:'관계', h:'가까운 사람과의 거리, 새로 만날 인연이 궁금하다면', p:'마음이 쓰이는 달을 알면 말 한마디의 때를 고를 수 있습니다.', how:'신년운세에서는 달마다 「마음」 갈래로 봅니다' },
   ];
+  const Shot = () => html`<div class="vb-shot"><span>결과 화면</span><${Todo}>승인된 실제 결과 화면<//></div>`;
   return html`<main class="vb">
     <${Header} tone="light" />
-    <section class="vb-hero wrap">
+    <section class="vb-hero wrap" aria-labelledby="b0" data-stagger="120">
       <span class="eyebrow">2027 정미년 · 새해 고민</span>
-      <h1>2027년, 가장 마음이 쓰이는 건 어느 쪽인가요?</h1>
-      <p>하나를 고르면 그 고민을 어떻게 읽어 드리는지 바로 보여 드려요.</p>
+      <h1 id="b0">새해를 앞두고, 가장 마음에 걸리는 이야기는 무엇인가요?</h1>
+      <p>진로, 관계, 재물. 궁금한 마음에서 시작해 해석 방식을 살펴보세요.</p>
       <nav class="vb-pick" aria-label="고민 고르기">
         ${concerns.map(c => html`<a key=${c.id} href=${'#' + c.id} onClick=${e => { e.preventDefault(); document.getElementById(c.id).scrollIntoView({behavior:'smooth', block:'start'}); }}><span>${c.g}</span>${c.t}</a>`)}
       </nav>
@@ -577,7 +769,7 @@ function PageB() {
     </section>
 
     <section class="vb-sec wrap" aria-labelledby="b1">
-      <h2 id="b1">고민마다,<br/>열두 달 안에서 따로 살펴봅니다</h2>
+      <h2 id="b1">새로운 시작 앞에서,<br/>저마다의 질문이 생깁니다</h2>
       ${concerns.map(c => html`<article class="vb-concern" id=${c.id} key=${c.id}>
         <div class="g" aria-hidden="true">${c.g}</div>
         <div><h3>${c.h}</h3><p>${c.p}</p><div class="how">${c.how}</div></div>
@@ -585,7 +777,9 @@ function PageB() {
     </section>
 
     <section class="vb-sec wrap" aria-labelledby="b2" style=${{paddingTop:8}}>
-      <h2 id="b2">사주로 짚는 한 해의 흐름,<br/>2027 신년운세</h2>
+      <span class="vb-kicker">첫 번째 이야기 · 신년운세</span>
+      <h2 id="b2">나의 새해, 사주 세운과<br/>월운의 흐름으로 살펴보세요</h2>
+      <p>한 해의 세운과 달별 월운을 다루는 2027 신년운세.</p>
       <div class="vb-product">
         <div class="frame"><img src=${P.ny.img} alt="차우진의 2027 신년운세" /></div>
         <p class="speaker"><b>차우진</b><span>정미년 한 해를 열두 달로 나눠 짚어 드려요.</span></p>
@@ -596,22 +790,26 @@ function PageB() {
           <li>열두 달마다 마음·돈·일 세 갈래로 정리합니다</li>
           <li>조심할 달과 밀어도 되는 달을 함께 적어 드립니다</li>
         </ul>
-        <div class="vb-price"><span>가격</span><${Todo}>판매가<//></div>
-        <${Buy} p=${P.ny} cls="gold" label="2027 신년운세 보러 가기" />
+        <${Shot} />
+        <${Bundle} />
+        <${Buy} p=${P.ny} cls="gold" label="사주로 2027 신년운세 보기" />
       </div>
     </section>
 
-    <section class="vb-turn" aria-labelledby="b3">
-      <img src=${IMG.shrine} alt="오색 천이 걸린 고목 아래의 배시우 술사" />
+    <section class="vb-turn" aria-labelledby="b3" data-io data-norv>
+      <img class="a" src=${IMG.window} alt="" />
+      <img class="b" src=${IMG.shrine} alt="오색 천이 걸린 고목 아래의 배시우 술사" />
       <div class="vb-turn-copy wrap">
         <span class="eyebrow">같은 해, 다른 눈</span>
-        <h2 id="b3">사주가 아닌 괘로<br/>읽는 한 해도 있습니다</h2>
-        <p>생년월일로 144괘 가운데 한 괘를 뽑아 한 해의 길흉과 달별 운을 읽는 전통 방식, 토정비결입니다.</p>
+        <h2 id="b3">새해를 읽는 또 다른<br/>전통 방식도 있습니다</h2>
+        <p>사주 해석과는 다른 144괘의 토정비결.</p>
       </div>
     </section>
 
     <section class="vb-sec wrap" aria-labelledby="b4">
-      <h2 id="b4">괘로 읽는 전통 풀이,<br/>2027 토정비결</h2>
+      <span class="vb-kicker">두 번째 이야기 · 토정비결</span>
+      <h2 id="b4">144괘 중 나의 괘로,<br/>정미년의 한 해를 읽다</h2>
+      <p>전통 토정비결의 본괘와 열두 달 풀이를 소개합니다.</p>
       <div class="vb-product">
         <div class="frame"><img src=${P.tj.img} alt="배시우 술사 토정비결 포스터" /></div>
         <p class="speaker"><b>배시우</b><span>올해의 괘부터 펼쳐 보겠습니다.</span></p>
@@ -622,62 +820,74 @@ function PageB() {
           <li>본괘로 한 해의 길흉을 읽습니다</li>
           <li>열두 달의 운을 달별로 풀어 드립니다</li>
         </ul>
-        <div class="vb-price"><span>가격</span><${Todo}>판매가<//></div>
-        <${Buy} p=${P.tj} label="2027 토정비결 보러 가기" />
+        <${Shot} />
+        <${Bundle} />
+        <${Buy} p=${P.tj} label="144괘로 2027 토정비결 보기" />
       </div>
     </section>
 
     <section class="vb-sec wrap" aria-labelledby="b5">
-      <h2 id="b5">구매 전에 자주 묻는 질문</h2>
-      <${Faq} light=${true} />
+      <span class="vb-kicker">두 가지 해석</span>
+      <h2 id="b5">새해의 고민을 읽는<br/>두 가지 해석</h2>
+      <p>같은 고민이라도 어떤 체계로 읽느냐에 따라 살펴보는 자리가 달라집니다.</p>
+      <ol class="vb-story" data-stagger="140">
+        <li><span class="no">01</span><div><b>사주 세운·월운</b><strong>2027 신년운세</strong><p>내 사주 명식에 정미년의 세운과 달마다의 월운이 닿는 자리를 짚습니다.</p></div></li>
+        <li><span class="no">02</span><div><b>144괘·본괘·열두 달</b><strong>2027 토정비결</strong><p>144괘 가운데 한 해의 본괘를 세우고, 그 괘로 한 해와 열두 달을 읽습니다.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="vb-sec wrap" aria-labelledby="b6">
+      <h2 id="b6">결제 전에 확인해 보세요</h2>
+      <${Faq} light=${true} items=${[FQ.diff, FQ.view, FQ.price]} />
     </section>
     <${Footer} tone="light" />
   </main>`;
 }
 
-/* ═════════ C안 ═════════ */
+/* ═════════ C안 — 6구획, CTA는 C-01 두 상품 카드에만 ═════════ */
 function PageC() {
   const [pv, setPv] = useState('ny');
   const cards = [
-    { p:P.ny, kind:'사주로 읽기', pts:['세운·월운 풀이', '열두 달 마음·돈·일', '조심할 달 표시'] },
-    { p:P.tj, kind:'괘로 읽기', pts:['144괘 중 본괘', '한 해의 길흉', '열두 달 풀이'] },
+    { p:P.ny, kind:'사주 세운·월운', pts:['세운·월운 풀이', '열두 달 마음·돈·일', '조심할 달 표시'] },
+    { p:P.tj, kind:'144괘·본괘·열두 달', pts:['144괘 중 본괘', '한 해의 길흉', '열두 달 풀이'] },
   ];
+  const toTop = e => { e.preventDefault(); document.getElementById('c-pick').scrollIntoView({ behavior:'smooth', block:'start' }); };
   return html`<main class="vc">
     <${Header} tone="dark" />
-    <section class="vc-top wrap" aria-labelledby="c0">
+    <section class="vc-top wrap" id="c-pick" aria-labelledby="c0">
       <span class="eyebrow">2027 정미년 유료 풀이</span>
-      <h1 id="c0">2027년을 읽는 두 가지 풀이,<br/>차이를 보고 고르세요</h1>
-      <div class="vc-cards">
+      <h1 id="c0">2027년, 어떤 방식으로<br/>읽어볼까요?</h1>
+      <p>신년운세와 토정비결 중 궁금한 풀이를 선택하세요.</p>
+      <div class="vc-cards" data-stagger="100">
         ${cards.map(({ p, kind, pts }) => html`<article class="vc-card" key=${p.key}>
           <div class="frame"><img src=${p.img} alt=${p.name} /></div>
           <div class="kind"><span>${kind}</span><span class="paid">유료</span></div>
           <h2>${p.name}</h2>
           <ul>${pts.map(t => html`<li key=${t}>${t}</li>`)}</ul>
-          <${Buy} p=${p} cls=${'sm ' + (p.key === 'ny' ? 'gold' : '')} label=${p.short + ' 보기'} />
+          <${Buy} p=${p} cls=${'sm ' + (p.key === 'ny' ? 'gold' : '')} label=${p.short + ' 선택하고 결제하기'} />
         </article>`)}
       </div>
+      <${Bundle} title="두 상품 모두, 묶음 구성 선택 시 최대 63,000원 절약" />
     </section>
 
     <section class="vc-sec wrap" aria-labelledby="c1">
-      <h2 id="c1"><small>COMPARE</small>한눈에 비교</h2>
+      <h2 id="c1"><small>COMPARE</small>다른 방식, 같은 새해의 궁금증</h2>
       <div class="vc-table-wrap">
         <table class="vc-table">
           <thead><tr><th scope="col"><span class="sr" style=${{fontSize:0}}>항목</span></th><th scope="col">신년운세</th><th scope="col">토정비결</th></tr></thead>
           <tbody>
-            <tr><th scope="row">풀이 체계</th><td>사주 명식</td><td>144괘</td></tr>
-            <tr><th scope="row">핵심 풀이</th><td>세운·월운</td><td>본괘·열두 달</td></tr>
-            <tr><th scope="row">열두 달</th><td>달마다 마음·돈·일 세 갈래</td><td>달별 운</td></tr>
-            <tr><th scope="row">담당 술사</th><td>차우진</td><td>배시우</td></tr>
+            <tr><th scope="row">풀이 방식</th><td>사주 세운·월운</td><td>144괘·본괘</td></tr>
+            <tr><th scope="row">제공 범위</th><td>2027 세운, 열두 달 월운(달마다 마음·돈·일)</td><td>본괘로 읽는 한 해, 열두 달 풀이</td></tr>
             <tr><th scope="row">입력 정보</th><td>생년월일·태어난 시</td><td><${Todo}>입력 항목<//></td></tr>
-            <tr><th scope="row">이런 분께</th><td>내 명식 기준으로 달마다 흐름을 보고 싶은 분</td><td>전통 방식으로 한 해의 큰 그림을 보고 싶은 분</td></tr>
-            <tr><th scope="row">가격</th><td><${Todo}>판매가<//></td><td><${Todo}>판매가<//></td></tr>
+            <tr><th scope="row">열람 방법</th><td>상품 페이지에서 결제 후 확인 <${Todo}>열람 기간<//></td><td>상품 페이지에서 결제 후 확인 <${Todo}>열람 기간<//></td></tr>
+            <tr><th scope="row">가격</th><td><${Price} /></td><td><${Price} /></td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section class="vc-sec wrap" aria-labelledby="c2">
-      <h2 id="c2"><small>PREVIEW</small>결과 미리보기</h2>
+      <h2 id="c2"><small>PREVIEW</small>결제 후 어떤 콘텐츠를 확인하나요?</h2>
       <div class="vc-seg" role="tablist" aria-label="상품 선택">
         ${[P.ny, P.tj].map(p => html`<button key=${p.key} role="tab" aria-selected=${pv === p.key} onClick=${() => setPv(p.key)}>${p.short}</button>`)}
       </div>
@@ -685,12 +895,12 @@ function PageC() {
     </section>
 
     <section class="vc-sec wrap" aria-labelledby="c3">
-      <h2 id="c3"><small>FAQ</small>구매 전 질문</h2>
-      <${Faq} />
+      <h2 id="c3"><small>FAQ</small>결제 전에 확인해 보세요</h2>
+      <${Faq} items=${[FQ.diff, FQ.input, FQ.view, FQ.refund]} />
     </section>
 
-    <section class="vc-sec wrap" aria-labelledby="c4" style=${{paddingBottom:40}}>
-      <h2 id="c4"><small>ABOUT</small>풀이를 맡은 곳</h2>
+    <section class="vc-sec wrap" aria-labelledby="c4">
+      <h2 id="c4"><small>ABOUT</small>나에게 맞는 풀이를 충분히 확인하세요</h2>
       <div class="vc-trust">
         <figure><div class="frame"><img src=${IMG.chaCard} alt="차우진 술사" /></div><figcaption><b>차우진</b>대표 상담 리더 · 사주 명식과 한 해의 흐름</figcaption></figure>
         <figure><div class="frame"><img src=${IMG.baeCard} alt="배시우 술사" /></div><figcaption><b>배시우</b>신점·직감 · 토정비결 담당</figcaption></figure>
@@ -703,11 +913,20 @@ function PageC() {
         <div><b>환불</b>퀀타로 환불정책에 따름 <${Todo}>환불 조건<//></div>
       </div>
     </section>
+
+    <section class="vc-sec wrap" aria-labelledby="c5" style=${{paddingBottom:40}}>
+      <h2 id="c5"><small>RECAP</small>두 풀이의 차이, 다시 한눈에</h2>
+      <div class="vc-recap" data-stagger="100">
+        <div><span class="paid">유료</span><b>신년운세</b><span class="k">사주 세운·월운</span><p>내 명식에 닿는 한 해와 달별 흐름</p></div>
+        <div><span class="paid">유료</span><b>토정비결</b><span class="k">144괘·본괘·열두 달</span><p>본괘로 읽는 한 해와 열두 달</p></div>
+      </div>
+      <a class="vc-back" href="#c-pick" onClick=${toTop}><span aria-hidden="true">↑</span> 위에서 두 상품 다시 보기</a>
+    </section>
     <${Footer} />
   </main>`;
 }
 
-/* ═════════ D안 ═════════ */
+/* ═════════ D안 — 7구획, CTA는 하단 공통 스티키 바(버튼 2개) 하나 ═════════ */
 function Ring({ month, onPick }) {
   const R = 150, r0 = 92, cx = 150, cy = 150;
   const pt = (a, rad) => [cx + rad * Math.sin(a), cy - rad * Math.cos(a)];
@@ -734,7 +953,7 @@ function PageD() {
   const [month, setMonth] = useState(2);
   const [tab, setTab] = useState('ny');
   const [gua, setGua] = useState('523');
-  const tlRef = useRef(null), stripRef = useRef(null);
+  const tlRef = useRef(null), stripRef = useRef(null), tabsRef = useRef(null);
   const pick = (m, jump) => {
     setMonth(m);
     if (jump && tlRef.current) tlRef.current.scrollIntoView({ behavior:'smooth', block:'start' });
@@ -743,11 +962,25 @@ function PageD() {
     const el = stripRef.current && stripRef.current.querySelector(`[data-m="${month}"]`);
     if (el) el.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
   }, [month]);
+  const onTabKey = e => {
+    const order = ['ny', 'tj'];
+    let i = order.indexOf(tab);
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') i = (i + 1) % 2;
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') i = (i + 1) % 2;
+    else if (e.key === 'Home') i = 0;
+    else if (e.key === 'End') i = 1;
+    else return;
+    e.preventDefault();
+    setTab(order[i]);
+    const b = tabsRef.current && tabsRef.current.querySelector('#dt-' + order[i]);
+    if (b) b.focus();
+  };
   const mo = MONTHS[month - 1];
   const codes = [];
   for (let s = 1; s <= 8; s++) for (let m = 1; m <= 6; m++) for (let l = 1; l <= 3; l++) codes.push({ c:`${s}${m}${l}`, s });
   const [gs, gm, gl] = gua.split('');
   const p = P[tab];
+  const pad = n => String(n).padStart(2, '0');
 
   return html`<main class="vd">
     <${Header} tone="dark" />
@@ -755,14 +988,15 @@ function PageD() {
       <img src=${IMG.yearly} alt="" />
       <span class="eyebrow">QUANTARO · 丁未年</span>
       <div class="vd-year" aria-hidden="true">20<span>27</span></div>
-      <h1 id="d0">열두 달을 하나씩 짚어 보는<br/>2027년 풀이 목차</h1>
+      <h1 id="d0">2027년의 열두 달,<br/>어떤 방식으로 살펴볼까요?</h1>
+      <p class="vd-sub">사주 세운·월운과 토정비결의 본괘·열두 달을 소개합니다.</p>
       <${Ring} month=${month} onPick=${pick} />
       <p class="vd-hint">달을 누르면 그 달 풀이에서 다루는 항목을 보여 드려요</p>
     </section>
 
     <section class="vd-sec wrap" ref=${tlRef} aria-labelledby="d1">
       <span class="eyebrow">1월 — 12월</span>
-      <h2 id="d1">달별 목차</h2>
+      <h2 id="d1">한 해의 흐름은<br/>열두 달에 걸쳐 펼쳐집니다</h2>
       <div class="vd-months" ref=${stripRef} role="tablist" aria-label="월 선택">
         ${MONTHS.map(x => html`<button key=${x.m} data-m=${x.m} role="tab" aria-selected=${month === x.m} onClick=${() => pick(x.m)}><b>${x.m}</b><small>${x.jg}</small></button>`)}
       </div>
@@ -776,20 +1010,22 @@ function PageD() {
           <div><b>신년운세</b><span>이 달의 마음 · 돈 · 일, 조심할 달인지 밀어도 되는 달인지</span></div>
           <div><b>토정비결</b><span>본괘로 읽는 이 달의 운</span></div>
         </div>
-        <p class="vd-disc">풀이가 다루는 항목의 목차이며, 개인 결과는 구매 후 확인하실 수 있습니다. 절기·월 간지는 달력 기준 정보입니다.</p>
+        <p class="vd-disc">유료 풀이가 다루는 항목의 목차이며, 개인 결과는 구매 후 확인하실 수 있습니다. 절기·월 간지는 달력 기준 정보입니다.</p>
       </div>
     </section>
 
     <section class="vd-sec wrap" aria-labelledby="d2">
-      <span class="eyebrow">두 가지 풀이</span>
-      <h2 id="d2">무엇으로 읽는지 비교해 보세요</h2>
-      <div class="vd-tabs" role="tablist" aria-label="상품 정보">
-        ${[P.ny, P.tj].map(x => html`<button key=${x.key} id=${'dt-' + x.key} role="tab" aria-selected=${tab === x.key} aria-controls="dpanel" onClick=${() => setTab(x.key)}>${x.short}</button>`)}
+      <span class="eyebrow">풀이 방식</span>
+      <h2 id="d2">사주로 살펴볼까,<br/>전통 괘로 읽어볼까?</h2>
+      <div class="vd-tabs" role="tablist" aria-label="풀이 방식 정보" ref=${tabsRef} onKeyDown=${onTabKey}>
+        ${[P.ny, P.tj].map(x => html`<button key=${x.key} id=${'dt-' + x.key} role="tab" aria-selected=${tab === x.key} tabindex=${tab === x.key ? 0 : -1} aria-controls="dpanel" onClick=${() => setTab(x.key)}>${x.short}</button>`)}
       </div>
       <div class="vd-panel" id="dpanel" role="tabpanel" aria-labelledby=${'dt-' + tab} key=${tab}>
         <div class="vd-panel-top">
           <div class="frame"><img src=${p.img} alt=${p.name} /></div>
-          <div><span class="paid">유료</span><h3 style=${{marginTop:6}}>${p.name}</h3><p>${p.method}<br/>${p.master} 술사 · ${p.role}</p></div>
+          <div><span class="paid">유료</span><h3 style=${{marginTop:6}}>${p.name}</h3>
+            <p class="vd-lead">${tab === 'ny' ? '사주의 세운과 월운을 풀이합니다.' : '144괘 중 본괘와 열두 달을 풀이합니다.'}</p>
+            <p>${p.method}<br/>${p.master} 술사 · ${p.role}</p></div>
         </div>
         <dl class="facts" style=${{margin:0}}>
           ${tab === 'ny' ? html`
@@ -805,7 +1041,7 @@ function PageD() {
 
     <section class="vd-sec wrap" aria-labelledby="d3">
       <span class="eyebrow">土亭秘訣 · 144괘</span>
-      <h2 id="d3">토정비결의 144괘</h2>
+      <h2 id="d3">144괘 중 나의 괘로<br/>읽어보는 정미년</h2>
       <p>전통 방식에서는 태어난 해·달·날에서 상괘(8)·중괘(6)·하괘(3)를 얻어 세 자리 괘를 세웁니다. 8 × 6 × 3, 모두 144괘입니다. 괘를 눌러 구조를 확인해 보세요.</p>
       <div class="vd-gua-read" aria-live="polite">
         <div><b>${gs}</b>상괘 · 8 중</div><div><b>${gm}</b>중괘 · 6 중</div><div><b>${gl}</b>하괘 · 3 중</div>
@@ -813,26 +1049,41 @@ function PageD() {
       <div class="vd-gua" role="group" aria-label="144괘 번호">
         ${codes.map(({ c, s }) => html`<button key=${c} class=${'g' + (s % 2) + (c[0] === gs ? ' hl' : '')} aria-pressed=${gua === c} aria-label=${'괘 ' + c} onClick=${() => setGua(c)}>${c}</button>`)}
       </div>
-      <p class="vd-disc">괘 번호의 짜임을 보여 드리는 갤러리이며 괘의 풀이 내용은 담지 않았습니다. <${Todo}>퀀타로 산출 방식과 일치 여부<//></p>
+      <p class="vd-disc">괘 번호의 짜임을 보여 드리는 갤러리이며, 개인의 본괘나 괘의 풀이 내용은 담지 않았습니다. <${Todo}>퀀타로 산출 방식과 일치 여부<//></p>
     </section>
 
     <section class="vd-sec wrap" aria-labelledby="d4">
       <span class="eyebrow">결과 미리보기</span>
-      <h2 id="d4">${p.name} 결과 구성</h2>
+      <h2 id="d4">어떤 내용을 볼 수 있는지<br/>미리 알아보세요</h2>
       <${Preview} p=${p} key=${'pv' + tab} />
-      <p class="vd-disc">위 정보 탭에서 고른 상품의 구성이 표시됩니다.</p>
+      <p class="vd-disc">위 풀이 방식 탭에서 고른 상품의 구성이 표시됩니다.</p>
     </section>
 
-    <section class="vd-sec wrap" aria-labelledby="d5" style=${{paddingBottom:40}}>
-      <span class="eyebrow">가격 · 이용 안내</span>
-      <h2 id="d5">구매 전 안내</h2>
+    <section class="vd-sec wrap" aria-labelledby="d5">
+      <span class="eyebrow">가격 · 신뢰 · FAQ</span>
+      <h2 id="d5">더 궁금하다면,<br/>내게 맞는 풀이를 선택하세요</h2>
       <dl class="facts" style=${{margin:0}}>
-        <div><dt>신년운세</dt><dd>유료 · <${Todo}>판매가<//></dd></div>
-        <div><dt>토정비결</dt><dd>유료 · <${Todo}>판매가<//></dd></div>
-        <div><dt>결제</dt><dd>아래 버튼을 누르면 상품 페이지로 이동해 결제합니다.</dd></div>
+        <div><dt>신년운세</dt><dd>유료 · <${Price} /></dd></div>
+        <div><dt>토정비결</dt><dd>유료 · <${Price} /></dd></div>
+        <div><dt>결제</dt><dd>화면 아래 버튼을 누르면 상품 페이지로 이동해 결제합니다.</dd></div>
         <div><dt>열람</dt><dd><${Todo}>열람 기간·다시 보기<//></dd></div>
+        <div><dt>환불</dt><dd>퀀타로 환불정책을 따릅니다. <${Todo}>환불 조건<//></dd></div>
       </dl>
-      <${Faq} />
+      <${Bundle} />
+      <${Faq} items=${[FQ.year, FQ.diff, FQ.input, FQ.view, FQ.price]} />
+    </section>
+
+    <section class="vd-sec wrap vd-outro" aria-labelledby="d6" style=${{paddingBottom:40}}>
+      <div class="vd-outro-mark" aria-hidden="true"><b>2027</b><span>12 MONTHS</span></div>
+      <h2 id="d6">2027년의 열두 달을<br/>어떤 방식으로 읽을까요?</h2>
+      <div class="vd-tiles" data-stagger="70">
+        ${MONTHS.map(x => html`<span key=${x.m}><b>${pad(x.m)}</b><small>${x.jg}</small></span>`)}
+      </div>
+      <div class="vd-dual">
+        <div><b>신년운세</b><span>사주 세운·월운</span><p>한 해의 세운과 달마다의 월운을 사주 명식으로 짚습니다.</p></div>
+        <div><b>토정비결</b><span>144괘·본괘·열두 달</span><p>144괘 가운데 본괘를 세워 한 해와 열두 달을 읽습니다.</p></div>
+      </div>
+      <${YearClock} />
     </section>
     <${Footer} />
 
@@ -862,6 +1113,40 @@ function App() {
     return () => window.removeEventListener('hashchange', on);
   }, []);
   useEffect(() => { document.documentElement.style.setProperty('--col', w + 'px'); }, [w]);
+  /* 스크롤 진입 · 순차 등장 · 월 목차 강조 — 시안이 바뀔 때마다 다시 연결 */
+  useEffect(() => {
+    const root = document.querySelector('.phone');
+    if (!root) return;
+    const ioIn = root.querySelectorAll('[data-io]');
+    const spots = root.querySelectorAll('[data-spot]');
+    const obs = [];
+    if ('IntersectionObserver' in window && spots.length) {
+      const io2 = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('cur', e.isIntersecting)), { rootMargin:'-42% 0px -42% 0px' });
+      spots.forEach(s => io2.observe(s)); obs.push(io2);
+    }
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      ioIn.forEach(e => e.classList.add('in'));
+      return () => obs.forEach(o => o.disconnect());
+    }
+    const targets = [];
+    root.querySelectorAll('section:not(:first-of-type) > *').forEach(el => {
+      if (el.closest('[data-norv]')) return;
+      el.classList.add('rv'); targets.push(el);
+    });
+    const first = root.querySelector('section');
+    root.querySelectorAll('[data-stagger]').forEach(g => [...g.children].forEach((c, i) => {
+      const delay = (i * (+g.dataset.stagger || 90)) + 'ms';
+      /* 첫 화면은 관찰 없이 바로 1회 재생 — 구매 버튼이 늦게 나타나지 않도록 */
+      if (first && first.contains(g)) { c.classList.add('rv-now'); c.style.animationDelay = delay; return; }
+      c.classList.add('rv'); c.style.transitionDelay = delay; targets.push(c);
+    }));
+    ioIn.forEach(e => targets.push(e));
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin:'0px 0px -6% 0px', threshold:0 });
+    targets.forEach(t => io.observe(t)); obs.push(io);
+    return () => obs.forEach(o => o.disconnect());
+  }, [v]);
   const go = id => { if (location.hash !== '#' + id) location.hash = id; setV(id); window.scrollTo(0, 0); };
   const Cur = VARIANTS.find(x => x.id === v).C;
   return html`<${React.Fragment}>
