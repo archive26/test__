@@ -1,0 +1,5 @@
+.DS_Store
+**/.DS_Store
+# 폰트 파일은 공유·커밋 금지 (asset-guide.md 5절)
+assets/QUANTARO_design_assets_v2/07_fonts/*
+!assets/QUANTARO_design_assets_v2/07_fonts/.gitkeep

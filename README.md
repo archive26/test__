@@ -1,7 +1,17 @@
-# 퀀타로 2027 랜딩 시안 (A~D)
+# 퀀타로 2027 신년운세 랜딩
 
-내부 검토용 모바일 랜딩 프로토타입입니다. 실제 결제·개인정보 입력 기능은 없습니다.
+작업 규칙은 `CLAUDE.md`, 순서는 `WORKFLOW.md`를 먼저 읽는다.
 
-- `index.html` — 배포용 단일 파일 (이미지 내장). 상단 바에서 A/B/C/D 전환, `#a`~`#d`로 바로 열기.
-- `src/index.src.html` + `src/assets/` — 수정용 원본 (이미지 상대 경로).
-- 다시 빌드: `cd src && ruby inline.rb index.src.html ../index.html assets`
+## 문서
+- `CLAUDE.md` — 작업 규칙 (Figma Auto Layout 금지, 미승인 수치 금지 등)
+- `WORKFLOW.md` — Claude Code + Figma MCP 작업 순서, QA 체크리스트
+- `planning.md` — 기획 (섹션 흐름, 인터랙션, CTA 정책)
+- `design-reference.md` — 레퍼런스 적용 기준, 브랜드 토큰
+- `asset-guide.md` — 에셋 매핑
+
+## 폴더
+- `index.html`, `css/style.css`, `js/main.js` — 새 구현
+- `src/index.src.html` — 이전 A~D 시안 원본 (참고용, 유지)
+- `assets/QUANTARO_design_assets_v2/` — `QUANTARO_design_assets_v2.zip`을 여기에 압축 해제 (`07_fonts`는 git 제외)
+
+로컬 확인: `python3 -m http.server 8000` → http://localhost:8000
