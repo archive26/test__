@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>낙관 도장 구현 예시</title>
+<link rel="stylesheet" href="stamps.css">
+<style>
+  body{margin:0;background:#E7E4DC;font-family:Pretendard,"Apple SD Gothic Neo",sans-serif;color:#1F2430}
+  .col{max-width:360px;margin:40px auto 60vh;border:3px solid #1B3B6F;background:#FAF8F3;padding:8px 9px}
+  .chapter{height:117.5px;border-top:1px solid #E3DED3;padding:18px 20px 0;box-sizing:border-box}
+  .row{display:flex;gap:9px;align-items:baseline}
+  .num{font-size:13px;color:#8C6D1F} .ttl{font-size:16.5px;font-weight:700;color:#1B3B6F}
+  .desc{margin:10px 0 0;font-size:13px;line-height:23.5px;filter:blur(3px);opacity:.7}
+  .note{max-width:360px;margin:24px auto 0;font-size:13px;color:#6B6A66}
+</style></head><body>
+<p class="note">스크롤하면 장마다 한 번씩 찍힙니다. 이 파일은 개발 참고용 예시입니다(레이아웃은 단순화).</p>
+<div class="col">
+  <section class="chapter">
+    <div class="row"><span class="num">제0장</span><span class="ttl">사주 들여다보기</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--00"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_00@2x.png" srcset="img/stamp_00@2x.png 2x, img/stamp_00@3x.png 3x" alt="낙관: 제0장 사주 들여다보기">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제1장</span><span class="ttl">2027 총운</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--01"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_01@2x.png" srcset="img/stamp_01@2x.png 2x, img/stamp_01@3x.png 3x" alt="낙관: 제1장 2027 총운">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제2장</span><span class="ttl">재물운</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--02"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_02@2x.png" srcset="img/stamp_02@2x.png 2x, img/stamp_02@3x.png 3x" alt="낙관: 제2장 재물운">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제3장</span><span class="ttl">건강운</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--03"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_03@2x.png" srcset="img/stamp_03@2x.png 2x, img/stamp_03@3x.png 3x" alt="낙관: 제3장 건강운">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제4장</span><span class="ttl">애정운</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--04"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_04@2x.png" srcset="img/stamp_04@2x.png 2x, img/stamp_04@3x.png 3x" alt="낙관: 제4장 애정운">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제5장</span><span class="ttl">직장·명예운</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--05"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_05@2x.png" srcset="img/stamp_05@2x.png 2x, img/stamp_05@3x.png 3x" alt="낙관: 제5장 직장·명예운">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제6장</span><span class="ttl">학업·자기계발운</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--06"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_06@2x.png" srcset="img/stamp_06@2x.png 2x, img/stamp_06@3x.png 3x" alt="낙관: 제6장 학업·자기계발운">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제7장</span><span class="ttl">12개월 흐름</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--07"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_07@2x.png" srcset="img/stamp_07@2x.png 2x, img/stamp_07@3x.png 3x" alt="낙관: 제7장 12개월 흐름">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제8장</span><span class="ttl">2027 길운 3가지</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--08"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_08@2x.png" srcset="img/stamp_08@2x.png 2x, img/stamp_08@3x.png 3x" alt="낙관: 제8장 2027 길운 3가지">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+  <section class="chapter">
+    <div class="row"><span class="num">제9장</span><span class="ttl">차우진의 편지</span></div>
+    <p class="desc">결과지 설명 문구 자리 (실제 화면에서는 흐리게 처리)</p>
+    <div class="stamp stamp--09"><div class="stamp__drop"><div class="stamp__tilt"><div class="stamp__press">
+      <img src="img/stamp_09@2x.png" srcset="img/stamp_09@2x.png 2x, img/stamp_09@3x.png 3x" alt="낙관: 제9장 차우진의 편지">
+      <div class="stamp__ring" aria-hidden="true"></div>
+    </div></div></div></div>
+  </section>
+</div>
+<script src="stamps.js"></script>
+</body></html>

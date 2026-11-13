@@ -57,9 +57,15 @@
 - 모든 답변, 작업 계획, 점검 결과, 확인 질문, 완료 보고는 **한국어**로 작성한다.
 - 코드, 파일명, 레이어 ID·이름 등 기술 식별자는 원문을 유지해도 된다.
 
+## landing-2027-handoff 작업 트리 (2026-11-13)
+
+- 경로 `/Users/ahnjiyeon/orca/workspaces/test__/landing-2027-handoff`, 브랜치 `landing-2027-handoff`. 최종 handoff 패키지(`handoff/landing/`)대로 실제 랜딩(루트 `index.html`·`css/`·`js/`·`assets/landing/`)을 구현·유지하는 곳이다.
+- 화면 기준은 `handoff/landing/index.html` 데모다. 데모와 다르게 바꿀 때는 먼저 확인받는다. `handoff/landing/`은 받은 원본 보관용이라 수정하지 않는다.
+- 레이어 정리·디자인 규칙 작업은 계속 `landing-cleanup`에서 한다.
+
 ## landing-cleanup 작업 트리 (2026-11-11 확정)
 
 - 이 작업 트리에서는 레이어 정리와 디자인 규칙 설정만 진행한다. main은 기존 기획안·초안 보관용으로 유지한다.
 - 작업 시작 전에 `HANDOFF.md`와 `design-rules.md`를 먼저 읽는다. 정리 작업에서 다른 문서와 충돌하면 `design-rules.md`의 최소 규칙을 우선한다.
-- 최신 디자인 기준 Figma: `448:235` (https://www.figma.com/design/Gdc88dYmSYwu4XDrMug1Ut?node-id=448-235). 직접 수정하지 않고 복제본에서만 작업한다. 단, 사용자가 "그대로 수정"처럼 직접 수정을 명시한 작업에 한해 예외로 한다(그 작업 한 건에만 적용).
+- 최신 디자인 기준 Figma: `581:1920` 랜딩 통합 (https://www.figma.com/design/Gdc88dYmSYwu4XDrMug1Ut?node-id=581-1920, 2026-11-12 변경. 같은 날 낙관 모션본으로 교체, 이전 ID `531:2073` 삭제. 이전 기준 `448:235`). 직접 수정하지 않고 복제본에서만 작업한다. 단, 사용자가 "그대로 수정"처럼 직접 수정을 명시한 작업에 한해 예외로 한다(그 작업 한 건에만 적용).
 - 섹션 높이가 바뀌어 아래 섹션과 겹치면 승인 후 아래 섹션 전체를 같은 값만큼 내리고 기준 프레임 높이를 늘린다. 상세는 `design-rules.md` 2절 규칙 13·14.

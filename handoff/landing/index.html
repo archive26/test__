@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2027 신년운세 핸드오프 데모</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400&family=Noto+Serif+KR:wght@400;600;700&family=Poppins:wght@400;600;700&family=Song+Myung&display=swap" />
+
+  <!-- Tailwind (Play CDN, 빌드 없음) -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script src="js/tailwind.config.js"></script>
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body class="demo-body">
+
+<!-- 05 Stamp 잉크 질감: 피그마 Texture(1.2) + Noise(종이색, 밀도 0.22) 효과를 SVG 필터로 근사 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="stamp-ink" x="-5%" y="-20%" width="110%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="warp" />
+    <feDisplacementMap in="SourceGraphic" in2="warp" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="rough" />
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="11" result="speck" />
+    <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -4 0 0 0 3.1" result="mask" />
+    <feComposite in="rough" in2="mask" operator="in" />
+  </filter>
+</svg>
+
+<button type="button" class="panel-toggle" id="panel-toggle" aria-controls="demo-panel">데모 패널</button>
+
+<div class="demo-layout">
+  <!-- ================================================================
+       기기 프레임 (390 × 844, 웹뷰)
+       ================================================================ -->
+  <div class="device" data-demo="device">
+    <div class="device__screen">
+      <div class="viewport" id="viewport">
+        <main class="page" data-component="2027 신년운세 · 랜딩 통합" data-node="581:1920">
+
+<!-- ============================ 01 Hero ============================ -->
+<section id="s01" class="section relative h-[934px] overflow-hidden bg-white" data-screen="01 Hero" data-node="581:2686">
+  <div class="absolute left-[-23px] top-[-9px] h-[944px] w-[436px]" data-component="달빛 아래 열린 한옥문 1" data-node="581:2687">
+    <img data-slot="hero-hanok-door" alt="" class="absolute inset-0 size-full object-cover object-bottom" />
+  </div>
+  <p class="hero-copy top-[106px] text-[28px] leading-[40px]" style="margin-left:1.64px" data-node="581:2688">2027년</p>
+  <p class="hero-copy top-[155px] text-[36px] leading-[46px]" style="margin-left:.5px" data-node="581:2690">당신에게 찾아올 기회</p>
+  <p class="hero-copy top-[205px] text-[18px] leading-[40.981px] text-text-inverse" style="margin-left:3px" data-node="581:2689">모르고 지나가실 건가요?</p>
+  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[307px] top-[142px] size-[4px]" data-node="581:2691" />
+  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[338px] top-[142px] size-[4px]" data-node="581:2692" />
+  <div class="hero-character absolute left-[52px] top-[356px] h-[588px] w-[342px]" data-component="부채를 든 차우진" data-node="581:2693" data-motion="hero-slide">
+    <img data-slot="hero-cha-woojin-fan" alt="부채를 든 차우진" class="absolute inset-0 size-full object-cover" />
+  </div>
+</section>
+
+<!-- ============================ 01-2 Need ============================ -->
+<section id="s01-2" class="section relative h-[640px] overflow-hidden bg-[var(--x-ivory)]" data-screen="01-2 Need" data-node="581:2667">
+  <div class="absolute left-0 top-0 h-[732px] w-[390px] overflow-hidden" data-component="Original asset · wz_cha_starnight.webp" data-node="581:2669">
+    <img data-slot="need-starnight" alt="" class="absolute inset-0 size-full object-cover" />
+
+    <!-- Speech Bubble 01~04 : variant = data-bubble -->
+    <div class="speech-bubble left-[136px] top-[180px] h-[66px] w-[213.014px]" data-component="Speech Bubble 01" data-bubble="01" data-node="581:2670">
+      <img src="assets/svg/bubble-01.svg" alt="" class="absolute inset-0 size-full" />
+      <p class="speech-bubble__text left-[27px] top-[13px] w-[148px] whitespace-nowrap text-right"><b>설레는 인연이 찾아오는 순간,</b><br />과연 몇 월일까?</p>
+    </div>
+    <div class="speech-bubble left-[49px] top-[225px] h-[67px] w-[164.976px]" data-component="Speech Bubble 02" data-bubble="02" data-node="581:2679">
+      <img src="assets/svg/bubble-02.svg" alt="" class="absolute inset-0 size-full" />
+      <p class="speech-bubble__text left-[21px] top-[15px]"><b>돈이 들어오는 행운의 달</b>은<br />과연 언제일까?</p>
+    </div>
+    <div class="speech-bubble left-[170px] top-[274.5px] h-[67px] w-[192.014px]" data-component="Speech Bubble 03" data-bubble="03" data-node="581:2676">
+      <img src="assets/svg/bubble-03.svg" alt="" class="absolute inset-0 size-full" />
+      <p class="speech-bubble__text left-[15px] top-[15.5px] w-[146px] whitespace-nowrap text-right">내 몸이 보내는 <b>건강의 신호,</b><br />언제부터 조심해야 할까?</p>
+    </div>
+    <div class="speech-bubble left-[28px] top-[317px] h-[67px] w-[168.174px]" data-component="Speech Bubble 04" data-bubble="04" data-node="581:2673">
+      <div class="absolute" style="inset:0 -2.38% -11.94% -2.38%"><img src="assets/svg/bubble-04.svg" alt="" class="block size-full" /></div>
+      <p class="speech-bubble__text left-[32px] top-[14px] w-[125px]"><b>새로운 도전의 기회 !</b><br />옮길까? 버틸까?</p>
+    </div>
+
+    <p class="absolute left-0 right-0 top-[83px] text-center font-sogang text-[30px] leading-[46px] text-white" data-node="581:2682">고민하고 있진 않나요?</p>
+  </div>
+  <p class="absolute left-0 right-0 top-[46px] text-center font-sogang text-[18px] leading-[40.981px] text-gradient" style="--g:linear-gradient(to bottom,#d7af79,#ffecc8)" data-node="581:2685">2027년 한 해가 어떻게 흘러갈지</p>
+  <p class="need-glow top-[501px] text-[20px] leading-[29.032px]" data-node="581:2683">2027년의 흐름을 미리 살펴보고</p>
+  <p class="need-glow top-[535.82px] text-[22px] leading-[31.557px]" data-node="581:2684">나만의 한 해를 준비해 보세요</p>
+</section>
+
+<!-- ============================ 02 Preview GIF ============================ -->
+<section id="s02" class="section relative bg-white pb-[18px]" data-screen="02 Preview GIF" data-node="581:2640">
+  <button type="button" class="preview-gif relative block h-[509px] w-[390px] overflow-hidden text-left" data-component="나의 2027년 미리보기" data-node="581:2641" data-action="scroll-to-free-check">
+    <img data-slot="preview-2027" alt="나의 2027년 미리보기" class="absolute inset-0 size-full object-cover" />
+    <span class="preview-gif__dim absolute inset-0"></span>
+    <span class="absolute left-[24px] top-[321px] flex w-[342px] flex-col items-start gap-[8px]" data-component="Preview / Heading" data-node="581:2642">
+      <span class="block h-[18px] w-full" data-component="Eyebrow" data-node="581:2643"></span>
+      <span class="block font-sogang text-[24px] leading-[36px] text-white">생년월일로 먼저 확인하는<br />다가올 나의 2027년</span>
+      <span class="block font-pretendard text-[15px] leading-[25.5px] text-white">나의 타고난 성향과 2027년의 흐름을<br />간단하게 살펴보세요</span>
+    </span>
+  </button>
+
+  <!-- Free Check / Input + CTA -->
+  <form id="free-check" class="mx-[24px] mt-[31px] flex w-[342px] flex-col gap-[12px]" data-component="Free Check / Input + CTA" data-node="581:2651" data-state="filled" novalidate>
+    <div class="flex w-full items-center gap-[12px]" data-component="Free Check / Birth Date" data-node="581:2652">
+      <label class="birth-select w-[158px]" data-component="Birth Select · Year" data-variant="year" data-node="581:2653">
+        <span class="birth-select__value" data-placeholder="년도">1999</span>
+        <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
+        <select name="year" aria-label="태어난 해"></select>
+      </label>
+      <label class="birth-select w-[80px]" data-component="Birth Select · Month" data-variant="month" data-node="581:2657">
+        <span class="birth-select__value" data-placeholder="월">11</span>
+        <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
+        <select name="month" aria-label="태어난 달"></select>
+      </label>
+      <label class="birth-select w-[80px]" data-component="Birth Select · Day" data-variant="day" data-node="581:2661">
+        <span class="birth-select__value" data-placeholder="일">18</span>
+        <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
+        <select name="day" aria-label="태어난 날"></select>
+      </label>
+    </div>
+    <p class="free-check__msg" id="free-check-msg" role="alert" data-component="Free Check / Message (데모 추가)"></p>
+    <button type="submit" class="cta-primary w-full" data-component="CTA / Free Result" data-node="581:2665">
+      <span class="cta-primary__label">내 2027년 무료 운세 확인하기</span>
+    </button>
+  </form>
+
+  <div class="relative mx-[24px] mt-[16.5px] h-[96px] w-[342px]" data-component="Connector" data-node="581:2646">
+    <div class="absolute left-[171px] top-[4px] h-[44px] w-px bg-[var(--x-line)]" data-component="Divider"></div>
+    <div class="absolute left-[167px] top-[56px] size-[8px] rotate-45 border border-[var(--x-gold-dark)]" data-component="Accent Dot"></div>
+    <p class="absolute left-0 right-0 top-[71.58px] text-center font-pretendard text-[12px] font-semibold leading-[18px] text-text-primary">무료 결과 요약</p>
+  </div>
+</section>
+
+<!-- ============================ 03 Free Result ============================ -->
+<section id="s03" class="section relative bg-white" data-screen="03 Free Result" data-node="581:2491">
+  <!-- 상태: data-state = result | empty | loading | error  (result가 피그마 원본) -->
+  <div id="free-result" data-state="result">
+
+    <!-- [result] 피그마 원본 -->
+    <div class="free-result__view h-[1364px]" data-view="result">
+      <div class="paper-card absolute left-[15px] top-[39px] h-[1287px] w-[360px]" data-component="Free Result / Card" data-node="581:2492">
+        <div class="paper-card__inner absolute left-[4.5px] top-[9.5px] h-[1265px] w-[342px] bg-[var(--x-paper)]" data-component="Result / Content" data-node="581:2493">
+          <span class="corner-ornament" data-pos="tl"></span><span class="corner-ornament" data-pos="tr"></span>
+          <span class="corner-ornament" data-pos="bl"></span><span class="corner-ornament" data-pos="br"></span>
+
+          <!-- ResultSheet -->
+          <div class="absolute left-0 top-[15.5px] flex w-[342px] flex-col items-center gap-[21px]" data-component="Day Master Block" data-node="581:2498">
+            <p class="font-pretendard text-[16px] font-bold leading-[20.25px] tracking-[-0.27px] text-accent-default" id="free-result-title">1999년 11월 18일생의 2027년</p>
+            <div class="flex w-full flex-col items-start gap-[28px] px-[10px]" data-component="Day Master Card" data-node="581:2500">
+              <div class="flex w-full flex-col gap-[20px]" data-component="Day Master Summary">
+                <div class="flex w-full items-center gap-[20px]" data-component="Day Master Row">
+                  <div class="hanja-badge" data-component="Hanja Badge" data-node="581:2503"><span>甲</span></div>
+                  <div class="flex min-w-px flex-1 flex-col gap-[6px]" data-component="Day Master Text">
+                    <p class="font-pretendard text-[12.5px] font-semibold leading-[18.75px] text-[var(--x-gold-dark)]">나의 일간 · 甲(갑목)</p>
+                    <p class="font-serif-kr text-[19px] font-bold leading-[26.6px] tracking-[-0.57px] text-accent-default">곧게 뻗는 큰 나무 같은 사람</p>
+                  </div>
+                </div>
+                <p class="font-pretendard text-[15px] leading-[26.25px] text-text-primary">한번 정하면 위로 곧게 자라는 사람이에요. 기준이 분명하고 사람들이 기대는 기둥이 되지만, 굽히는 법을 몰라 혼자 버티는 때가 많아요.</p>
+              </div>
+              <img src="assets/svg/divider.svg" alt="" class="block h-[0.4px] w-full" data-component="Divider" />
+              <div class="flex w-full flex-col gap-[20px]" data-component="Year Energy Block" data-node="581:2513">
+                <div class="flex w-full flex-col gap-[16px]" data-component="Year Energy Header">
+                  <p class="font-pretendard text-[13px] font-bold leading-[19.5px] tracking-[0.26px] text-accent-default">2027 정미년이 나에게 오는 방식</p>
+                  <div class="flex w-full items-center justify-center gap-[8px]" data-component="Year Relation Row">
+                    <div class="flex h-[36px] w-[114px] items-center gap-[8px] rounded-radius-sm bg-[var(--x-ivory)] pl-[12px]" data-component="Year Stem Chip">
+                      <span class="font-serif-kr text-[20px] font-bold leading-[20px] text-accent-default">丁</span>
+                      <span class="font-pretendard text-[12.5px] leading-[18.75px] text-[rgba(34,34,34,0.75)]">정미년의 불</span>
+                    </div>
+                    <div class="flex items-center" data-component="Arrow">
+                      <div class="h-px w-[75.234px] bg-[var(--x-gold-light)]"></div>
+                      <div class="h-0 w-0 border-y-[4px] border-l-[6px] border-y-transparent border-l-[var(--x-gold-light)]"></div>
+                    </div>
+                    <div class="flex h-[35px] w-[91px] items-center gap-[8px] rounded-radius-sm bg-accent-default pl-[12px]" data-component="Ten God Chip">
+                      <span class="font-serif-kr text-[18px] font-bold leading-[18px] text-[var(--x-gold-light)]">傷官</span>
+                      <span class="font-pretendard text-[12.5px] leading-[18.75px] text-[rgba(255,255,255,0.85)]">상관</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-full flex-col gap-[10px]" data-component="Year Energy Description">
+                  <p class="font-serif-kr text-[16.5px] font-semibold leading-[24.75px] tracking-[-0.33px] text-accent-default">정미년의 불(丁)은 나에게 상관(傷官).</p>
+                  <p class="font-pretendard text-[15px] leading-[26.25px] text-text-primary">2027년에 내 재능과 말이 밖으로 터져 나오는 기운이 들어와요. 틀을 깨고 싶어지는 해예요. 다만 말이 앞서면 윗사람과 부딪히기 쉬워요.</p>
+                </div>
+                <div class="flex items-center gap-[6px]" data-component="Keyword Tags">
+                  <span class="keyword-tag">#표현</span><span class="keyword-tag">#변화</span><span class="keyword-tag">#말조심</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MonthMap -->
+          <div class="absolute left-[-1px] top-[631px] flex w-[342px] flex-col gap-[36px] px-[10px]" data-component="MonthMap / Monthly Block" data-node="581:2541">
+            <div class="flex w-full flex-col gap-[20px]" data-component="Monthly Card">
+              <div class="flex w-full flex-col gap-[8px]" data-component="Monthly Header">
+                <div class="flex w-full items-center justify-between" data-component="Monthly Title Row">
+                  <p class="font-serif-kr text-[20px] font-bold leading-[30px] tracking-[-0.6px] text-accent-default">내 2027년, 열두 달 지도</p>
+                  <span class="badge-outline" data-component="Badge · 목업 문구">목업 문구</span>
+                </div>
+                <p class="font-pretendard text-[14px] leading-[23.1px] text-[var(--x-gray-text)]">2027년 각 달의 기운이 내 일간에 무엇으로 들어오는지 계산했어요.</p>
+              </div>
+              <div class="flex w-full flex-col gap-[6px]" data-component="Month Grid" id="month-grid"></div>
+            </div>
+            <div class="flex w-full flex-col gap-[25px]" data-component="Month Legend" id="month-legend"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [empty] 데모 추가 상태 (피그마 미정의) -->
+    <div class="free-result__view" data-view="empty">
+      <div class="state-card">
+        <p class="state-card__title">생년월일을 선택하면<br />무료 결과 요약이 여기에 표시돼요</p>
+        <p class="state-card__desc">타고난 일간과 2027년 열두 달 지도를 먼저 보여 드려요.</p>
+      </div>
+    </div>
+
+    <!-- [loading] 데모 추가 상태 (피그마 미정의) -->
+    <div class="free-result__view" data-view="loading">
+      <div class="state-card" aria-busy="true">
+        <span class="spinner" aria-hidden="true"></span>
+        <p class="state-card__title">2027년의 흐름을 읽고 있어요</p>
+        <div class="skeleton w-[60%]"></div><div class="skeleton w-[90%]"></div><div class="skeleton w-[75%]"></div>
+      </div>
+    </div>
+
+    <!-- [error] 데모 추가 상태 (피그마 미정의) -->
+    <div class="free-result__view" data-view="error">
+      <div class="state-card">
+        <p class="state-card__title">결과를 불러오지 못했어요</p>
+        <p class="state-card__desc">잠시 후 다시 시도해 주세요.</p>
+        <button type="button" class="cta-primary mt-[8px] w-[200px]" data-action="retry"><span class="cta-primary__label">다시 시도</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 04 Paid Preview ============================ -->
+<section id="s04" class="section relative h-[1852px] bg-[var(--x-paper-2)]" data-screen="04 Paid Preview" data-node="581:2440">
+  <div data-component="Header" data-node="581:2485">
+    <p class="absolute left-0 right-0 top-[27px] text-center font-sogang text-[36px] leading-[46px] text-gradient" style="--g:linear-gradient(to bottom,#7d5509,#b7833d)">내 사주<br />더 깊이 들여다보기</p>
+    <p class="absolute left-0 right-0 top-[135px] text-center font-sogang text-[24px] leading-[36px] text-accent-default">복잡한 운세도<br />한눈에 이해할 수 있도록</p>
+    <p class="absolute left-0 right-0 top-[215px] text-center font-pretendard text-[13px] leading-[20px] text-[var(--x-gray-text)]">아래 분석은 유료 상세 결과에서 제공하는 시각화의 예시입니다.<br />무료 미리보기에는 포함되지 않아요.</p>
+    <div class="absolute left-[135px] top-[259px] size-[106px] overflow-hidden" data-component="Header / Scroll" data-node="581:2486">
+      <img data-slot="paid-scroll" alt="" class="absolute left-[-3px] top-[-3px] size-[112px] max-w-none object-cover" />
+    </div>
+  </div>
+  <!-- Preview 01~04 : JS 렌더 (data.js › paidPreviews) -->
+  <div id="paid-previews"></div>
+</section>
+
+<!-- ============================ 05 Chapters ============================ -->
+<section id="s05" class="section relative h-[1894px] bg-white" data-screen="05 Chapters" data-node="613:155">
+  <div class="absolute left-0 top-[18px] h-[1894px] w-[390px] overflow-hidden rounded-t-[80px] bg-gradient-to-b from-[#111a36] to-[#223369]" data-component="Chapters / Background" data-node="613:156">
+    <div class="absolute left-[-230px] top-[-110px] h-[437px] w-[459px]" data-component="Chapters / Book Image" data-node="613:158">
+      <img data-slot="chapters-book" alt="" class="absolute inset-0 size-full object-cover object-bottom opacity-80 mix-blend-soft-light" />
+    </div>
+  </div>
+  <p class="absolute left-0 right-0 top-[71px] text-center font-sogang text-[36px] leading-[46px] text-gradient" style="--g:linear-gradient(to bottom,#ffedbf,#f1b96d)" data-node="613:263">그리고</p>
+  <p class="absolute left-0 right-0 top-[133px] text-center font-sogang text-[26px] leading-[36px] text-text-inverse" data-node="613:264">당신의 2027년을 담은</p>
+  <p class="absolute left-0 right-0 top-[173.32px] text-center font-sogang text-[24px] leading-[36px] tracking-[-0.84px] text-text-inverse" style="margin-left:1px" data-node="613:265">10개의 이야기까지</p>
+  <div class="absolute left-[91px] top-[208px] h-[104px] w-[208px] overflow-hidden" data-component="Chapters / Scroll" data-node="613:261">
+    <img data-slot="chapters-scroll" alt="" class="absolute inset-0 size-full object-cover" />
+  </div>
+
+  <div class="paper-card absolute left-[15px] top-[328px] h-[1494px] w-[360px]" data-component="Chapters / TOC Card" data-node="613:159">
+    <div class="paper-card__inner absolute left-[6px] top-[8px] h-[1472px] w-[342px] bg-white" data-component="TOC / Content" data-node="613:160">
+      <!-- Numbered List -->
+      <div class="absolute left-0 top-[139px] h-[1174px] w-[342px] overflow-hidden" data-component="Numbered List" data-node="613:161">
+        <div class="absolute left-[-297px] top-[-174px] h-[1507px] w-[848px]" data-component="한지 1"><img data-slot="hanji" alt="" class="absolute inset-0 size-full object-cover" /></div>
+        <div id="chapter-list" class="relative"></div>
+      </div>
+      <!-- Header -->
+      <div class="absolute left-0 top-0 h-[139px] w-[342px] bg-[var(--x-paper-2)]" data-component="Header" data-node="613:246">
+        <div class="absolute left-[20px] top-[24px] flex h-[22px] w-[302px] items-center justify-between" data-component="Label Row">
+          <p class="font-pretendard text-[11.5px] font-semibold leading-[17.25px] tracking-[0.69px] text-[var(--x-gold-dark)]" data-component="Label · 결과지 화면 예시">결과지 화면 예시</p>
+          <span class="badge-outline" data-component="Badge · 가상 생년월일">가상 생년월일</span>
+        </div>
+        <p class="absolute left-0 right-0 top-[66px] text-center font-pretendard text-[17.5px] font-bold leading-[25.375px] tracking-[-0.525px] text-accent-default">1999년 11월 18일생의 2027 신년운세</p>
+        <p class="absolute left-0 right-0 top-[98px] text-center font-pretendard text-[13px] leading-[20px] text-[var(--x-gray-text)]">총 10개 장</p>
+        <span class="corner-ornament" data-pos="tl"></span><span class="corner-ornament" data-pos="tr"></span>
+      </div>
+      <!-- Footer -->
+      <div class="absolute left-0 top-[1327px] h-[145px] w-[342px] bg-[var(--x-paper-2)]" data-component="Footer" data-node="613:234">
+        <div class="absolute left-[15.5px] top-[21px] flex items-center gap-[8px] font-pretendard text-[13px] leading-[19.5px] text-[rgba(34,34,34,0.75)]" data-component="Footer / Meta">
+          <span>A4 약 20쪽</span><span class="meta-dot"></span><span>내 생년월일로 새로 쓰여요</span><span class="meta-dot"></span><span>첫 장 약 1분</span>
+        </div>
+        <button type="button" class="cta-primary absolute left-[20px] top-[57px] w-[302px]" data-component="CTA Button" data-node="613:244" data-action="external">
+          <span class="cta-primary__label">내 풀이 확인하기 · 33,000원</span>
+        </button>
+      </div>
+      <span class="corner-ornament" data-pos="bl"></span><span class="corner-ornament" data-pos="br"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 Timing ============================ -->
+<section id="s06" class="section relative h-[1953px] overflow-hidden" data-screen="06 Timing" data-node="581:2218">
+  <div class="absolute inset-0 bg-gradient-to-b from-[#001026] to-[#1b3b6f]"></div>
+  <img data-slot="hanji" alt="" class="absolute inset-0 size-full object-cover" />
+  <div class="absolute left-[295px] top-[3.93px] h-[130.5px] w-[90.38px]" data-component="Timing / Lantern (벡터 51개)" id="lantern"></div>
+  <p class="absolute left-0 right-0 top-[61px] text-center font-sogang text-[23px] leading-[34.96px] text-[var(--x-navy-title)]" style="margin-left:1px" data-node="581:2329">2027년 결정적인 순간,<br />후회하지 않도록</p>
+  <div class="absolute left-[24px] top-[178px] flex w-[342px] flex-col gap-[20px]" data-component="Timing / Cards" data-node="581:2276" id="timing-cards"></div>
+  <p class="absolute left-0 right-0 top-[1806px] text-center font-pretendard text-[14px] leading-[24px] text-[var(--x-gray-text-2)]" style="margin-left:-1px" data-node="581:2219">나머지 아홉 달과 각 달의 전체 풀이는<br />제7장 12개월 흐름에서 이어집니다</p>
+  <button type="button" class="cta-primary absolute left-[20px] top-[1870px] w-[350px] bg-[var(--x-navy-deep)]" data-component="CTA / Full Reading" data-node="581:2274" data-action="external">
+    <span class="cta-primary__label">전체 풀이 확인하기</span>
+  </button>
+</section>
+
+<!-- ============================ 07 Before After Reviews ============================ -->
+<section id="s07" class="section relative h-[1295px] bg-[var(--x-cream)]" data-screen="07 Before After Reviews" data-node="581:2159">
+  <div class="reviews-heading absolute left-1/2 top-[31px] flex -translate-x-1/2 flex-col items-center gap-[6px] p-[16px] text-center" style="margin-left:.5px" data-component="Reviews / Heading" data-node="581:2160">
+    <p class="font-sogang text-[23px] leading-[34px] text-gradient" style="--g:linear-gradient(to right,#8c6d1f 1.901%,#f1d798 119.39%)">운세 하나 봤을 뿐인데</p>
+    <p class="whitespace-nowrap font-sogang text-[32px] leading-[40px] text-gradient" style="--g:linear-gradient(to left,#1b1b1b,#3b3b3b)">이렇게 달라졌다고?</p>
+  </div>
+  <div class="absolute left-[24px] top-[168px] flex w-[342px] flex-col gap-[32px]" data-component="Reviews / Cards" data-node="581:2163" id="ba-reviews"></div>
+</section>
+
+<!-- ============================ 08 Review List ============================ -->
+<section id="s08" class="section relative h-[354px] overflow-hidden bg-white" data-screen="08 Review List" data-node="581:2033">
+  <div class="absolute left-0 top-[42px] flex flex-col gap-[12px] px-[24px]" data-component="Review List / Slider" data-node="581:2034">
+    <p class="font-sogang text-[23px] leading-[34.96px] tracking-[-0.805px] text-accent-default">먼저 살펴본 사람들의 이야기</p>
+    <div class="review-marquee relative h-[206px] w-[1458px]" data-component="Review List / Motion — RTL · Linear · 36.489s" data-node="581:2036" data-motion="marquee">
+      <div class="absolute left-0 top-0 flex items-center gap-[12px]" data-component="Review List / Cards" id="review-list"></div>
+      <div class="absolute left-[1470px] top-0 flex items-center gap-[12px]" data-component="Review List / Cards — Loop Copy" id="review-list-copy" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 09 Closing Headline ============================ -->
+<section id="s09" class="section relative flex h-[100px] flex-col items-center justify-center gap-[12px] bg-white font-sogang leading-[40px]" data-screen="09 Closing Headline" data-node="581:2029">
+  <p class="text-[36px] text-[var(--x-gold-line)]">2027년의 시작,</p>
+  <p class="whitespace-nowrap text-[26px] tracking-[-0.805px] text-accent-default">나의 운세부터 확인해 보세요</p>
+</section>
+
+<!-- ============================ 10 Purchase ============================ -->
+<section id="s10" class="section relative h-[873px] overflow-hidden bg-white" data-screen="10 Purchase" data-node="581:1977">
+  <div class="absolute left-[-96px] top-[22px] h-[878px] w-[582px]" data-component="금빛 한복의 따뜻한 웹툰 초상" data-node="581:1978">
+    <img data-slot="purchase-portrait" alt="차우진" class="absolute inset-0 size-full object-cover object-bottom" />
+  </div>
+  <div class="product-card absolute left-[24px] top-[349px] h-[508px] w-[342px]" data-component="Purchase / Product Card" data-node="581:1979">
+    <div class="absolute left-[76px] top-[16px] flex w-[189.2px] flex-col text-center" data-component="Purchase / Title">
+      <p class="h-[24px] font-serif-kr text-[16px] leading-[24px] text-white">차우진의 2027</p>
+      <p class="h-[44px] font-serif-kr text-[36px] font-bold leading-[44px] text-[var(--x-gold-title)]">신년운세</p>
+    </div>
+    <div class="absolute left-[16px] top-[101px] flex w-[310px] flex-col gap-[12px] border-y-[0.8px] border-[rgba(200,210,224,0.14)] py-[12px]" data-component="Purchase / Options" role="radiogroup" aria-label="구성 선택" id="purchase-options"></div>
+    <div class="absolute left-[38px] top-[402px] flex items-center gap-[12px]" data-component="Purchase / Includes">
+      <span class="feature">A4 약 20쪽</span><span class="feature">10개 장</span><span class="feature">맞춤 삽화</span><span class="feature">질문 답장</span>
+    </div>
+    <button type="button" class="purchase-button absolute bottom-[16px] left-[16px] w-[310px]" data-component="PurchaseButton" data-node="581:2011" data-action="external">
+      <span id="purchase-button-label">33,000원 구매하기</span>
+      <img src="assets/svg/icon-chevron-right.svg" alt="" class="size-[18px]" data-component="Icon" />
+    </button>
+  </div>
+</section>
+
+<!-- ============================ 11 Footer ============================ -->
+<section id="s11" class="section relative bg-white" data-screen="11 Footer" data-node="581:1921">
+  <footer class="flex w-[390px] flex-col items-start bg-[var(--x-footer-bg)] px-space-6 py-[40px]" data-component="Footer" data-node="581:1922">
+    <div class="h-[22px] w-[94.641px]" data-component="Image (퀀타로)"><img data-slot="logo-quantaro" alt="퀀타로" class="size-full object-cover" /></div>
+    <nav class="flex gap-space-4 pt-space-6" data-component="Footer / Links">
+      <a href="#" class="footer-link" data-action="temp-link" data-label="고객센터">고객센터</a>
+      <a href="#" class="footer-link" data-action="temp-link" data-label="이용약관">이용약관</a>
+      <a href="#" class="footer-link" data-action="temp-link" data-label="개인정보처리방침">개인정보처리방침</a>
+    </nav>
+    <dl class="flex w-[342px] flex-col pt-gutter-mobile" data-component="Definition List" id="company-info"></dl>
+    <p class="pt-space-6 font-poppins text-[11.5px] leading-[17.25px] text-[#a0a0a0]" data-component="Footer / Copyright">© 2026 QUANTARO.</p>
+  </footer>
+  <!-- BottomBar(하단 고정)가 덮는 높이만큼 여백 — 피그마 11 Footer 안 BottomBar 영역(113px)과 동일 -->
+  <div class="h-[113px] bg-white" aria-hidden="true"></div>
+</section>
+
+        </main>
+      </div>
+
+      <!-- ===== BottomBar : 하단 고정 (스크롤 영역 밖) ===== -->
+      <div class="bottom-bar" data-component="BottomBar" data-node="581:1969">
+        <div class="flex w-full items-center justify-center gap-space-2" data-component="Bottom Bar / Countdown" data-node="581:1970">
+          <p class="font-pretendard text-[14px] leading-[20px] text-[rgba(34,34,34,0.8)]" data-component="Countdown Label">묶음 할인 마감까지</p>
+          <p class="font-poppins text-[14px] font-semibold leading-[20px] text-accent-default tabular-nums" data-component="Countdown Time" id="countdown">52일 10:07:15</p>
+        </div>
+        <button type="button" class="cta-primary w-full" data-component="Bottom Bar / CTA" data-node="581:1975" data-action="external">
+          <span class="cta-primary__label">내 풀이 전체 열기 · 33,000원</span>
+        </button>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       상태 전환 패널 (데모 전용, 기기 프레임 밖)
+       ================================================================ -->
+  <aside class="panel" id="demo-panel" data-demo="panel">
+    <h1 class="panel__title">2027 신년운세 · 핸드오프 데모</h1>
+    <p class="panel__meta">기준 390px 웹뷰 · Figma 노드 581:1920</p>
+
+    <h2 class="panel__h">화면 바로가기</h2>
+    <div class="panel__chips" id="panel-screens"></div>
+
+    <h2 class="panel__h">무료 운세 확인 상태 <small>(Free Check · Free Result)</small></h2>
+    <div class="panel__seg" id="panel-states">
+      <button type="button" data-set-state="empty">빈 상태</button>
+      <button type="button" data-set-state="invalid">유효성 에러</button>
+      <button type="button" data-set-state="loading">로딩</button>
+      <button type="button" data-set-state="error">요청 에러</button>
+      <button type="button" data-set-state="result">입력 완료</button>
+    </div>
+    <label class="panel__check"><input type="checkbox" id="panel-fail-next" /> 다음 요청을 실패로 처리</label>
+    <p class="panel__note">「입력 완료」만 피그마에 있는 상태입니다. 나머지는 데모에서 임의로 추가했습니다(DECISIONS.md D-05).</p>
+
+    <h2 class="panel__h">구매 구성 <small>(Purchase / Options)</small></h2>
+    <div class="panel__seg" id="panel-options"></div>
+
+    <h2 class="panel__h">보기</h2>
+    <label class="panel__check"><input type="checkbox" id="panel-slots" /> 이미지 자리 표시 (slot 이름·크기)</label>
+    <label class="panel__check"><input type="checkbox" id="panel-nodes" /> 컴포넌트 이름 표시 (hover)</label>
+    <button type="button" class="panel__btn" id="panel-replay">모션 다시 재생</button>
+
+    <h2 class="panel__h">이미지 자리 현황</h2>
+    <ul class="panel__slots" id="panel-slot-list"></ul>
+  </aside>
+</div>
+
+<!-- ===== 컴포넌트 템플릿 ===== -->
+<template id="tpl-month-cell">
+  <div class="month-cell" data-component="Month · N월" data-variant="default">
+    <p class="month-cell__num"><span class="font-poppins"></span><span>월</span></p>
+    <p class="month-cell__label"></p>
+  </div>
+</template>
+
+<template id="tpl-legend-row">
+  <div class="legend-row" data-component="Legend · 이름" data-variant="default">
+    <span class="legend-row__term"><span class="legend-row__dot"></span><span class="legend-row__name"></span></span>
+    <span class="legend-row__line"></span>
+    <span class="legend-row__desc"></span>
+  </div>
+</template>
+
+<template id="tpl-paid-preview">
+  <div class="paid-preview absolute left-[15px] w-[360px]" data-component="Preview NN · 이름">
+    <div class="paid-preview__title" data-component="Title">
+      <p class="paid-preview__num"></p>
+      <p class="paid-preview__q"></p>
+      <p class="paid-preview__desc"></p>
+    </div>
+    <div class="paid-preview__card paper-card absolute left-0 w-[360px] overflow-hidden" data-component="Card">
+      <div class="absolute left-[-21.5px] top-[-12.5px] h-[253px] w-[399px]" data-component="Card / Paper Texture"><img data-slot="card-paper-texture" alt="" class="absolute inset-0 size-full object-cover object-bottom" /></div>
+      <div class="paid-preview__inner absolute w-[342px] overflow-hidden border border-[var(--x-line)]" data-component="Card / Inner">
+        <div class="paid-preview__img absolute left-[1px] w-[341px] overflow-hidden rounded-[16px]" data-component="Card / Result Image"><img data-slot="paid-result-sheet" alt="유료 결과 예시" class="absolute max-w-none" /></div>
+        <div class="paid-preview__blur absolute overflow-hidden bg-bg-page" data-component="Card / Blur Area">
+          <div class="absolute h-[690px] w-[332px] overflow-hidden blur-[4.275px]" data-component="Blurred Result"><img data-slot="paid-result-sheet" alt="" class="absolute h-[100.96%] w-[103.01%] max-w-none" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-chapter">
+  <div class="chapter" data-component="Chapter N">
+    <div class="chapter__title" data-component="Chapter Title Row">
+      <span class="chapter__no"></span><span class="chapter__name"></span>
+    </div>
+    <div class="chapter__desc" data-component="Chapter Description"><p></p></div>
+    <!-- Stamp_NN : 위치·폭·회전은 data.js › chapters[].stamp -->
+    <div class="stamp" data-component="Stamp_NN">
+      <div class="stamp__body" data-motion="stamp">
+        <span class="stamp__ring" data-component="Stamp / Impact Ring"></span>
+        <span class="stamp__border" data-component="Stamp / Border"></span>
+        <span class="stamp__text" data-component="Stamp / Text"></span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-timing-card">
+  <article class="flex w-full flex-col gap-[12px]" data-component="Timing / Card N · 제N장">
+    <div class="timing-card__img relative w-[342px] overflow-hidden rounded-[14px]" data-component="Timing / Image / bka"></div>
+    <div class="flex w-full flex-col gap-[8px]" data-component="Timing / Body">
+      <div class="flex w-full flex-col gap-[8px]" data-component="Timing / Text">
+        <p class="flex items-center gap-[4px] leading-[20px]" data-component="Timing / Tag"><span class="font-sogang text-[10px] text-[var(--x-gold-dark)]"></span><span class="font-pretendard text-[14px] font-bold text-accent-default"></span></p>
+        <div class="flex w-full items-stretch gap-[8px]" data-component="Timing / Line + Copy">
+          <div class="w-[2px] shrink-0 bg-[var(--x-gold-line)]" data-component="Timing / Line"></div>
+          <div class="flex min-w-px flex-1 flex-col" data-component="Timing / Copy">
+            <p class="timing-card__head font-gowun text-[20px] font-bold tracking-[-0.12px] text-text-body"></p>
+            <p class="timing-card__quote font-gowun text-[18px] leading-[28px] tracking-[-0.2px] text-[#1f2233]"></p>
+          </div>
+        </div>
+      </div>
+      <p class="timing-card__more text-[12px] leading-[20px] tracking-[-0.2px] text-[#756f81]"></p>
+    </div>
+  </article>
+</template>
+
+<template id="tpl-ba-review">
+  <article class="flex w-full flex-col items-center gap-[12px]" data-component="Review / Card N">
+    <div class="flex items-center" data-component="Review / Before After">
+      <div class="ba-before relative mr-[-18px] h-[153px] w-[180px] shrink-0 overflow-hidden rounded-[2.035px]" data-component="Before / Frame">
+        <div class="absolute left-0 top-0 h-[152.601px] w-[179.052px] bg-[#e5e5e5]" data-component="Before / Panel"><img data-slot="" alt="Before" class="absolute inset-0 size-full object-cover" /></div>
+        <span class="ba-before__label">Before</span>
+      </div>
+      <div class="ba-after relative h-[169px] w-[180px] shrink-0 overflow-hidden" data-component="After / Frame">
+        <div class="ba-after__panel absolute left-0 top-0 h-[169px] w-[180px] bg-white" data-component="After / Panel" data-variant="full"><img data-slot="" alt="After" class="ba-after__img absolute w-full object-cover" /></div>
+        <span class="ba-after__header">After</span>
+        <span class="absolute inset-0 rounded-[3.052px] border-[1.017px] border-accent-default" data-component="Green Border"></span>
+      </div>
+    </div>
+    <div class="flex flex-col items-center gap-[12px]" data-component="Review / Text">
+      <p class="flex items-center gap-[12px] tracking-[-0.2708px]" data-component="Review / Author">
+        <span class="font-pretendard text-[13.538px] font-bold leading-[20.308px] text-accent-default"></span>
+        <span class="font-pretendard text-[11.282px] leading-[16.923px] text-[var(--x-gray-text)]"></span>
+      </p>
+      <p class="ba-headline" data-component="Review / Headline"></p>
+      <p class="ba-body" data-component="Review / Body"></p>
+    </div>
+  </article>
+</template>
+
+<template id="tpl-review-card">
+  <div class="review-card" data-component="Review Card NN">
+    <img src="assets/svg/star-rating-5.svg" alt="별점 5점" class="h-[14px] w-[78px]" data-component="별점 · 5점" />
+    <div class="review-card__body" data-component="Review / Body">
+      <p class="review-card__text"></p>
+      <p class="flex items-center gap-[16px] text-[14px] leading-[20px]" data-component="Review / Meta"><span class="font-semibold text-[#333]"></span><span class="text-[var(--x-gray-text-2)]"></span></p>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-option">
+  <button type="button" class="option" role="radio" data-component="Option N · 이름">
+    <span class="option__title" data-component="Option Title"><span class="radio" data-component="Radio"><span class="radio__dot" data-component="Radio Dot"></span></span><span class="option__name"></span></span>
+    <span class="option__price" data-component="Option Price">
+      <span class="option__compare"></span>
+      <span class="option__row" data-component="Saving Row"><span class="saving-badge" data-component="Saving Badge"></span><span class="option__final"></span></span>
+    </span>
+  </button>
+</template>
+
+<script src="js/data.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

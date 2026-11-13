@@ -10,7 +10,10 @@
 - `asset-guide.md` — 에셋 매핑
 
 ## 폴더
-- `index.html`, `css/style.css`, `js/main.js` — 새 구현
+- `index.html`, `css/tokens.css`·`css/components.css`, `js/*.js`, `assets/landing/` — 최종 시안 구현 (handoff 데모와 같은 화면, 2026-11-13)
+- `handoff/landing/` — 받은 handoff 원본(데모 패널 포함, 수정 금지). 스펙은 `handoff/landing/HANDOFF.md`·`DECISIONS.md`
+- `handoff/stamps/` — 05 도장 Figma 동일 PNG 패키지(참고용, 현재 구현은 handoff의 SVG 필터 방식)
+- `assets/img/` — 이전 Claude 시안 이미지(현재 페이지에서 쓰지 않음)
 - `src/index.src.html` — 이전 A~D 시안 원본 (참고용, 유지)
 - `assets/QUANTARO_design_assets_v2/` — `QUANTARO_design_assets_v2.zip`을 여기에 압축 해제 (`07_fonts`는 git 제외)
 
