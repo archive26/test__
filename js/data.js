@@ -151,7 +151,7 @@ window.DEMO_DATA = {
   /* 버튼 이동 URL — CTA / Free Result를 제외한 버튼(05 CTA Button, 06 CTA / Full Reading,
      10 PurchaseButton, Bottom Bar / CTA)이 모두 이 주소로 이동 (DECISIONS D-10) */
   externalUrl: 'https://quantaro.kr/newyear2027',
-  externalTarget: '_self',            // 실서비스: 같은 창 이동 (handoff 데모는 '_blank')
+  externalTarget: '_blank',           // 데모에서는 새 탭(데모 상태 유지). 실서비스는 같은 창 이동 권장
 
   /* ---------- BottomBar ---------- */
   countdownTarget: '2027-01-03T23:59:59+09:00', // 확인 필요 (DECISIONS D-09)

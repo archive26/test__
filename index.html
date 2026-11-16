@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>차우진의 2027 신년운세 | 퀀타로</title>
+  <title>2027 신년운세 핸드오프 데모</title>
 
   <!-- Fonts -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -31,6 +31,7 @@
   </filter>
 </svg>
 
+<button type="button" class="panel-toggle" id="panel-toggle" aria-controls="demo-panel">데모 패널</button>
 
 <div class="demo-layout">
   <!-- ================================================================
@@ -49,8 +50,8 @@
   <p class="hero-copy top-[106px] text-[28px] leading-[40px]" style="margin-left:1.64px" data-node="581:2688">2027년</p>
   <p class="hero-copy top-[155px] text-[36px] leading-[46px]" style="margin-left:.5px" data-node="581:2690">당신에게 찾아올 기회</p>
   <p class="hero-copy top-[205px] text-[18px] leading-[40.981px] text-text-inverse" style="margin-left:3px" data-node="581:2689">모르고 지나가실 건가요?</p>
-  <img src="assets/landing/svg/hero-dot.svg" alt="" class="absolute left-[307px] top-[142px] size-[4px]" data-node="581:2691" />
-  <img src="assets/landing/svg/hero-dot.svg" alt="" class="absolute left-[338px] top-[142px] size-[4px]" data-node="581:2692" />
+  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[307px] top-[142px] size-[4px]" data-node="581:2691" />
+  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[338px] top-[142px] size-[4px]" data-node="581:2692" />
   <div class="hero-character absolute left-[52px] top-[356px] h-[588px] w-[342px]" data-component="부채를 든 차우진" data-node="581:2693" data-motion="hero-slide">
     <img data-slot="hero-cha-woojin-fan" alt="부채를 든 차우진" class="absolute inset-0 size-full object-cover" />
   </div>
@@ -63,19 +64,19 @@
 
     <!-- Speech Bubble 01~04 : variant = data-bubble -->
     <div class="speech-bubble left-[136px] top-[180px] h-[66px] w-[213.014px]" data-component="Speech Bubble 01" data-bubble="01" data-node="581:2670">
-      <img src="assets/landing/svg/bubble-01.svg" alt="" class="absolute inset-0 size-full" />
+      <img src="assets/svg/bubble-01.svg" alt="" class="absolute inset-0 size-full" />
       <p class="speech-bubble__text left-[27px] top-[13px] w-[148px] whitespace-nowrap text-right"><b>설레는 인연이 찾아오는 순간,</b><br />과연 몇 월일까?</p>
     </div>
     <div class="speech-bubble left-[49px] top-[225px] h-[67px] w-[164.976px]" data-component="Speech Bubble 02" data-bubble="02" data-node="581:2679">
-      <img src="assets/landing/svg/bubble-02.svg" alt="" class="absolute inset-0 size-full" />
+      <img src="assets/svg/bubble-02.svg" alt="" class="absolute inset-0 size-full" />
       <p class="speech-bubble__text left-[21px] top-[15px]"><b>돈이 들어오는 행운의 달</b>은<br />과연 언제일까?</p>
     </div>
     <div class="speech-bubble left-[170px] top-[274.5px] h-[67px] w-[192.014px]" data-component="Speech Bubble 03" data-bubble="03" data-node="581:2676">
-      <img src="assets/landing/svg/bubble-03.svg" alt="" class="absolute inset-0 size-full" />
+      <img src="assets/svg/bubble-03.svg" alt="" class="absolute inset-0 size-full" />
       <p class="speech-bubble__text left-[15px] top-[15.5px] w-[146px] whitespace-nowrap text-right">내 몸이 보내는 <b>건강의 신호,</b><br />언제부터 조심해야 할까?</p>
     </div>
     <div class="speech-bubble left-[28px] top-[317px] h-[67px] w-[168.174px]" data-component="Speech Bubble 04" data-bubble="04" data-node="581:2673">
-      <div class="absolute" style="inset:0 -2.38% -11.94% -2.38%"><img src="assets/landing/svg/bubble-04.svg" alt="" class="block size-full" /></div>
+      <div class="absolute" style="inset:0 -2.38% -11.94% -2.38%"><img src="assets/svg/bubble-04.svg" alt="" class="block size-full" /></div>
       <p class="speech-bubble__text left-[32px] top-[14px] w-[125px]"><b>새로운 도전의 기회 !</b><br />옮길까? 버틸까?</p>
     </div>
 
@@ -103,17 +104,17 @@
     <div class="flex w-full items-center gap-[12px]" data-component="Free Check / Birth Date" data-node="581:2652">
       <label class="birth-select w-[158px]" data-component="Birth Select · Year" data-variant="year" data-node="581:2653">
         <span class="birth-select__value" data-placeholder="년도">1999</span>
-        <img src="assets/landing/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
+        <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="year" aria-label="태어난 해"></select>
       </label>
       <label class="birth-select w-[80px]" data-component="Birth Select · Month" data-variant="month" data-node="581:2657">
         <span class="birth-select__value" data-placeholder="월">11</span>
-        <img src="assets/landing/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
+        <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="month" aria-label="태어난 달"></select>
       </label>
       <label class="birth-select w-[80px]" data-component="Birth Select · Day" data-variant="day" data-node="581:2661">
         <span class="birth-select__value" data-placeholder="일">18</span>
-        <img src="assets/landing/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
+        <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="day" aria-label="태어난 날"></select>
       </label>
     </div>
@@ -156,7 +157,7 @@
                 </div>
                 <p class="font-pretendard text-[15px] leading-[26.25px] text-text-primary">한번 정하면 위로 곧게 자라는 사람이에요. 기준이 분명하고 사람들이 기대는 기둥이 되지만, 굽히는 법을 몰라 혼자 버티는 때가 많아요.</p>
               </div>
-              <img src="assets/landing/svg/divider.svg" alt="" class="block h-[0.4px] w-full" data-component="Divider" />
+              <img src="assets/svg/divider.svg" alt="" class="block h-[0.4px] w-full" data-component="Divider" />
               <div class="flex w-full flex-col gap-[20px]" data-component="Year Energy Block" data-node="581:2513">
                 <div class="flex w-full flex-col gap-[16px]" data-component="Year Energy Header">
                   <p class="font-pretendard text-[13px] font-bold leading-[19.5px] tracking-[0.26px] text-accent-default">2027 정미년이 나에게 오는 방식</p>
@@ -346,7 +347,7 @@
     </div>
     <button type="button" class="purchase-button absolute bottom-[16px] left-[16px] w-[310px]" data-component="PurchaseButton" data-node="581:2011" data-action="external">
       <span id="purchase-button-label">33,000원 구매하기</span>
-      <img src="assets/landing/svg/icon-chevron-right.svg" alt="" class="size-[18px]" data-component="Icon" />
+      <img src="assets/svg/icon-chevron-right.svg" alt="" class="size-[18px]" data-component="Icon" />
     </button>
   </div>
 </section>
@@ -385,6 +386,38 @@
     </div>
   </div>
 
+  <!-- ================================================================
+       상태 전환 패널 (데모 전용, 기기 프레임 밖)
+       ================================================================ -->
+  <aside class="panel" id="demo-panel" data-demo="panel">
+    <h1 class="panel__title">2027 신년운세 · 핸드오프 데모</h1>
+    <p class="panel__meta">기준 390px 웹뷰 · Figma 노드 581:1920</p>
+
+    <h2 class="panel__h">화면 바로가기</h2>
+    <div class="panel__chips" id="panel-screens"></div>
+
+    <h2 class="panel__h">무료 운세 확인 상태 <small>(Free Check · Free Result)</small></h2>
+    <div class="panel__seg" id="panel-states">
+      <button type="button" data-set-state="empty">빈 상태</button>
+      <button type="button" data-set-state="invalid">유효성 에러</button>
+      <button type="button" data-set-state="loading">로딩</button>
+      <button type="button" data-set-state="error">요청 에러</button>
+      <button type="button" data-set-state="result">입력 완료</button>
+    </div>
+    <label class="panel__check"><input type="checkbox" id="panel-fail-next" /> 다음 요청을 실패로 처리</label>
+    <p class="panel__note">「입력 완료」만 피그마에 있는 상태입니다. 나머지는 데모에서 임의로 추가했습니다(DECISIONS.md D-05).</p>
+
+    <h2 class="panel__h">구매 구성 <small>(Purchase / Options)</small></h2>
+    <div class="panel__seg" id="panel-options"></div>
+
+    <h2 class="panel__h">보기</h2>
+    <label class="panel__check"><input type="checkbox" id="panel-slots" /> 이미지 자리 표시 (slot 이름·크기)</label>
+    <label class="panel__check"><input type="checkbox" id="panel-nodes" /> 컴포넌트 이름 표시 (hover)</label>
+    <button type="button" class="panel__btn" id="panel-replay">모션 다시 재생</button>
+
+    <h2 class="panel__h">이미지 자리 현황</h2>
+    <ul class="panel__slots" id="panel-slot-list"></ul>
+  </aside>
 </div>
 
 <!-- ===== 컴포넌트 템플릿 ===== -->
@@ -484,7 +517,7 @@
 
 <template id="tpl-review-card">
   <div class="review-card" data-component="Review Card NN">
-    <img src="assets/landing/svg/star-rating-5.svg" alt="별점 5점" class="h-[14px] w-[78px]" data-component="별점 · 5점" />
+    <img src="assets/svg/star-rating-5.svg" alt="별점 5점" class="h-[14px] w-[78px]" data-component="별점 · 5점" />
     <div class="review-card__body" data-component="Review / Body">
       <p class="review-card__text"></p>
       <p class="flex items-center gap-[16px] text-[14px] leading-[20px]" data-component="Review / Meta"><span class="font-semibold text-[#333]"></span><span class="text-[var(--x-gray-text-2)]"></span></p>

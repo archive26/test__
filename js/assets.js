@@ -7,7 +7,7 @@
    ========================================================================== */
 (function () {
   const EXTS = ['gif', 'webp', 'png', 'jpg'];
-  const BASE = 'assets/landing/img/';
+  const BASE = 'assets/img/';
 
   /* 자리별 설명 — 플레이스홀더 라벨과 패널 목록에 사용 */
   const SLOT_INFO = {

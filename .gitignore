@@ -1,8 +1,4 @@
 .DS_Store
 **/.DS_Store
-# 폰트 파일은 공유·커밋 금지 (asset-guide.md 5절)
-assets/QUANTARO_design_assets_v2/07_fonts/*
-!assets/QUANTARO_design_assets_v2/07_fonts/.gitkeep
-# handoff 서체(서강대체, 라이선스 확인 필요 D-04)도 커밋 금지 — 로컬에만 둔다
-assets/landing/fonts/*.woff2
-handoff/landing/assets/fonts/*.woff2
+# 서강대체 글꼴은 커밋하지 않음(라이선스 확인 필요 · DECISIONS D-04). handoff.zip으로 따로 전달
+assets/fonts/*.woff2

@@ -69,7 +69,7 @@
 @font-face {
   font-family: 'SOGANG UNIVERSITY';
   src: local('SOGANG UNIVERSITY'), local('SOGANGUNIVERSITYTTF'),
-       url('../assets/landing/fonts/SOGANGUNIVERSITYTTF.woff2') format('woff2');
+       url('../assets/fonts/SOGANGUNIVERSITYTTF.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }

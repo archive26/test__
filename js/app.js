@@ -110,7 +110,7 @@
     const ox = 295, oy = 3.93;
     D.lantern.forEach(([f, x, y, w, h, flip]) => {
       const im = document.createElement('img');
-      im.src = `assets/landing/svg/lantern/${f}.svg`; im.alt = ''; im.className = 'lantern-part'; im.dataset.flip = flip;
+      im.src = `assets/svg/lantern/${f}.svg`; im.alt = ''; im.className = 'lantern-part'; im.dataset.flip = flip;
       Object.assign(im.style, { left: (x - ox) + 'px', top: (y - oy) + 'px', width: w + 'px', height: h + 'px' });
       lantern.appendChild(im);
     });
@@ -192,6 +192,7 @@
   const resultBox = $('#free-result');
   const msg = $('#free-check-msg');
   const submitBtn = form.querySelector('button[type="submit"]');
+  let failNext = false;
   let pending = null;
 
   const daysIn = (y, m) => new Date(y, m, 0).getDate();
@@ -245,6 +246,7 @@
       const y = sel.year.value || D.freeCheck.initial.year, m = sel.month.value || D.freeCheck.initial.month, d = sel.day.value || D.freeCheck.initial.day;
       $('#free-result-title').textContent = `${y}년 ${m}월 ${d}일생의 2027년`;
     }
+    $$('#panel-states button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.setState === state)));
   }
 
   function submit() {
@@ -252,7 +254,8 @@
     if (!ok) { setState('invalid'); return; }
     setState('loading'); // 스크롤 이동 없음 — 보고 있던 화면 그대로
     pending = setTimeout(() => {
-      setState('result'); // 실서비스: 여기서 API 결과/실패에 따라 'result' 또는 'error'
+      if (failNext) { failNext = false; $('#panel-fail-next').checked = false; setState('error'); }
+      else setState('result');
     }, D.freeCheck.loadingMs);
   }
 
@@ -286,6 +289,11 @@
       el.addEventListener('click', () => selectOption(o.id));
       wrap.appendChild(el);
     });
+    const seg = $('#panel-options');
+    D.options.forEach((o) => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = won(o.price); b.dataset.opt = o.id;
+      b.addEventListener('click', () => selectOption(o.id)); seg.appendChild(b);
+    });
     selectOption(selectedOption);
   }
   function selectOption(id) {
@@ -296,6 +304,7 @@
       el.dataset.selected = String(on); el.setAttribute('aria-checked', String(on));
     });
     $('#purchase-button-label').textContent = `${won(o.price)} 구매하기`;
+    $$('#panel-options button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.opt === id)));
   }
 
   /* ------------------------------------------------------------------
@@ -320,8 +329,8 @@
       if (act === 'scroll-to-free-check') scrollToEl($('#free-check'), 400, 24);
       else if (act === 'scroll-to-purchase') scrollToEl($('#s10'), 400, 0);
       else if (act === 'external') {
-        if (D.externalTarget === '_self') location.href = D.externalUrl;
-        else window.open(D.externalUrl, D.externalTarget, 'noopener');
+        window.open(D.externalUrl, D.externalTarget, 'noopener');
+        toast(`${a.dataset.component} → ${D.externalUrl}`);
       } else if (act === 'temp-link') { e.preventDefault(); toast(`[임시 링크] ${a.dataset.label} — URL 확인 후 연결`); }
     });
   }
@@ -331,7 +340,7 @@
      (데모 패널 위에서는 패널 자체가 스크롤)
      ------------------------------------------------------------------ */
   function bindOuterScroll() {
-    const outside = (t) => !viewport.contains(t);
+    const outside = (t) => !viewport.contains(t) && !t.closest('.panel');
     window.addEventListener('wheel', (e) => {
       if (!outside(e.target) || e.ctrlKey) return; // ctrl+휠(확대)은 그대로
       const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? viewport.clientHeight : 1;
@@ -341,7 +350,7 @@
     const KEYS = { ArrowDown: 40, ArrowUp: -40, PageDown: 'page', PageUp: '-page', ' ': 'page', Home: 'home', End: 'end' };
     window.addEventListener('keydown', (e) => {
       const t = e.target;
-      if (!(e.key in KEYS) || viewport.contains(t) || /^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(t.tagName)) return;
+      if (!(e.key in KEYS) || t.closest('.panel') || viewport.contains(t) || /^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(t.tagName)) return;
       const k = KEYS[e.key], page = viewport.clientHeight * 0.9;
       if (k === 'home') viewport.scrollTop = 0;
       else if (k === 'end') viewport.scrollTop = viewport.scrollHeight;
@@ -361,13 +370,71 @@
     ['#s01', '#s01-2'].forEach((s) => io.observe($(s)));
     io.observe($('#chapter-list'));
   }
+  function replayMotion() {
+    $$('.is-in').forEach((el) => el.classList.remove('is-in'));
+    void document.body.offsetWidth;
+    ['#s01', '#s01-2'].forEach((s) => io.observe($(s)));
+    io.observe($('#chapter-list'));
+  }
+
+  /* ------------------------------------------------------------------
+     데모 패널
+     ------------------------------------------------------------------ */
+  function bindPanel(slotResults) {
+    const chips = $('#panel-screens');
+    D.screens.forEach(([id, name]) => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = name;
+      b.addEventListener('click', () => scrollToEl($('#' + id), 400, 0)); chips.appendChild(b);
+    });
+    $$('#panel-states button').forEach((b) => b.addEventListener('click', () => {
+      const st = b.dataset.setState;
+      if (st === 'empty') { setValues(null); setState('empty'); }
+      else if (st === 'invalid') { if ($$('select', form).every((s) => s.value)) setValues(null); setState('invalid'); }
+      else if (st === 'result') { if (!$$('select', form).every((s) => s.value)) setValues(D.freeCheck.initial); setState('result'); }
+      else setState(st);
+      scrollToEl($('#s02 form'), 400, 120);
+    }));
+    $('#panel-fail-next').addEventListener('change', (e) => (failNext = e.target.checked));
+    $('#panel-slots').addEventListener('change', (e) => document.body.classList.toggle('show-slots', e.target.checked));
+    $('#panel-replay').addEventListener('click', () => { viewport.scrollTop = 0; replayMotion(); });
+
+    // 패널 서랍 — 화면이 좁으면 닫힌 채로 시작 (UI가 패널에 가려지지 않게)
+    const toggle = $('#panel-toggle');
+    const setOpen = (open) => { document.body.classList.toggle('panel-closed', !open); toggle.textContent = open ? '패널 닫기' : '데모 패널'; toggle.setAttribute('aria-expanded', String(open)); };
+    setOpen(innerWidth >= 390 + 2 * 340);
+    toggle.addEventListener('click', () => setOpen(document.body.classList.contains('panel-closed')));
+
+    // 컴포넌트 이름 툴팁
+    const tip = document.createElement('div'); tip.className = 'node-tip'; document.body.appendChild(tip);
+    $('#panel-nodes').addEventListener('change', (e) => { document.body.classList.toggle('show-nodes', e.target.checked); tip.style.display = 'none'; });
+    viewport.addEventListener('mousemove', (e) => {
+      if (!document.body.classList.contains('show-nodes')) return;
+      const c = e.target.closest('[data-component]');
+      if (!c) { tip.style.display = 'none'; return; }
+      tip.textContent = c.dataset.component + (c.dataset.node ? `  #${c.dataset.node}` : '') + (c.dataset.variant ? `  [${c.dataset.variant}]` : '');
+      tip.style.display = 'block'; tip.style.left = e.clientX + 12 + 'px'; tip.style.top = e.clientY + 12 + 'px';
+    });
+    viewport.addEventListener('mouseleave', () => (tip.style.display = 'none'));
+
+    // 이미지 자리 현황
+    const list = $('#panel-slot-list');
+    Object.entries(window.SlotLoader.SLOT_INFO).forEach(([slot, info]) => {
+      const r = slotResults[slot];
+      const li = document.createElement('li');
+      const cls = !r ? 'ph' : r.ext === 'gif' ? 'gif' : 'ok';
+      li.innerHTML = `<span>${slot}</span><span class="${cls}">${!r ? '플레이스홀더' : r.ext}</span>`;
+      li.title = `${info.screen} · ${info.label}`;
+      list.appendChild(li);
+    });
+  }
 
   /* ------------------------------------------------------------------
      init
      ------------------------------------------------------------------ */
   if (/[?&]flat\b/.test(location.search)) document.body.classList.add('flat');
+  if (innerWidth < 390 + 2 * 340) document.body.classList.add('panel-closed');
   renderMonths(); renderPaid(); renderChapters(); renderTiming(); renderReviews(); renderFooter();
   renderOptions(); bindFreeCheck(); bindActions(); bindMotion(); bindOuterScroll();
   tickCountdown(); setInterval(tickCountdown, 1000);
-  window.SlotLoader.loadAll();
+  window.SlotLoader.loadAll().then(bindPanel);
 })();
