@@ -23,10 +23,9 @@
 | 폴더 | 내용 |
 |---|---|
 | `assets/QUANTARO_design_assets_v2/` | 회사 에셋 (`QUANTARO_design_assets_v2.zip` 압축 해제, **git 제외**) |
-| `_archive/1105_랜딩시안_A-D/` | 11/05 HTML 랜딩 시안 A~D 코드와 이미지 (index.html·css·js·src·assets/img). 참고용, 더 이상 수정하지 않음 |
 | `_archive/1113_도장_전달자료/stamps/` | 11/13 05 낙관 도장 PNG·CSS·JS 전달 자료. 11/18 핸드오프로 대체됨 |
 
-옛 시안 확인: `_archive/1105_랜딩시안_A-D`에서 `python3 -m http.server 8000` → http://localhost:8000
+11/05 HTML 랜딩 시안 A~D 코드는 이 폴더에서 지웠다(2026-11-18). `~/Documents/퀀타로/test__`(main 브랜치)에 같은 파일이 있다 — 거기서 `python3 -m http.server 8000` → http://localhost:8000
 
 ## 같은 저장소의 다른 폴더
 | 위치 | 브랜치 | 용도 |
