@@ -80,7 +80,7 @@
       st.dataset.component = `Stamp_0${i}_${(c.no + c.name).replace(/^제\d장/, '').replace(/\s/g, '')}`;
       st.dataset.node = s.node;
       Object.assign(st.style, { left: s.x + 'px', top: s.y + 'px', width: s.w + 'px', transform: `rotate(${-s.rot}deg)` });
-      st.querySelector('.stamp__text').textContent = `${c.no} ${c.name}`;
+      st.querySelector('.stamp__text').textContent = s.text; // 11/18: 장 제목과 겹치지 않는 질문형 문구
       st.querySelector('.stamp__body').style.setProperty('--delay', (D.stampTiming.start + D.stampTiming.step * i).toFixed(2) + 's');
       list.appendChild(el);
     });
@@ -327,6 +327,7 @@
       if (!a) return;
       const act = a.dataset.action;
       if (act === 'scroll-to-free-check') scrollToEl($('#free-check'), 400, 24);
+      if (act === 'scroll-to-paid') scrollToEl($('#s04'), 400, 0);
       else if (act === 'scroll-to-purchase') scrollToEl($('#s10'), 400, 0);
       else if (act === 'external') {
         window.open(D.externalUrl, D.externalTarget, 'noopener');
@@ -363,18 +364,27 @@
      모션 트리거 (섹션이 30% 보이면 .is-in)
      ------------------------------------------------------------------ */
   let io;
+  // [관찰 대상, .is-in을 붙일 요소] — 큰 섹션은 모션이 있는 영역을 직접 관찰한다.
+  const MOTION_TARGETS = [
+    ['#s01', '#s01'],                         // 01 인물 슬라이드
+    ['#need-checklist', '#need-checklist'],   // 01-2 체크 카드 6장
+    ['#chapters-scroll', '#chapters-bg'],     // 05 도장 손잡이·금색 링
+    ['#chapter-list', '#chapter-list'],       // 05 장별 낙관 10종
+  ];
+  function observeAll() { MOTION_TARGETS.forEach(([watch]) => io.observe($(watch))); }
   function bindMotion() {
     io = new IntersectionObserver((entries) => entries.forEach((en) => {
-      if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      if (!en.isIntersecting) return;
+      const pair = MOTION_TARGETS.find(([w]) => en.target.matches(w));
+      if (pair) $(pair[1]).classList.add('is-in');
+      io.unobserve(en.target);
     }), { root: viewport, threshold: 0.3 });
-    ['#s01', '#s01-2'].forEach((s) => io.observe($(s)));
-    io.observe($('#chapter-list'));
+    observeAll();
   }
   function replayMotion() {
     $$('.is-in').forEach((el) => el.classList.remove('is-in'));
     void document.body.offsetWidth;
-    ['#s01', '#s01-2'].forEach((s) => io.observe($(s)));
-    io.observe($('#chapter-list'));
+    observeAll();
   }
 
   /* ------------------------------------------------------------------

@@ -1,8 +1,28 @@
 # HANDOFF — 2027 신년운세 · 랜딩 통합
 
-> 확정일 2026-11-13 · 데모와 이 문서의 이름(화면·컴포넌트·토큰·이미지 자리)은 모두 같다.
+> 확정일 2026-11-18 (1차 2026-11-13) · 데모와 이 문서의 이름(화면·컴포넌트·토큰·이미지 자리)은 모두 같다.
+> **11/18 개정:** 기준 피그마가 `581:1920`(390×12525)에서 `840:4784`「2027 신년운세 · 랜딩 최종 (핸드오프 11/18)」(390×16385)로 바뀌었다. 바뀐 섹션과 모션은 0장에 모았다.
 > 판단 근거는 `DECISIONS.md`(D-번호)에 있다.
 > 서강대체 글꼴 파일 `assets/fonts/SOGANGUNIVERSITYTTF.woff2`는 저장소에 올리지 않았다(라이선스 확인 필요 · D-04). 따로 받은 파일을 같은 위치에 넣으면 된다.
+
+---
+
+## 0. 11/18 변경 요약 (1차 대비)
+
+| 화면 | 변경 |
+|---|---|
+| 01 Hero | 카피 3줄 교체(2027년에도 / 열심히만 사실 건가요? / 기회가 오는 달은 따로 있습니다), 점 3개, 인물 x 52 → 126. 인물 슬라이드 모션 유지(I-01) |
+| 01-2 Need | **전면 교체.** 말풍선 → 「2027년, 이런 분은 반드시 확인하세요」 + 두루마리를 든 차우진 + 체크 카드 6장(지그재그). 640 → 1015. 카드 순차 등장 모션(I-02) |
+| 02 Preview GIF | 제목 「생년월일 하나로 / 내 2027년 미리 보기」 |
+| 03 Free Result | 결과 카드 아래 「여기까지가 무료입니다.」 블록 + CTA / Upsell(→ 04로 스크롤, I-15) 추가. 1364 → 1665 |
+| 04 Paid Preview | **위에 Intro 2393px 추가**(다크 비교 「누구에게나 똑같았습니다」 + 「퀀타로는 다르게 읽습니다」 3가지 + 차우진 소개). 기존 본문은 아래로 이동, 헤더 문구 교체(왜 하필 그 달일까요? / 내 사주, 어디가 강하고 무엇이 부족할까?). 1852 → 4317 |
+| 05 Chapters | 상단 문구 교체(한 번 읽고 끝나는 운세가 아닌 / 1년 내내 다시 펼쳐볼 / 내 2027년 ‘안내서’) + 모서리 장식 4개. **도장 손잡이(Stamp Tool) 찍기 모션 추가(I-16)**, 낙관 10개 문구를 질문형으로 교체(장 제목과 중복 제거), 낙관 시작 0.3s → 1.3s |
+| 06 Timing | 제목 「“좋은 일이 생깁니다.” / 그래서, 대체 언제요?」 + 설명 2줄. 카드 이하 89~111px 아래로. 1953 → 2068 |
+| 07 Before After | 제목 「평범한 하루를 보내던 사람들 / 2027년을 먼저 본 뒤, 무엇을 준비했을까요?」(블루 방사 배경) + 아래 화살표. 1295 → 1368 |
+| 08 Review List | 제목 「먼저 읽어본 사람들의 반응은?」 + 설명 2줄. 354 → 394 |
+| 09 Closing Headline | **전면 교체.** 흰 배경 + 아래로 진해지는 네이비 삼각형 + 모서리 장식, 「사주는 못 바꿔도 / 때는 고를 수 있습니다」. 100 → 437. 하단은 10의 #0b172b와 이어짐 |
+| 10 Purchase | 위에 네이비 헤더(190) + 「나만의 2027년 안내서」 + 설명 추가. 873 → 1041 |
+| 11 Footer · BottomBar | 변경 없음 |
 
 ---
 
@@ -10,7 +30,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| 피그마 | [퀀타로 › 2027랜딩페이지 › 2027 신년운세 · 랜딩 통합](https://www.figma.com/design/Gdc88dYmSYwu4XDrMug1Ut/%ED%80%80%ED%83%80%EB%A1%9C?node-id=581-1920) · fileKey `Gdc88dYmSYwu4XDrMug1Ut` · node `581:1920` (390 × 12525) |
+| 피그마 | [퀀타로 › 2027랜딩페이지 › 2027 신년운세 · 랜딩 최종 (핸드오프 11/18)](https://www.figma.com/design/Gdc88dYmSYwu4XDrMug1Ut/%ED%80%80%ED%83%80%EB%A1%9C?node-id=840-4784) · fileKey `Gdc88dYmSYwu4XDrMug1Ut` · node `840:4784` (390 × 16385) · 섹션 `이거 확인해주세요` |
 | 플로우 범위 | 01 Hero → 01-2 Need → 02 Preview GIF → 03 Free Result → 04 Paid Preview → 05 Chapters → 06 Timing → 07 Before After Reviews → 08 Review List → 09 Closing Headline → 10 Purchase → 11 Footer (+ 하단 고정 BottomBar) |
 | 기준 화면 | 모바일 웹뷰 390px, 피그마 절대 좌표 기반 고정 레이아웃 (390 미만 대응은 [확인 필요] 8-9) |
 | 데모 기술 | HTML + Tailwind(Play CDN 3.4.16) + 바닐라 JS, **빌드 없음** |
@@ -112,23 +132,23 @@ CSS에서는 `/`를 `\/`로 이스케이프한다. Tailwind는 `/`를 투명도 
 
 ## 3. 화면별 스펙
 
-y는 프레임 `581:1920` 기준, 크기는 px이다. 세부 좌표와 서체는 `index.html`의 해당 섹션과 `data.js`를 참고한다.
+y는 프레임 `840:4784` 기준, 크기는 px이다. 세부 좌표와 서체는 `index.html`의 해당 섹션과 `data.js`를 참고한다.
 
 | 화면 | 노드 | y / 높이 | 배경 | 구성 · 핵심 스펙 |
 |---|---|---|---|---|
-| **01 Hero** | 581:2686 | 0 / 934 | 이미지 | 「달빛 아래 열린 한옥문 1」 436×944(-23,-9) · 카피 3줄(서강대체 28/36/18px, 흰색) · 점 2개 · 「부채를 든 차우진」 342×588(52,356, 등장 모션) |
-| **01-2 Need** | 581:2667 | 934 / 640 | `--x-ivory` + 별밤 이미지 390×732 | 상단 그라디언트 카피(서강대체 18) · 「고민하고 있진 않나요?」(30, 흰색) · Speech Bubble 01~04(Pretendard 13/20, 순차 등장) · 하단 글로우 카피 2줄(#ffe0a3, 20/22px) |
-| **02 Preview GIF** | 581:2640 | 1574 / 785 | 흰색 | 「나의 2027년 미리보기」 GIF 390×509 + 어두운 그라디언트 + Preview / Heading(서강대체 24 · Pretendard 15) → **클릭 시 입력 영역으로 스크롤** · Free Check / Input + CTA(342, 위 31px): Birth Select Year 158 / Month 80 / Day 80(패딩 8/12, 테두리 1 `--x-line`, 라운드 12, 값 Pretendard Medium 19/28.5 `accent/default`, 화살표 16) + CTA / Free Result · Connector(구분선 + 다이아몬드 + 「무료 결과 요약」) |
-| **03 Free Result** | 581:2491 | 2359 / 1364 | 흰색 | Free Result / Card 360×1287(3px #1b3b6f 테두리 + 그림자) › Result / Content 342×1265(`--x-paper`, Corner Ornament ×4) · Day Master Block(제목 「YYYY년 M월 D일생의 2027년」, Hanja Badge 76, Year Relation Row, Keyword Tags) · MonthMap(Month 셀 78×78 4×3, highlight 8·9월) · Month Legend 5줄. **상태 4종은 5장 참고** |
-| **04 Paid Preview** | 581:2440 | 3723 / 1852 | `--x-paper-2` | Header(그라디언트 36 + 24 + 안내 13 + 두루마리 106) · Preview 01 네 기둥 / 02 오행 비율 / 03 용신·희신·기신 / 04 신강·신약: 번호 32 · 질문 16 · 설명 13 + 카드(종이 텍스처 + 결과지 크롭 + 블러 4.275px). 크롭 값은 `data.js › paidPreviews` |
-| **05 Chapters** | 613:155 | 5575 / 1894 | 위 라운드 80 네이비 그라디언트(#111a36→#223369) | 책 이미지(soft-light 80%) · 「그리고 / 당신의 2027년을 담은 / 10개의 이야기까지」 · 두루마리 208×104 · TOC Card 360×1494: Header(결과지 화면 예시 · 가상 생년월일 배지) · Numbered List(한지 배경, Chapter 0~9 각 117.5px, 설명 blur 4.5px, **Stamp_00~09**) · Footer(메타 + CTA Button 302 「내 풀이 확인하기 · 33,000원」) |
-| **06 Timing** | 581:2218 | 7469 / 1953 | #001026→#1b3b6f + 한지 | 랜턴(벡터 51개) · 타이틀(서강대체 23, #224d91) · Timing / Card ×4(GIF 342×192/197 라운드 14, 태그, 세로선, Gowun 20/18 카피, 밑줄 8px) · 하단 안내 14 · CTA / Full Reading 350(배경 #183767) |
-| **07 Before After Reviews** | 581:2159 | 9422 / 1295 | `--x-cream` | Reviews / Heading(블러 40 + 골드 방사 그라디언트) · Review / Card 1~3(gap 32): Before / Frame 180×153 + After / Frame 180×169(18px 겹침, **After가 위**, 그림자 -9.19/0/6.1 22%, 테두리 1.017 `accent/default`) · Author · Headline(#1b3b6f 바탕 흰 글자 18) · Body 13.5/22.275 |
-| **08 Review List** | 581:2033 | 10717 / 354 | 흰색 | 「먼저 살펴본 사람들의 이야기」(서강대체 23) · Review Card 01~05 282×206(라운드 16, 별점 5, 본문 4줄 말줄임) → 오른쪽에서 왼쪽으로 무한 슬라이드 |
-| **09 Closing Headline** | 581:2029 | 11071 / 100 | 흰색 | 「2027년의 시작,」 36 `--x-gold-line` · 「나의 운세부터 확인해 보세요」 26 `accent/default` |
-| **10 Purchase** | 581:1977 | 11171 / 873 | 흰색 + 초상 582×878 | Purchase / Product Card 342×508(라운드 24, rgba(10,19,34,.7) + blur 8) · Title(차우진의 2027 / 신년운세 36) · Options 3개(radio) · Includes 4개 · PurchaseButton 310×56(`--x-gold-light`, 「{가격} 구매하기」) |
-| **11 Footer** | 581:1921 | 12044 / 481 | `--x-footer-bg` | 로고 95×22 · 링크 3개(고객센터·이용약관·개인정보처리방침) · 회사 정보 7줄(12/19.2) · © 2026 QUANTARO. · 끝에 BottomBar 높이만큼 113px 여백 |
-| **BottomBar** (고정) | 581:1969 | 화면 하단 고정 | `bg/page` + 상단선 `--x-line-2` | Countdown(「묶음 할인 마감까지」 + Poppins 14 SemiBold) · Bottom Bar / CTA 「내 풀이 전체 열기 · 33,000원」. 패딩 12/20/14, gap 10, 위쪽 그림자 |
+| **01 Hero** | 840:5626 | 0 / 934 | 이미지 | 「Hero / BG Hanok Door」 436×944(-23,-9) · 카피 3줄(서강대체 28/36/18px, 흰색, top 110/159/209) · Hero / Dot 1~3 · 「Hero / Image 차우진」 342×588(126,356, 등장 모션 I-01) |
+| **01-2 Need** | 877:1236 | 934 / 1015 | 별밤 이미지(섹션 전체) + rgba(1,6,11,.4)→rgba(4,34,81,.4) | Need / Title(서강대체 28/38 · 42/54, 「반드시」 밑줄 강조 rgba(255,220,132,.7) 60%) · Need / BG Image 두루마리를 든 차우진 427×315(-19,225) · Need / Checklist(top 490, 516 클립): Need / Check Card ×6 360(첫 장 385)×60, 라운드 30, 지그재그(좌 -36~-33 / 우 72~95), 배경 #354868·#102f5e·#364d70, 체크 아이콘 20 + Pretendard Medium 18/24 #e8edf5 + Bold 흰색 (I-02) |
+| **02 Preview GIF** | 840:5599 | 1949 / 785 | 흰색 | 「나의 2027년 미리보기」 GIF 390×509 + 어두운 그라디언트 + Preview / Heading(「생년월일 하나로 / 내 2027년 미리 보기」 서강대체 24 · Pretendard 15) → **클릭 시 입력 영역으로 스크롤** · Free Check / Input + CTA(342, 위 31px): Birth Select Year 158 / Month 80 / Day 80(패딩 8/12, 테두리 1 `--x-line`, 라운드 12, 값 Pretendard Medium 19/28.5 `accent/default`, 화살표 16) + CTA / Free Result · Connector(구분선 + 다이아몬드 + 「무료 결과 요약」) |
+| **03 Free Result** | 840:5443 | 2734 / 1665 | 흰색 | Free Result / Card 360×1287(3px #1b3b6f 테두리 + 그림자) › Result / Content 342×1265(`--x-paper`, Corner Ornament ×4) · Day Master Block · MonthMap · Month Legend 5줄 · **Upsell(top 1370)**: 「여기까지가 무료입니다.」 서강대체 32/44(「무료」 #8c6d1f) + Noto Sans 15/25 #4b5563 3줄 + CTA / Upsell 342×56 「열두 달의 이유 확인하기」. **상태 4종은 5장 참고** |
+| **04 Paid Preview** | 877:1597 | 4399 / 4317 | Intro 다크 #0b172b(938) → `--x-paper-2` | **Intro(0~2393)**: Dark Wrap — A / Glow · 「지금까지 읽은 신년운세 / 누구에게나 / 똑같았습니다」(서강대체 20·40·40, #c8d2e0·흰·#f0d9a0) · Comparison ×3(라벨 서강대체 20 #d9c7a7 + 카드 라운드 16, 흰 5% 배경·18% 테두리, Gowun Bold 18 + Noto Sans 13 #9aa8bd) · A / Lead(이미지 질감 글자 20) · Intro / Arrow 56×23 · Compare Wrap — 「똑같은 말로는 알 수 없었던 / 당신만의 2027년, / 퀀타로는 다르게 읽습니다.」 · B / Item 01~03(Poppins 22 #b7833d + 서강대체 22 + Noto Sans 15/24, 사이 금색 30% 선) · C(차우진 소개 서강대체 30/42 + Intro / Image 차우진 328×385) · Intro / Fade. **본문(2393~, 1924)**: Header(「왜 하필 / 그 달일까요?」 그라디언트 36 · 「내 사주, 어디가 강하고 / 무엇이 부족할까?」 24 · 안내 13 · 두루마리 106) · Preview 01~04(top 441/833/1221/1571). 크롭 값은 `data.js › paidPreviews` |
+| **05 Chapters** | 882:247 | 8716 / 1880 | 위 라운드 80 네이비 그라디언트(#111a36→#223369, 섹션 위로 116 올라감) | Eyebrow 「한 번 읽고 끝나는 운세가 아닌」(서강대체 18, #ffedbf→#f1b96d) · Title 1 26 흰색 · Title 2 32 「내 2027년 ‘안내서’」(‘안내서’ #f0d9a0) · Bracket Corner ×4(18, #f0d9a0) · 두루마리 208×104(91,216) · **Chapters / Stamp Tool 72×72(237,216) + Scroll / Seal Impact Ring 64×32(I-16)** · TOC Card 360×1494(top 345): Header · Numbered List(Chapter 0~9, **Stamp_00~09 질문형 문구**) · Footer(메타 + CTA Button 302) |
+| **06 Timing** | 840:5095 | 10596 / 2068 | #001026→#1b3b6f + 한지 | Timing / Lantern Deco(벡터 51개, x 433까지 넘침) · 「“좋은 일이 생깁니다.”」 서강대체 23/34 #224d91(top 77) · 「그래서, 대체 언제요?」 32/40 #1b1b1b↔#3b3b3b 그라디언트(top 117) · Timing / Sub Noto Sans 15/25 #4b5563(top 173) · Timing / Card ×4(top 267) · 하단 안내 14(top 1917) · CTA / Full Reading 350(top 1981, 배경 #183767) |
+| **07 Before After Reviews** | 840:5032 | 12664 / 1368 | `--x-cream` | Reviews / Heading 342×154(블러 20 + 블루 방사 그라디언트, 서강대체 20/30 #1b3b6f + 30/42 그라디언트 2줄) · Reviews / Down Arrow 72×40(159,199) · Review / Card 1~3(top 266, gap 32) — 카드 구성은 1차와 같음 |
+| **08 Review List** | 840:4904 | 14032 / 394 | 흰색 | 「먼저 읽어본 사람들의 반응은?」(서강대체 23/36) · 설명 Noto Sans 14/22 #6b7280 2줄 · Review Card 01~05 282×206(top 154) → 오른쪽에서 왼쪽으로 무한 슬라이드 |
+| **09 Closing Headline** | 877:1762 | 14426 / 437 | 흰색 → 하단 #0b172b | Closing / Glow(연한 회청 원형 빛) · Closing / Blue Triangle(SVG, 흐림 포함) · Closing / Bottom Blend(하단 36px 투명→#0b172b) · Deco Corner Left/Right 64×68 · 「사주는 못 바꿔도」 서강대체 24/34 #224d91 · 「때는 고를 수 있습니다」 32/49 그라디언트 · Closing / Sub Pretendard 15/25 #4b5563 |
+| **10 Purchase** | 840:4841 | 14863 / 1041 | 흰색 + 위 네이비 헤더 190(#0b172b) + 초상 582×878(top 190) | 「나만의 2027년 안내서」 서강대체 32/44(「안내서」 #f0d9a0) · 설명 Noto Sans 15/24 #c8d2e0 · Purchase / Product Card 342×508(top 517, 구성은 1차와 같음) |
+| **11 Footer** | 840:4785 | 15904 / 481 | `--x-footer-bg` | 로고 95×22 · 링크 3개(고객센터·이용약관·개인정보처리방침) · 회사 정보 7줄(12/19.2) · © 2026 QUANTARO. · 끝에 BottomBar 높이만큼 113px 여백 |
+| **BottomBar** (고정) | 840:4833 | 화면 하단 고정 | `bg/page` + 상단선 `--x-line-2` | Countdown(「묶음 할인 마감까지」 + Poppins 14 SemiBold) · Bottom Bar / CTA 「내 풀이 전체 열기 · 33,000원」. 패딩 12/20/14, gap 10, 위쪽 그림자 |
 
 ### 공통 CTA (`.cta-primary`)
 CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 같은 스펙을 쓴다.
@@ -144,23 +164,25 @@ CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 �
 
 | # | 트리거 | 동작 | 결과 | 시간 · 이징 |
 |---|---|---|---|---|
-| I-01 | 01 Hero가 30% 보임 | 「부채를 든 차우진」 translateX 200px → 0 | 인물이 오른쪽에서 들어옴 | 1.5s ease-out, 1회 (D-12, D-12b) |
-| I-02 | 01-2 Need가 30% 보임 | Speech Bubble 01~04: opacity 0→1, translateY 12→0 | 말풍선 순차 등장 | 지연 .43/.99/1.84/2.21s · 길이 .77/.60/.66/.57s · ease-out (D-12b) |
+| I-01 | 01 Hero가 30% 보임 | 「Hero / Image 차우진」 translateX 200px → 0 | 인물이 오른쪽에서 들어와 x 126에 멈춤 | 1.5s ease-out, 1회 (피그마 키프레임 840:5628) |
+| I-02 | Need / Checklist가 30% 보임 | Need / Check Card 01~06: opacity 0→1, translateY 12→0 | 체크 카드가 위에서부터 차례로 떠오름 | 지연 .25/.75/1.25/1.75/2.25/2.75s · 각 .45s ease-out, 1회 (피그마 877:1243~1288) |
 | I-03 | 02 「나의 2027년 미리보기」 탭 | Free Check / Input + CTA로 스크롤 (위 24px 여백) | 입력 영역이 화면 위쪽에 옴 | 0.4s easeOutCubic (피그마 SCROLL_TO 0.4s · D-11) |
 | I-04 | Birth Select 탭 | OS 기본 선택기(네이티브 `<select>`) 열림 → 값 표시 | 년도 1930~2012(내림차순)·월·일. 년·월을 바꾸면 일수 다시 계산(윤년 포함), 범위를 넘는 일은 선택 해제 | 즉시 (D-06) |
 | I-05 | CTA / Free Result (빈 칸 있음) | 빈 칸 빨간 테두리(#d14343) + 「생년월일을 모두 선택해 주세요.」 | 유효성 에러. 칸을 채우면 해당 칸 에러 해제 | 즉시 (D-07) |
 | I-06 | CTA / Free Result (모두 입력) | 버튼 「확인 중…」 + 스피너, 비활성 → 03 위를 흰색으로 덮고 로딩 카드 | 로딩 → 결과(제목 날짜 반영) 또는 요청 에러. **스크롤 이동 없음, 페이지 높이 유지** | 로딩 1.2s (D-07, D-08) |
 | I-07 | 「다시 시도」(요청 에러) | I-06과 같음 | 로딩 → 결과 | 1.2s |
-| I-08 | 05 Numbered List가 30% 보임 | Stamp_NN 내려찍기: scale 1.75→1.08/.89→.98/1.035→1.015/.985→1, 회전 -5°→0, Y -26→0 + 잉크 등장 + 착지 순간 Impact Ring 확산 | 도장 10개가 차례로 찍힘 | 도장마다 .65s(지점 38.4/52/72%), 시작 0.3s + 0.5s×N, 잉크 .0975s, 링 .29s(착지 +.25s), 1회 (D-21) |
+| I-08 | 05 Numbered List가 30% 보임 | Stamp_NN 내려찍기: scale 1.75→1.08/.89→.98/1.035→1.015/.985→1, 회전 -5°→0, Y -26→0 + 잉크 등장 + 착지 순간 Impact Ring 확산 | 도장 10개가 차례로 찍힘 | 도장마다 .65s(지점 38.4/52/72%), 시작 **1.3s** + 0.5s×N(11/18: I-16 뒤로 1s 이동), 잉크 .0975s, 링 .29s(착지 +.25s), 1회 (D-21) |
 | I-09 | 08 표시 중 | Review List / Cards translateX 0 → -1470px | 카드 5장 + 복제 5장 무한 슬라이드 | 36.489s linear 무한 |
 | I-10 | 10 Option N 탭 | 해당 Option `data-selected=true`(골드 30% 배경, 테두리, radio dot) | PurchaseButton 문구가 「{가격} 구매하기」로 바뀜 | 배경·테두리 .15s |
 | I-11 | 05 CTA Button · 06 CTA / Full Reading · 10 PurchaseButton · Bottom Bar / CTA 탭 | `https://quantaro.kr/newyear2027`로 이동 | 데모는 새 탭 + 안내 토스트, 실서비스는 같은 창 이동 권장 | 즉시 · 토스트 2.2s (D-10) |
 | I-12 | Footer 링크 3개 탭 | 이동 막음 + 「[임시 링크] … — URL 확인 후 연결」 토스트 | URL 미정 | 토스트 2.2s |
 | I-13 | 페이지 진입 | 카운트다운 1초마다 감소(`N일 HH:MM:SS`) | 0이 되면 0에서 멈춤 | 1s 간격 (D-09) |
 | I-14 | 스크롤 | BottomBar는 스크롤 영역 밖에 **항상 고정** | Footer는 113px 여백 때문에 가려지지 않음 | — (D-09) |
+| I-15 | 03 CTA / Upsell 「열두 달의 이유 확인하기」 탭 | 04 Paid Preview 맨 위로 스크롤 | 유료 미리보기 시작 | 0.4s (데모 임의 · D-24) |
+| I-16 | 05 두루마리(Scroll Image)가 30% 보임 | Chapters / Stamp Tool: 제자리 → 두루마리 위로 이동(x −78, y −43, 반시계 8°, 1.06배) → 내려찍기(y −15, 1.04×0.92 눌림) → 들어 올려 제자리 복귀(시계 4° 흔들림). 찍는 순간 Scroll / Seal Impact Ring(금색 #b8913a 테두리 2px) 불투명도 .35→0, 1→1.5배 | 도장 손잡이가 한 번 찍고 돌아옴 | 0.2~1.2s(축별 키프레임은 components.css 주석) · 링 .62~.92s ease-out · 1회 (피그마 882:251, 882:977) |
 | 공통 | OS 「동작 줄이기」 켜짐 | 모든 모션 끔, 최종 상태로 표시 | — | — |
 
-모션은 피그마에서 페이지 전체가 한 타임라인(36.489s)에 묶여 있다. 데모는 섹션이 30% 보일 때 1회 재생하도록 바꿨다(D-12). 다만 08 슬라이드는 무한 반복이다.
+모션은 피그마에서 페이지 전체가 한 타임라인(36.489s)에 묶여 있다. 데모는 모션이 있는 영역이 30% 보일 때 1회 재생하도록 바꿨다(D-12). 01-2는 체크리스트, 05는 두루마리와 목차를 따로 관찰한다(`app.js › MOTION_TARGETS`). 08 슬라이드만 무한 반복이다.
 
 ---
 
@@ -179,7 +201,7 @@ CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 �
 - **없는 날짜:** 2/30, 2/29(평년), 4/31 같은 날짜는 년·월을 바꾸면 일 선택이 해제된다.
 - **연타:** 로딩 중에는 버튼이 비활성이라 다시 누를 수 없다. 상태가 바뀌면 진행 중이던 타이머를 취소한다.
 - **결과 문구:** 날짜가 바뀌어도 03 제목만 바뀐다. 본문(甲, 열두 달 지도)은 목업으로 고정이다(D-08). 05 TOC의 「1999년 11월 18일생」은 「가상 생년월일」 배지가 있어 고정이다.
-- **에러 상태 높이:** 빈 상태·에러 카드는 최소 높이 260px이라 결과(1364px)보다 짧다. 로딩일 때만 직전 높이를 유지한다.
+- **에러 상태 높이:** 빈 상태·에러 카드는 최소 높이 260px이라 결과(1665px, Upsell 포함)보다 짧다. Upsell 블록은 결과 상태에만 있다. 로딩일 때만 직전 높이를 유지한다.
 - **카운트다운 종료:** `0일 00:00:00`에서 멈춘다. 종료 후 문구나 숨김 처리는 정하지 않았다(8-4).
 - **이미지 없음:** 같은 이름의 파일이 없으면 피그마 크기의 플레이스홀더와 라벨을 보여 준다(7장).
 - **08 후기 본문:** 4줄을 넘으면 말줄임(`-webkit-line-clamp: 4`) 처리한다.
@@ -193,8 +215,8 @@ CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 �
 
 | 컴포넌트 (data-component) | 화면 | variant · 상태 | 코드 위치 |
 |---|---|---|---|
-| 달빛 아래 열린 한옥문 1 / 부채를 든 차우진 | 01 | `data-motion="hero-slide"` | html: `#s01` · css: `[data-motion="hero-slide"]` |
-| Speech Bubble 01~04 | 01-2 | `data-bubble="01~04"` | html: `#s01-2` · css: `.speech-bubble` |
+| Hero / BG Hanok Door / Hero / Image 차우진 | 01 | `data-motion="hero-slide"` | html: `#s01` · css: `[data-motion="hero-slide"]` |
+| Need / Check Card 01~06 | 01-2 | `data-card="01~06"`, 좌측 카드 `justify-end`, `data-motion="need-card"` | html: `#need-checklist` · css: `.need-card*`, `.need-highlight` |
 | 나의 2027년 미리보기 | 02 | `data-action="scroll-to-free-check"` | html: `#s02` · css: `.preview-gif__dim` |
 | Free Check / Input + CTA | 02 | `data-state`: filled · empty · invalid · loading | html: `#free-check` · js: `setState`, `submit` |
 | Birth Select · Year / Month / Day | 02 | `data-variant`: year · month · day / `data-invalid` | css: `.birth-select` · js: `initSelects`, `syncDays` |
@@ -204,15 +226,20 @@ CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 �
 | Hanja Badge / Keyword Tags / Badge · 목업 문구 | 03 | — | css: `.hanja-badge`, `.keyword-tag`, `.badge-outline` |
 | Month · N월 | 03 | `data-variant`: default · highlight | html: `tpl-month-cell` · css: `.month-cell` · js: `renderMonths` / data `months` |
 | Legend · 이름 | 03 | `data-variant`: default · highlight | html: `tpl-legend-row` · css: `.legend-row` / data `legend` |
+| Comparison Card / B Item 01~03 / A Lead | 04 Intro | B Item 02·03 위 구분선(`.method-item--line`) | html: `#s04` · css: `.compare-card`, `.method-item`, `.intro-lead` |
+| CTA / Upsell | 03 | `data-action="scroll-to-paid"` | html: `#s03` · js: 클릭 위임 |
 | Preview NN · 이름 | 04 | 4개(좌표·크롭 데이터) | html: `tpl-paid-preview` · js: `renderPaid` / data `paidPreviews` |
 | Chapter N | 05 | 0~9 | html: `tpl-chapter` · css: `.chapter` · js: `renderChapters` / data `chapters` |
-| Stamp_NN | 05 | 위치·폭·회전은 데이터, `data-motion="stamp"` | css: `.stamp*`, `@keyframes stamp-*` · svg 필터 `#stamp-ink` / data `chapters[].stamp`, `stampTiming` |
+| Chapters / Stamp Tool · Scroll / Seal Impact Ring | 05 | `data-motion="stamp-tool"` · `"seal-ring"` | html: `#chapters-bg` · css: `.stamp-tool`, `.seal-ring`, `@keyframes st-*`, `seal-ring` |
+| Bracket Corner ×4 | 05 | `data-pos`: tl · tr · bl · br | css: `.bracket` |
+| Stamp_NN | 05 | 위치·폭·회전·문구(text)는 데이터, `data-motion="stamp"` | css: `.stamp*`, `@keyframes stamp-*` · svg 필터 `#stamp-ink` / data `chapters[].stamp`, `stampTiming` |
 | CTA Button (05) | 05 | `data-action="external"` | html: `#s05` |
 | Timing / Card N · 제N장 | 06 | 카드 4개 / 보조문구 서체 `pretendard` · `noto-sans` | html: `tpl-timing-card` · js: `renderTiming` / data `timingCards` |
 | Timing / Lantern | 06 | 벡터 51개 | data `lantern` · `assets/svg/lantern/` |
 | CTA / Full Reading | 06 | `data-action="external"` | html: `#s06` |
 | Review / Card N (Before / Frame · After / Frame) | 07 | After / Panel `data-variant`: below-header(카드 1) · full(카드 2·3) | html: `tpl-ba-review` · css: `.ba-*` · js: `renderReviews` / data `baReviews` |
 | Review Card NN | 08 | `data-variant`: (기본) · justify | html: `tpl-review-card` · css: `.review-card` / data `reviews` |
+| Closing / Glow · Blue Triangle · Bottom Blend · Deco Corner | 09 | — | html: `#s09` · svg `closing-*.svg` |
 | Review List / Motion | 08 | `data-motion="marquee"` + Loop Copy | css: `@keyframes marquee` |
 | Option N · 이름 | 10 | `data-selected`: true · false (role=radio) | html: `tpl-option` · css: `.option`, `.radio`, `.saving-badge` · js: `renderOptions`, `selectOption` / data `options` |
 | PurchaseButton | 10 | 문구 = 선택 가격 | css: `.purchase-button` |
@@ -230,13 +257,16 @@ CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 �
 |---|---|---|---|---|---|---|---|
 | `hero-hanok-door` | 01 Hero | 436×944 | 0.46 | 0 | png 474×1024 · 680KB | WebP | ✅ |
 | `hero-cha-woojin-fan` | 01 Hero | 342×588 | 0.58 | 0 | png 956×1645 · 1.8MB | WebP(투명) | ✅ |
-| `need-starnight` | 01-2 Need | 390×732 | 0.53 | 0 | png 687×1024 · 865KB | WebP | ✅ |
+| `need-bg` | 01-2 Need | 390×1015 (cover) | 0.38 | 0 | png 916×1717 · 2.6MB | WebP | ✅ 11/18 |
+| `need-character` | 01-2 Need | 427×315 크롭(이미지 427×702) | — | 0 | png 978×1608 · 1.8MB | WebP(투명) | ✅ 11/18 |
 | `preview-2027` | 02 Preview GIF | 390×509 | 0.77 | 0 | **gif 720×940 · 50프레임 · 9.5MB** | MP4/WebM(자동재생·무음·반복) 또는 애니메이션 WebP | ✅ (용량 큼) |
+| `paid-intro-cha-woojin` | 04 Intro | 328×385 크롭(이미지 328×437) | — | 0 | png 1086×1448 · 1.8MB | WebP(투명) | ✅ 11/18 |
 | `paid-scroll` | 04 Header | 112×112 (106 클립) | 1 | 0 | png 1024×1024 · 435KB | WebP | ✅ |
 | `card-paper-texture` | 04 카드 | 399×253 | 1.58 | 0 | png 576×1024 · 377KB | WebP/JPG | ✅ |
 | `paid-result-sheet` | 04 카드·블러 | 341×128~190 크롭 | — | 16 | png 621×1265 · 66KB | PNG(교체 시 같은 레이아웃 필수 · D-15) | ✅ |
 | `chapters-book` | 05 | 459×437 | 1.05 | 0 | png 1024×976 · 707KB | WebP | ✅ |
 | `chapters-scroll` | 05 | 208×104 | 2 | 0 | png 1774×887 · 928KB | WebP(투명) | ✅ |
+| `chapters-stamp-tool` | 05 | 72×72 | 1 | 0 | png 1254×1254 · 929KB | WebP(투명, 144×144 @2x면 충분) | ✅ 11/18 |
 | `hanji` | 05 · 06 | 848×1507 / 390×1953 | — | 0 | png 576×1024 · 561KB | WebP/JPG(반복 텍스처) | ✅ |
 | `timing-bka04` | 06 카드 1 | 342×192 | 1.78 | 14 | **gif 342×197 · 75프레임** · 2.3MB | MP4/WebM 또는 애니메이션 WebP | ✅ |
 | `timing-bka02` | 06 카드 2 | 342×197 | 1.74 | 14 | **gif 342×197 · 75프레임** · 2.6MB | 〃 | ✅ |
@@ -256,10 +286,11 @@ CTA / Free Result, CTA Button(05), CTA / Full Reading(06), Bottom Bar / CTA가 �
 |---|---|---|
 | `assets/img/corner-ornament.png` 550×550 | 03·05 Corner Ornament(CSS 배경, 크롭 + 좌우 반전) | ✅ |
 | `assets/img/timing-bka0N.png` ×4 | 06 GIF가 없을 때 쓰는 대체 정지 이미지 | 실서비스에서는 포스터 이미지로 활용 가능 |
-| `assets/svg/` 9개 | bubble-01~04, chevron-down, divider, hero-dot, icon-chevron-right, star-rating-5 | ✅ |
+| `assets/svg/` 15개 | chevron-down, divider, hero-dot, icon-chevron-right, star-rating-5 · **11/18 추가:** need-check, paid-intro-arrow, paid-intro-glow, chapters-bracket, reviews-down-arrow, closing-glow, closing-triangle, closing-corner-left, closing-corner-right | ✅ |
+| `assets/img/paid-intro-lead-texture.png` 315×23 | 04 A / Lead 글자 질감(background-clip: text) | ✅ 11/18 |
 | `assets/svg/lantern/` 51개 | 06 랜턴 조각 | 하나의 SVG로 합치기 권장(D-16) |
 | `assets/fonts/SOGANGUNIVERSITYTTF.woff2` | 서강대체 | 라이선스 확인 필요(D-04) |
-| `assets/_unused/timing-bka04-overlay.gif` | 1차에 쓰던 06 오버레이 | 사용 안 함 |
+| `assets/_unused/` | 1차 06 오버레이 GIF, **11/18에 빠진** 01-2 별밤(need-starnight.png)·말풍선 SVG 4개 | 사용 안 함 |
 
 ### GIF 확인 결과
 GIF로 받은 화면은 **02 Preview GIF**(50프레임)와 **06 Timing 카드 4장**(각 75프레임)이고, 모두 애니메이션이 살아 있다. 정지 이미지로만 받아진 GIF는 없다.
@@ -277,7 +308,7 @@ GIF로 받은 화면은 **02 Preview GIF**(50프레임)와 **06 Timing 카드 4�
 | 8-3 | **생년월일 입력** (D-06, D-07) | 양력, 1930~2012, 네이티브 select, 에러 문구와 색 임의 | 연도 범위, 음력·태어난 시 입력 여부, 에러 문구·색, 로딩 시간과 API 실패 처리 |
 | 8-4 | **BottomBar** (D-09) | 항상 고정, 마감 시각 임의 `2027-01-03 23:59:59 KST`, CTA 33,000원 고정 | 실제 마감 일시와 할인 근거, 종료 후 처리, 특정 구간에서 숨길지, 선택 구성 가격과 연동할지 |
 | 8-5 | **10 비교가 노출** (D-18) | 66,000원·132,000원 취소선과 「N원 절약」 배지 노출 | 개별 구매가가 실제 판매가인지(취소선 노출 근거) |
-| 8-6 | **사라진 모션** (D-12, D-12b) | 새 노드에 없는 01 인물 슬라이드, 01-2 말풍선, 08 무한 슬라이드를 1차 값으로 유지. 등장 모션은 1회 재생 | 세 모션을 유지할지, 루프 재생이 의도였는지 |
+| 8-6 | **모션 범위** (D-12, D-25) | 11/18 피그마에 있는 모션: 01 인물 슬라이드, 01-2 체크 카드 등장, 05 도장 손잡이·금색 링·낙관 10종. 08 무한 슬라이드는 피그마 키프레임이 없어 1차 값(36.489s)을 유지. 등장 모션은 1회 재생 | 08 슬라이드 유지 여부, 등장 모션을 루프로 재생할 의도였는지 |
 | 8-7 | **07 After 배치 차이** (D-14) | 카드 1은 헤더 아래 180×147, 카드 2·3은 180×169 전체 | 의도된 차이인지, 통일한다면 어느 쪽인지 |
 | 8-8 | **07 겹침 해석** (D-23) | 「Before 하단 배치」를 레이어 순서(After가 위)로 해석 | 위치를 아래로 옮기라는 뜻이었는지 |
 | 8-9 | **반응형** (D-19) | 390px 고정 | 320~389px 기기에서 축소할지 재배치할지 |
@@ -288,3 +319,7 @@ GIF로 받은 화면은 **02 Preview GIF**(50프레임)와 **06 Timing 카드 4�
 | 8-14 | **05 도장** (D-21) | 질감은 SVG 필터로 근사. 숨김 레이어 `Stamp / Seal`(낙관)은 제외 | 낙관 이미지 사용 여부, 실제 텍스처(PNG/SVG)로 바꿀지 |
 | 8-15 | **에셋 용량** (7장) | 02 GIF 9.5MB, 06 GIF 2.3~2.9MB×4, 07 PNG 1.4~2.0MB×6 | 영상(MP4/WebM)이나 WebP로 바꾸고, lazy-load 적용 |
 | 8-16 | **03 카드 여백** (D-13) | 피그마 값 그대로 좌 4.5 / 우 7.5(비대칭) | 의도인지 |
+| 8-17 | **06 하단 문구** (11/18) | 피그마 그대로 「나머지 아홉 달과…」 / 버튼 「전체 풀이 확인하기」 | 기획 문서(planning 9절) 확정안 「나머지 달과…」 / 「내 열두 달 전체 보기」와 다름. 카드가 4장이라 「아홉 달」 표현 확인 |
+| 8-18 | **서강대체 표기** (11/18) | 피그마에 `SOGANG UNIVERSITY`와 `SOGANG UNIVERSITY TTF` 두 이름이 섞임(01 카피, 04 헤더, 06·09 제목 9개). 데모는 웹폰트 하나(`--font-sogang`)로 통일 | 같은 서체로 보고 하나로 쓰면 됨 |
+| 8-19 | **06 랜턴 넘침** (11/18) | 랜턴이 x 433까지 나감. 데모는 섹션 overflow hidden | 실서비스에서도 잘라서 표시 |
+| 8-20 | **03 Upsell 이동** (D-24) | 「열두 달의 이유 확인하기」 → 04 맨 위로 스크롤 | 결제 페이지 이동인지, 04 스크롤인지 |

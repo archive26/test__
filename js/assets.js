@@ -13,13 +13,16 @@
   const SLOT_INFO = {
     'hero-hanok-door':      { screen: '01 Hero', label: '달빛 아래 열린 한옥문 (배경)' },
     'hero-cha-woojin-fan':  { screen: '01 Hero', label: '부채를 든 차우진' },
-    'need-starnight':       { screen: '01-2 Need', label: '별밤 한옥 배경 (wz_cha_starnight)' },
+    'need-bg':              { screen: '01-2 Need', label: '별밤 한옥 배경 (섹션 전체)' },
+    'need-character':       { screen: '01-2 Need', label: '두루마리를 든 차우진 (Need / BG Image)' },
     'preview-2027':         { screen: '02 Preview GIF', label: '나의 2027년 미리보기 (GIF)' },
+    'paid-intro-cha-woojin': { screen: '04 Paid Preview', label: 'Intro / Image 차우진 (서책)' },
     'paid-scroll':          { screen: '04 Paid Preview', label: 'Header / Scroll 두루마리' },
     'card-paper-texture':   { screen: '04 Paid Preview', label: 'Card / Paper Texture' },
     'paid-result-sheet':    { screen: '04 Paid Preview', label: '유료 결과지 시각화 예시' },
     'chapters-book':        { screen: '05 Chapters', label: 'Chapters / Book Image' },
     'chapters-scroll':      { screen: '05 Chapters', label: 'Chapters / Scroll 두루마리' },
+    'chapters-stamp-tool':  { screen: '05 Chapters', label: 'Chapters / Stamp Tool 도장 손잡이' },
     'hanji':                { screen: '05 Chapters · 06 Timing', label: '한지 텍스처' },
     'timing-bka04':         { screen: '06 Timing', label: 'Timing / Image / bka04 (GIF)' },
     'timing-bka02':         { screen: '06 Timing', label: 'Timing / Image / bka02 (GIF)' },
@@ -31,7 +34,7 @@
     'review-2-after':       { screen: '07 Before After Reviews', label: '후기 2 After' },
     'review-3-before':      { screen: '07 Before After Reviews', label: '후기 3 Before' },
     'review-3-after':       { screen: '07 Before After Reviews', label: '후기 3 After' },
-    'purchase-portrait':    { screen: '10 Purchase', label: '금빛 한복의 따뜻한 웹툰 초상' },
+    'purchase-portrait':    { screen: '10 Purchase', label: 'Purchase / Image 차우진' },
     'logo-quantaro':        { screen: '11 Footer', label: '퀀타로 로고' },
   };
 
