@@ -308,7 +308,7 @@
   }
 
   /* ------------------------------------------------------------------
-     BottomBar 카운트다운
+     Sticky / Bottom CTA 카운트다운
      ------------------------------------------------------------------ */
   function tickCountdown() {
     const ms = Math.max(0, new Date(D.countdownTarget) - Date.now());
@@ -327,8 +327,8 @@
       if (!a) return;
       const act = a.dataset.action;
       if (act === 'scroll-to-free-check') scrollToEl($('#free-check'), 400, 24);
-      if (act === 'scroll-to-paid') scrollToEl($('#s04'), 400, 0);
-      else if (act === 'scroll-to-purchase') scrollToEl($('#s10'), 400, 0);
+      if (act === 'scroll-to-paid') scrollToEl($('#s06'), 400, 0);
+      else if (act === 'scroll-to-purchase') scrollToEl($('#s12'), 400, 0);
       else if (act === 'external') {
         window.open(D.externalUrl, D.externalTarget, 'noopener');
         toast(`${a.dataset.component} → ${D.externalUrl}`);
@@ -366,10 +366,11 @@
   let io;
   // [관찰 대상, .is-in을 붙일 요소] — 큰 섹션은 모션이 있는 영역을 직접 관찰한다.
   const MOTION_TARGETS = [
-    ['#s01', '#s01'],                         // 01 인물 슬라이드
-    ['#need-checklist', '#need-checklist'],   // 01-2 체크 카드 6장
-    ['#chapters-scroll', '#chapters-bg'],     // 05 도장 손잡이·금색 링
-    ['#chapter-list', '#chapter-list'],       // 05 장별 낙관 10종
+    ['#s01', '#s01'],                         // 01 인물 슬라이드 (첫 화면 로드 시)
+    ['#need-checklist', '#need-checklist'],   // 02 체크 카드 6장
+    ['#scroll-unroll', '#scroll-unroll'],     // 05 두루마리 펼침 + 글 차례로 등장
+    ['#chapters-scroll', '#chapters-bg'],     // 07 도장 손잡이·금색 링
+    ['#chapter-list', '#chapter-list'],       // 07 장별 낙관 10종
   ];
   function observeAll() { MOTION_TARGETS.forEach(([watch]) => io.observe($(watch))); }
   function bindMotion() {
@@ -402,7 +403,7 @@
       else if (st === 'invalid') { if ($$('select', form).every((s) => s.value)) setValues(null); setState('invalid'); }
       else if (st === 'result') { if (!$$('select', form).every((s) => s.value)) setValues(D.freeCheck.initial); setState('result'); }
       else setState(st);
-      scrollToEl($('#s02 form'), 400, 120);
+      scrollToEl($('#s03 form'), 400, 120);
     }));
     $('#panel-fail-next').addEventListener('change', (e) => (failNext = e.target.checked));
     $('#panel-slots').addEventListener('change', (e) => document.body.classList.toggle('show-slots', e.target.checked));

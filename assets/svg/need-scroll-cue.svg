@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="76" height="133" viewBox="0 0 76 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Need / Scroll Cue">
+<path id="Need / Scroll Cue / Line" d="M38 2.18557e-08L38 1.97917M38 95L38 93.0208M38 5.9375L38 9.89583M38 13.8542L38 17.8125M38 21.7708L38 25.7292M38 29.6875L38 33.6458M38 37.6042L38 41.5625M38 45.5208L38 49.4792M38 53.4375L38 57.3958M38 61.3542L38 65.3125M38 69.2708L38 73.2292M38 77.1875L38 81.1458M38 85.1042L38 89.0625" stroke="#F0D9A0"/>
+<g id="Need / Scroll Cue / Glow" filter="url(#filter0_f_0_4)">
+<circle cx="38" cy="95" r="20" fill="#F0D9A0" fill-opacity="0.45"/>
+</g>
+<circle id="Need / Scroll Cue / Dot" cx="38" cy="95" r="4" fill="#F0D9A0"/>
+</g>
+<defs>
+<filter id="filter0_f_0_4" x="0" y="57" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="9" result="effect1_foregroundBlur_0_4"/>
+</filter>
+</defs>
+</svg>

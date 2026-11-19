@@ -84,7 +84,7 @@ window.DEMO_DATA = {
   ],
   stampTiming: { start: 1.3, step: 0.5 }, // 11/18: 도장 손잡이 찍기(0.2~1.2s) 뒤에 이어서 시작
 
-  /* ---------- 06 Timing ---------- */
+  /* ---------- 08 Timing ---------- */
   timingCards: [
     { node: '581:2277', ch: '제4장', name: '애정운', slot: ['timing-bka04'], imgName: 'bka04', h: 192, lh: 32,
       head: ['인연이 들어오는 달을 알았다면,', '그 사람을 그냥 보내지 않았을 거예요.'],
@@ -103,7 +103,7 @@ window.DEMO_DATA = {
       quote: ['"7월에서 10월 사이에는 새 자리에 서명하지', '마세요."'],
       more: '+ 내가 남긴 질문에, 몇 월에 무엇을 할지 답장으로', moreFont: 'noto-sans' },
   ],
-  /* 랜턴 벡터 51개: [파일, x, y, w, h, 좌우반전] — 06 Timing 기준 좌표 */
+  /* 랜턴 벡터 51개: [파일, x, y, w, h, 좌우반전] — 08 Timing 기준 좌표 */
   lantern: [
     ['v0',315.06,38.37,38.27,43.52,1],['v1',322.09,50.09,10.11,26.64,1],['v2',330.91,50.17,6.34,26.55,1],['v3',315.06,49.97,13.72,26.8,1],
     ['v4',325.76,38.37,16.84,11.64,1],['v5',330.18,38.37,8.16,6.87,1],['v6',330.18,38.37,8.16,6.87,1],['v7',339.63,56.06,13.71,20.9,1],
@@ -153,7 +153,7 @@ window.DEMO_DATA = {
   externalUrl: 'https://quantaro.kr/newyear2027',
   externalTarget: '_blank',           // 데모에서는 새 탭(데모 상태 유지). 실서비스는 같은 창 이동 권장
 
-  /* ---------- BottomBar ---------- */
+  /* ---------- Sticky / Bottom CTA ---------- */
   countdownTarget: '2027-01-03T23:59:59+09:00', // 확인 필요 (DECISIONS D-09)
 
   /* ---------- 11 Footer ---------- */
@@ -165,8 +165,8 @@ window.DEMO_DATA = {
 
   /* ---------- 화면 목록 (패널·문서 공통 이름) ---------- */
   screens: [
-    ['s01', '01 Hero'], ['s01-2', '01-2 Need'], ['s02', '02 Preview GIF'], ['s03', '03 Free Result'],
-    ['s04', '04 Paid Preview'], ['s05', '05 Chapters'], ['s06', '06 Timing'], ['s07', '07 Before After Reviews'],
-    ['s08', '08 Review List'], ['s09', '09 Closing Headline'], ['s10', '10 Purchase'], ['s11', '11 Footer'],
+    ['s01', '01 Hero'], ['s02', '02 Need'], ['s03', '03 Preview GIF'], ['s04', '04 Free Result'],
+    ['s05', '05 Intro'], ['s06', '06 Paid Preview'], ['s07', '07 Chapters'], ['s08', '08 Timing'],
+    ['s09', '09 Before After Reviews'], ['s10', '10 Review List'], ['s11', '11 Closing Headline'], ['s12', '12 Purchase'], ['s13', '13 Footer'],
   ],
 };
