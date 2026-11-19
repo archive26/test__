@@ -1,0 +1,6 @@
+<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- 03 Preview / Hero Panel 위쪽에 이어지는 Need / Scroll Cue 끝(1016:5995 Glow, 1016:5996 Dot). 점 중심(38,38) = 패널 위 경계 -->
+<g filter="url(#f)"><circle cx="38" cy="38" r="20" fill="#F0D9A0" fill-opacity="0.45"/></g>
+<circle cx="38" cy="38" r="4" fill="#F0D9A0"/>
+<defs><filter id="f" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="9"/></filter></defs>
+</svg>

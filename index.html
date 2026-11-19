@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Song+Myung&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@400;600;700&family=Poppins:wght@400;500;600;700&family=Song+Myung&display=swap" />
 
   <!-- Tailwind (Play CDN, 빌드 없음) -->
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
@@ -40,112 +40,90 @@
   <div class="device" data-demo="device">
     <div class="device__screen">
       <div class="viewport" id="viewport">
-        <main class="page" data-component="2027 신년운세 · Landing · Mobile 390 (Handoff 11/18)" data-node="982:617">
+        <main class="page" data-component="2027 신년운세 · Landing · Mobile 390_최종" data-node="1058:12294">
 
 <!-- ============================ 01 Hero ============================ -->
-<section id="s01" class="section relative h-[934px] overflow-hidden bg-white" data-screen="01 Hero" data-node="982:2034">
-  <div class="absolute left-[-23px] top-[-9px] h-[944px] w-[436px]" data-component="Hero / BG Hanok Door" data-node="982:2035">
+<section id="s01" class="section relative h-[934px] overflow-hidden bg-white" data-screen="01 Hero" data-node="1058:13499">
+  <div class="absolute left-[-23px] top-[-9px] h-[944px] w-[436px]" data-component="Hero / BG Hanok Door" data-node="1058:13500">
     <img data-slot="hero-hanok-door" alt="" class="absolute inset-0 size-full object-cover object-bottom" />
   </div>
-  <!-- 인물: 첫 화면 로드 시 1회 · TRANSLATION_X 200 → 0 (0~1.5s, ease-out) -->
-  <div class="hero-character absolute left-[126px] top-[356px] h-[588px] w-[342px]" data-component="Hero / Image 차우진" data-node="982:2036" data-motion="hero-slide">
+  <p class="hero-copy top-[87px] text-[32px] leading-[41px]" data-component="Hero / Title" data-node="1058:13503">내 인생이 바뀔 수도 있는<br />2027년의 그날,<br />알고 계신가요?</p>
+  <p class="hero-copy top-[235px] text-[18px] leading-[normal]" style="color:#d6d6d6" data-component="Hero / Sub" data-node="1058:13502">중요한 선택을 앞둔 당신에게</p>
+  <div class="hero-character absolute left-[126px] top-[356px] h-[588px] w-[342px]" data-component="Hero / Image 차우진" data-node="1058:13501" data-motion="hero-slide">
     <img data-slot="hero-cha-woojin-fan" alt="부채를 든 차우진" class="absolute inset-0 size-full object-cover" />
   </div>
-  <p class="absolute left-0 right-0 top-[100px] text-center font-pretendard text-[24px] font-medium leading-[40px] text-white" data-node="982:2037">2027년에도</p>
-  <p class="hero-copy top-[148px] text-[32px] leading-[41px]" style="margin-left:1px" data-node="982:2039">열심히만 사실 건가요?</p>
-  <p class="hero-copy top-[225px] text-[18px] leading-[40.981px]" data-node="982:2038">기회가 오는 날도 모른채 말이에요</p>
-  <!-- Dot 1~3(점) + Dot 4~6(같은 자리 금빛 번짐) -->
-  <img src="assets/svg/hero-dot-glow.svg" alt="" class="absolute left-[49.5px] top-[135px] size-[14px] max-w-none" data-component="Hero / Dot 4" data-node="982:2043" />
-  <img src="assets/svg/hero-dot-glow.svg" alt="" class="absolute left-[81.5px] top-[135px] size-[14px] max-w-none" data-component="Hero / Dot 5" data-node="982:2044" />
-  <img src="assets/svg/hero-dot-glow.svg" alt="" class="absolute left-[113.5px] top-[135px] size-[14px] max-w-none" data-component="Hero / Dot 6" data-node="982:2045" />
-  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[54.5px] top-[140px] size-[4px]" data-component="Hero / Dot 1" data-node="982:2040" />
-  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[86.5px] top-[140px] size-[4px]" data-component="Hero / Dot 2" data-node="982:2041" />
-  <img src="assets/svg/hero-dot.svg" alt="" class="absolute left-[118.5px] top-[140px] size-[4px]" data-component="Hero / Dot 3" data-node="982:2042" />
 </section>
 
 <!-- ============================ 02 Need ============================ -->
-<section id="s02" class="section relative h-[1046px] overflow-hidden bg-[var(--x-ivory)]" data-screen="02 Need" data-node="982:1987">
-  <div class="absolute inset-0" data-component="Need / Checklist Panel" data-node="982:1988">
+<!-- 최종 프레임에서는 02 Need 감싸는 프레임이 없어지고 `Need / Checklist Panel`(1065)이 바로 섹션이 됨.
+     아래 54px은 03 Preview GIF가 덮으므로 데모 섹션 높이는 1011로 유지 (D-25) -->
+<section id="s02" class="section relative h-[1011px] overflow-hidden" data-screen="02 Need" data-node="1067:20051">
+  <div class="absolute left-0 top-0 h-[1065px] w-[390px]" data-component="Need / Checklist Panel (배경 이미지 + 그라디언트, 1065 — 아래 54px은 03이 덮음)" data-node="1067:20051">
     <img data-slot="need-bg" alt="" class="absolute inset-0 size-full object-cover" />
-    <div class="absolute bottom-[-40px] left-1/2 h-[468px] w-[398px] -translate-x-1/2 bg-[linear-gradient(to_bottom,rgba(247,246,185,0.05)_71.183%,rgba(255,253,131,0.1)_94.91%)]" data-component="Intro / Fade" data-node="1015:6883"></div>
+    <span class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(1,4,7,0.4),rgba(4,26,61,0.4)_54%)]"></span>
   </div>
-  <!-- 피그마 이미지 채우기 CROP: 가로 100% · 세로 위쪽 44.87%만 표시 → 이미지 427×702를 315 높이로 자름(투명 배경 PNG) -->
-  <div class="absolute left-[-19px] top-[213px] h-[315px] w-[427px] overflow-hidden" data-component="Need / BG Image" data-node="982:1989">
-    <img data-slot="need-character" alt="두루마리를 든 차우진" class="absolute left-0 top-0 h-[222.89%] w-full max-w-none" />
+  <!-- Need / Scroll Cue : 점선이 위에서 아래로 그려지고(Motion / Dotted Line Reveal) 끝점이 02·03 경계에서 빛남 -->
+  <div class="absolute left-[175px] top-[927px] h-[104px] w-[40px]" data-component="Need / Scroll Cue" data-node="1067:20053">
+    <div class="absolute left-[18px] top-0 h-[84px] w-[4px] overflow-hidden" data-component="Motion / Dotted Line Reveal · 3.4–4.2s" data-node="1067:20055" data-motion="cue-line"><span class="cue-line"></span></div>
+    <span class="cue-glow absolute left-0 top-[64px] size-[40px]" data-component="Need / Scroll Cue / Glow" data-node="1067:20057" data-motion="cue-glow"></span>
+    <span class="cue-dot absolute left-[16px] top-[80px] size-[8px]" data-component="Need / Scroll Cue / Dot" data-node="1067:20058" data-motion="cue-dot"></span>
   </div>
-  <div class="absolute left-1/2 top-[62px] h-[100px] w-[333px] -translate-x-1/2 whitespace-nowrap text-center" data-component="Need / Title" data-node="982:2031">
-    <p class="absolute left-0 right-0 top-0 font-pretendard text-[18px] font-medium leading-[27px] text-white" data-node="982:2033">이런 분들이라면</p>
-    <p class="absolute left-0 right-0 top-[35px] font-sogang text-[40px] leading-[54px] text-gradient" style="--g:linear-gradient(to right,#fff,#f0d9a0)" data-node="982:2032">반드시 확인하세요</p>
+  <!-- 배경+술사 영상 (피그마: 동영상 채우기 390×693, 패널 위에서 1px 아래). 영상 원본은 MCP로 받을 수 없어
+       assets/video/need-bg-character.mp4 가 있으면 영상, 없으면 같은 장면의 GIF(need-bg-character.gif)로 대신 보여줌 (D-36).
+       이전의 정지 이미지 `Need / BG Image · 정지 원본 (백업)`(1067:20052)은 피그마에서 숨김 -->
+  <div class="absolute left-0 top-[1px] h-[693px] w-[390px] overflow-hidden" data-component="02Need_배경+술사_390x693@2x 2" data-node="1067:20183">
+    <img data-slot="need-bg-character" data-slot-video alt="별밤 한옥 앞에서 두루마리를 든 차우진" class="absolute inset-0 size-full object-cover" />
   </div>
-  <!-- Need / Scroll Cue: 피그마 레이어 순서대로 체크리스트 아래에 깔림(카드 06이 점선 윗부분을 덮음) -->
-  <img src="assets/svg/need-scroll-cue.svg" alt="" class="absolute left-[157px] top-[916px] h-[133px] w-[76px] max-w-none" data-component="Need / Scroll Cue" data-node="982:2027" />
-  <!-- Need / Check Card 6장: 체크리스트가 화면에 30% 보이면 0.25s부터 0.5s 간격으로 아래에서 12px 떠오르며 등장 -->
-  <div class="absolute left-0 top-[523px] h-[420px] w-[390px] overflow-hidden" data-component="Need / Checklist" data-node="982:1990" id="need-checklist">
-    <div class="need-card justify-end left-[-24px] top-[0px] w-[360px] bg-[#30425e]" data-component="Need / Check Card 01" data-card="01" data-node="982:1991" data-motion="need-card">
-      <span class="need-card__icon" data-component="Check Icon"><img src="assets/svg/need-check.svg" alt="" /></span>
-      <p class="need-card__text">이직 제안, 받아야 할지 <b>망설여지는 분</b></p>
-    </div>
-    <div class="need-card left-[54px] top-[72px] w-[360px] bg-[#183972]" data-component="Need / Check Card 02" data-card="02" data-node="982:1997" data-motion="need-card">
-      <span class="need-card__icon" data-component="Check Icon"><img src="assets/svg/need-check.svg" alt="" /></span>
-      <p class="need-card__text">내년엔 꼭 <b>돈을 모으고 싶은 분</b></p>
-    </div>
-    <div class="need-card justify-end left-[-24px] top-[144px] w-[360px] bg-[#30425e]" data-component="Need / Check Card 03" data-card="03" data-node="982:2003" data-motion="need-card">
-      <span class="need-card__icon" data-component="Check Icon"><img src="assets/svg/need-check.svg" alt="" /></span>
-      <p class="need-card__text">지금 이 사람이 맞는지 <b>확신이 없는 분</b></p>
-    </div>
-    <div class="need-card left-[54px] top-[216px] w-[360px] bg-[#183972]" data-component="Need / Check Card 04" data-card="04" data-node="982:2009" data-motion="need-card">
-      <span class="need-card__icon" data-component="Check Icon"><img src="assets/svg/need-check.svg" alt="" /></span>
-      <p class="need-card__text">새로운 인연이 <b>언제 올지 궁금한 분</b></p>
-    </div>
-    <div class="need-card justify-end left-[-24px] top-[288px] w-[360px] bg-[#30425e]" data-component="Need / Check Card 05" data-card="05" data-node="982:2015" data-motion="need-card">
-      <span class="need-card__icon" data-component="Check Icon"><img src="assets/svg/need-check.svg" alt="" /></span>
-      <p class="need-card__text">큰 결정을 앞두고 <b>밤잠 설치는 분</b></p>
-    </div>
-    <div class="need-card left-[54px] top-[360px] w-[360px] bg-[#183972]" data-component="Need / Check Card 06" data-card="06" data-node="982:2021" data-motion="need-card">
-      <span class="need-card__icon" data-component="Check Icon"><img src="assets/svg/need-check.svg" alt="" /></span>
-      <p class="need-card__text">쉬지 못하고 <b>몸이 먼저 지친 분</b></p>
-    </div>
+  <!-- Need / Check Card ×6 : 위치·배경·정렬은 data.js › needChecks -->
+  <div class="absolute left-0 top-[478px] h-[420px] w-[390px] overflow-hidden" data-component="Need / Checklist" data-node="1067:20060" id="need-checklist" data-motion-scope="#s02, #need-cue-end"></div>
+  <div class="need-title" data-component="Need / Title" data-node="1067:20316">
+    <p class="font-pretendard text-[18px] font-medium leading-[27px] text-white" data-node="1067:20318">이런 분들이라면</p>
+    <p class="text-gradient font-sogang text-[40px] leading-[54px]" style="--g:linear-gradient(to right,#fff,#f0d9a0)" data-node="1067:20317">반드시 확인하세요</p>
   </div>
 </section>
 
 <!-- ============================ 03 Preview GIF ============================ -->
-<section id="s03" class="section relative h-[804px] bg-white" data-screen="03 Preview GIF" data-node="982:1960">
-  <button type="button" class="preview-gif relative block h-[509px] w-[390px] overflow-hidden text-left" data-component="Preview / Hero Panel" data-node="982:1961" data-action="scroll-to-free-check">
+<section id="s03" class="section relative bg-white pb-[18px]" data-screen="03 Preview GIF" data-node="1058:13707">
+  <button type="button" class="preview-gif relative block h-[509px] w-[390px] overflow-hidden text-left" data-component="Preview / Hero Panel" data-node="1058:13708" data-action="scroll-to-free-check">
     <img data-slot="preview-2027" alt="나의 2027년 미리보기" class="absolute inset-0 size-full object-cover" />
     <span class="preview-gif__dim absolute inset-0"></span>
-    <span class="absolute left-[24px] top-[312px] flex w-[342px] flex-col items-start gap-[8px]" data-component="Preview / Heading" data-node="581:2642">
-      <span class="block h-[18px] w-full" data-component="Eyebrow" data-node="581:2643"></span>
+    <span class="absolute left-[175px] top-[-20px] size-[40px]" data-component="Need / Scroll Cue (끝 · 03 쪽)" data-node="1058:13713" data-motion="cue-end" id="need-cue-end">
+      <span class="cue-glow absolute left-0 top-0 size-[40px]" data-component="Need / Scroll Cue / Glow" data-node="1058:13714" data-motion="cue-glow"></span>
+      <span class="cue-dot absolute left-[16px] top-[16px] size-[8px]" data-component="Need / Scroll Cue / Dot" data-node="1058:13715" data-motion="cue-dot"></span>
+    </span>
+    <span class="absolute left-[24px] top-[312px] flex w-[342px] flex-col items-start gap-[8px]" data-component="Preview / Heading" data-node="1058:13709">
+      <span class="block h-[18px] w-full" data-component="Eyebrow" data-node="1058:13710"></span>
       <span class="block font-sogang text-[24px] leading-[36px] text-white">생년월일 하나로<br />내 2027년 미리 보기</span>
       <span class="block font-pretendard text-[16px] leading-[27px] text-white">나의 타고난 성향과 2027년의 흐름을<br />간단하게 살펴보세요</span>
     </span>
   </button>
 
   <!-- Free Check / Input + CTA -->
-  <form id="free-check" class="mx-[24px] mt-[31px] flex w-[342px] flex-col gap-[12px]" data-component="Free Check / Input + CTA" data-node="982:1971" data-state="filled" novalidate>
-    <div class="flex w-full items-center gap-[12px]" data-component="Free Check / Birth Date" data-node="581:2652">
-      <label class="birth-select w-[158px]" data-component="Birth Select · Year" data-variant="year" data-node="581:2653">
+  <form id="free-check" class="mx-[24px] mt-[31px] flex w-[342px] flex-col gap-[12px]" data-component="Free Check / Input + CTA" data-node="1058:13721" data-state="filled" novalidate>
+    <div class="flex w-full items-center gap-[12px]" data-component="Free Check / Birth Date" data-node="1058:13722">
+      <label class="birth-select w-[158px]" data-component="Birth Select · Year" data-variant="year" data-node="1058:13723">
         <span class="birth-select__value" data-placeholder="년도">1999</span>
         <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="year" aria-label="태어난 해"></select>
       </label>
-      <label class="birth-select w-[80px]" data-component="Birth Select · Month" data-variant="month" data-node="581:2657">
+      <label class="birth-select w-[80px]" data-component="Birth Select · Month" data-variant="month" data-node="1058:13727">
         <span class="birth-select__value" data-placeholder="월">11</span>
         <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="month" aria-label="태어난 달"></select>
       </label>
-      <label class="birth-select w-[80px]" data-component="Birth Select · Day" data-variant="day" data-node="581:2661">
+      <label class="birth-select w-[80px]" data-component="Birth Select · Day" data-variant="day" data-node="1058:13731">
         <span class="birth-select__value" data-placeholder="일">18</span>
         <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="day" aria-label="태어난 날"></select>
       </label>
     </div>
     <p class="free-check__msg" id="free-check-msg" role="alert" data-component="Free Check / Message (데모 추가)"></p>
-    <button type="submit" class="cta-primary w-full" data-component="CTA / Free Result" data-node="581:2665">
+    <button type="submit" class="cta-primary w-full" data-component="CTA / Free Result" data-node="1058:13735">
       <span class="cta-primary__label">내 2027년 무료 운세 확인하기</span>
     </button>
   </form>
 
-  <div class="absolute left-[24px] top-[671px] h-[96px] w-[342px]" data-component="Connector" data-node="982:1966">
+  <div class="relative mx-[24px] mt-[18px] h-[96px] w-[342px]" data-component="Connector" data-node="1058:13716">
     <div class="absolute left-[171px] top-[4px] h-[44px] w-px bg-[var(--x-line)]" data-component="Divider"></div>
     <div class="absolute left-[167px] top-[56px] size-[8px] rotate-45 border border-[var(--x-gold-dark)]" data-component="Accent Dot"></div>
     <p class="absolute left-0 right-0 top-[71.58px] text-center font-pretendard text-[12px] font-semibold leading-[18px] text-text-primary">무료 결과 요약</p>
@@ -153,39 +131,39 @@
 </section>
 
 <!-- ============================ 04 Free Result ============================ -->
-<section id="s04" class="section relative bg-white" data-screen="04 Free Result" data-node="982:1811">
+<section id="s04" class="section relative bg-white" data-screen="04 Free Result" data-node="1058:13350">
   <!-- 상태: data-state = result | empty | loading | error  (result가 피그마 원본) -->
   <div id="free-result" data-state="result">
 
     <!-- [result] 피그마 원본 -->
-    <div class="free-result__view h-[1392px]" data-view="result">
-      <div class="paper-card absolute left-[15px] top-[69px] h-[1287px] w-[360px]" data-component="Free Result / Card" data-node="982:1812">
-        <div class="paper-card__inner absolute left-[6px] top-[8px] h-[1265px] w-[342px] bg-[var(--x-paper)]" data-component="Result / Content" data-node="982:1813">
+    <div class="free-result__view h-[1365px]" data-view="result">
+      <div class="paper-card absolute left-[15px] top-[39px] h-[1287px] w-[360px]" data-component="Free Result / Card" data-node="1058:13351">
+        <div class="paper-card__inner absolute left-[9px] top-[11px] h-[1265px] w-[342px] bg-[var(--x-paper)]" data-component="Result / Content" data-node="1058:13352">
           <span class="corner-ornament" data-pos="tl"></span><span class="corner-ornament" data-pos="tr"></span>
           <span class="corner-ornament" data-pos="bl"></span><span class="corner-ornament" data-pos="br"></span>
 
           <!-- ResultSheet -->
-          <div class="absolute left-0 top-[15.5px] flex w-[342px] flex-col items-center gap-[21px]" data-component="Day Master Block" data-node="581:2498">
+          <div class="absolute left-0 top-[15.5px] flex w-[342px] flex-col items-center gap-[21px]" data-component="Day Master Block" data-node="1058:13357">
             <p class="font-pretendard text-[16px] font-bold leading-[20.25px] tracking-[-0.27px] text-accent-default" id="free-result-title">1999년 11월 18일생의 2027년</p>
-            <div class="flex w-full flex-col items-start gap-[28px] px-[10px]" data-component="Day Master Card" data-node="581:2500">
+            <div class="flex w-full flex-col items-start gap-[28px] px-[10px]" data-component="Day Master Card" data-node="1058:13359">
               <div class="flex w-full flex-col gap-[20px]" data-component="Day Master Summary">
                 <div class="flex w-full items-center gap-[20px]" data-component="Day Master Row">
-                  <div class="hanja-badge" data-component="Hanja Badge" data-node="581:2503"><span>甲</span></div>
+                  <div class="hanja-badge" data-component="Hanja Badge" data-node="1058:13362"><span>甲</span></div>
                   <div class="flex min-w-px flex-1 flex-col gap-[6px]" data-component="Day Master Text">
-                    <p class="font-pretendard text-[12.5px] font-semibold leading-[18.75px] text-[var(--x-gold-dark)]">나의 일간 · 甲(갑목)</p>
+                    <p class="font-pretendard text-[12px] font-semibold leading-[18px] text-[var(--x-gold-dark)]">나의 일간 · 甲(갑목)</p>
                     <p class="font-serif-kr text-[19px] font-bold leading-[26.6px] tracking-[-0.57px] text-accent-default">곧게 뻗는 큰 나무 같은 사람</p>
                   </div>
                 </div>
-                <p class="font-pretendard text-[15px] leading-[26.25px] text-text-primary">한번 정하면 위로 곧게 자라는 사람이에요. 기준이 분명하고 사람들이 기대는 기둥이 되지만, 굽히는 법을 몰라 혼자 버티는 때가 많아요.</p>
+                <p class="font-pretendard text-[16px] leading-[28px] text-text-primary">한번 정하면 위로 곧게 자라는 사람이에요. 기준이 분명하고 사람들이 기대는 기둥이 되지만, 굽히는 법을 몰라 혼자 버티는 때가 많아요.</p>
               </div>
               <img src="assets/svg/divider.svg" alt="" class="block h-[0.4px] w-full" data-component="Divider" />
-              <div class="flex w-full flex-col gap-[20px]" data-component="Year Energy Block" data-node="581:2513">
+              <div class="flex w-full flex-col gap-[20px]" data-component="Year Energy Block" data-node="1058:13372">
                 <div class="flex w-full flex-col gap-[16px]" data-component="Year Energy Header">
-                  <p class="font-pretendard text-[13px] font-bold leading-[19.5px] tracking-[0.26px] text-accent-default">2027 정미년이 나에게 오는 방식</p>
+                  <p class="font-pretendard text-[14px] font-bold leading-[21px] tracking-[0.28px] text-accent-default">2027 정미년이 나에게 오는 방식</p>
                   <div class="flex w-full items-center justify-center gap-[8px]" data-component="Year Relation Row">
                     <div class="flex h-[36px] w-[114px] items-center gap-[8px] rounded-radius-sm bg-[var(--x-ivory)] pl-[12px]" data-component="Year Stem Chip">
                       <span class="font-serif-kr text-[20px] font-bold leading-[20px] text-accent-default">丁</span>
-                      <span class="font-pretendard text-[12.5px] leading-[18.75px] text-[rgba(34,34,34,0.75)]">정미년의 불</span>
+                      <span class="font-pretendard text-[12px] leading-[18px] text-[rgba(34,34,34,0.75)]">정미년의 불</span>
                     </div>
                     <div class="flex items-center" data-component="Arrow">
                       <div class="h-px w-[75.234px] bg-[var(--x-gold-light)]"></div>
@@ -193,13 +171,13 @@
                     </div>
                     <div class="flex h-[35px] w-[91px] items-center gap-[8px] rounded-radius-sm bg-accent-default pl-[12px]" data-component="Ten God Chip">
                       <span class="font-serif-kr text-[18px] font-bold leading-[18px] text-[var(--x-gold-light)]">傷官</span>
-                      <span class="font-pretendard text-[12.5px] leading-[18.75px] text-[rgba(255,255,255,0.85)]">상관</span>
+                      <span class="font-pretendard text-[12px] leading-[18px] text-[rgba(255,255,255,0.85)]">상관</span>
                     </div>
                   </div>
                 </div>
                 <div class="flex w-full flex-col gap-[10px]" data-component="Year Energy Description">
                   <p class="font-serif-kr text-[16.5px] font-semibold leading-[24.75px] tracking-[-0.33px] text-accent-default">정미년의 불(丁)은 나에게 상관(傷官).</p>
-                  <p class="font-pretendard text-[15px] leading-[26.25px] text-text-primary">2027년에 내 재능과 말이 밖으로 터져 나오는 기운이 들어와요. 틀을 깨고 싶어지는 해예요. 다만 말이 앞서면 윗사람과 부딪히기 쉬워요.</p>
+                  <p class="font-pretendard text-[16px] leading-[28px] text-text-primary">2027년에 내 재능과 말이 밖으로 터져 나오는 기운이 들어와요. 틀을 깨고 싶어지는 해예요. 다만 말이 앞서면 윗사람과 부딪히기 쉬워요.</p>
                 </div>
                 <div class="flex items-center gap-[6px]" data-component="Keyword Tags">
                   <span class="keyword-tag">#표현</span><span class="keyword-tag">#변화</span><span class="keyword-tag">#말조심</span>
@@ -209,7 +187,7 @@
           </div>
 
           <!-- MonthMap -->
-          <div class="absolute left-[-1px] top-[631px] flex w-[342px] flex-col gap-[36px] px-[10px]" data-component="MonthMap / Monthly Block" data-node="581:2541">
+          <div class="absolute left-[-1px] top-[631px] flex w-[342px] flex-col gap-[36px] px-[10px]" data-component="MonthMap / Monthly Block" data-node="1058:13400">
             <div class="flex w-full flex-col gap-[20px]" data-component="Monthly Card">
               <div class="flex w-full flex-col gap-[8px]" data-component="Monthly Header">
                 <div class="flex w-full items-center justify-between" data-component="Monthly Title Row">
@@ -252,193 +230,147 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- ============================ 05 Intro ============================ -->
-<section id="s05" class="section relative z-[1] h-[2792px] bg-[var(--x-paper-2)]" data-screen="05 Intro" data-node="982:1678">
-  <!-- Intro / Dark Wrap : 0 ~ 938 (지금까지 운세의 문제 — 경고 헤더 + 똑같은 말 3개) -->
-  <div class="absolute left-0 top-0 h-[938px] w-[390px] overflow-hidden bg-[linear-gradient(to_top,#051333,#080d18_45%,#0b1322)]" data-component="Intro / Dark Wrap" data-node="998:289">
-    <img src="assets/svg/intro-stars.svg" alt="" class="absolute left-[11px] top-[9px] h-[684px] w-[372px] max-w-none" data-component="Intro / Stars" data-node="998:290" />
-    <div class="absolute left-0 top-0 h-[300px] w-[390px] overflow-hidden bg-[#090f1b]" data-component="Intro / Warning Header" data-node="998:344">
-      <img data-slot="intro-warning-bg" alt="" class="absolute left-[-20px] top-[-30px] h-[340px] w-[430px] max-w-none object-cover blur-[4px]" />
-      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,13,43,0.55),rgba(16,21,34,0.75)_70%,#070b13)]" data-component="Intro / Warning Header / Shade"></div>
-      <img src="assets/svg/intro-glow.svg" alt="" class="absolute left-[-26px] top-[16px] h-[340px] w-[440px] max-w-none" data-component="A / Glow" />
-      <img src="assets/svg/intro-warning-triangle.svg" alt="" class="absolute left-[167px] top-[37.79px] h-[50.419px] w-[56px]" data-component="Intro / Warning Icon / Triangle" />
-      <p class="absolute left-[167px] top-[50.86px] w-[56px] text-center font-flight text-[28px] font-bold leading-normal text-white" data-component="Intro / Warning Icon / Mark">!</p>
-      <div class="absolute left-[24px] top-[122px] h-[150px] w-[342px] text-center" data-component="Intro / Block A · Brand Message" data-node="998:351">
-        <p class="absolute left-0 right-0 top-[-11px] font-pretendard text-[18px] font-medium leading-[30px] text-[#c8d2e0]">지금까지 읽은 신년운세</p>
-        <p class="absolute left-0 right-0 top-[27px] font-sogang text-[32px] leading-[46px] text-white">누구에게나</p>
-        <p class="text-texture absolute left-0 right-0 top-[77px] font-flight text-[40px] leading-[50px]" style="--tex:url('../assets/img/intro-accent-texture.png')" data-component="A / Accent">똑같은 이야기들</p>
-      </div>
+<!-- 피그마 렌더에서 A / Glow가 04 쪽으로 번지지 않으므로 섹션 경계에서 자른다 (DECISIONS D-26) -->
+<section id="s05" class="section relative h-[2658px] overflow-hidden" data-screen="05 Intro" data-node="1058:13504">
+
+  <!-- ===== 장면 1 · 퀀타로 2027 · Sequential Slam (0 ~ 848) ===== -->
+  <div class="absolute left-0 top-0 h-[848px] w-[390px] bg-[linear-gradient(to_bottom,#031030,#020810)]" data-component="퀀타로 2027 · Sequential Slam · 3.40s" data-node="1058:13505" id="intro-slam-scene">
+    <div class="absolute left-[24px] top-[67px] h-[150px] w-[342px] text-center" data-component="Intro / Block A · Brand Message" data-node="1058:13506">
+      <img src="assets/svg/intro-glow.svg" alt="" class="pointer-events-none absolute left-[-49px] top-[-102px] h-[340px] w-[440px] max-w-none" data-component="A / Glow" data-node="1058:13507" />
+      <p class="absolute inset-x-0 top-0 font-pretendard text-[18px] font-medium leading-[30px] text-[var(--x-mist)]" data-component="A / Lead" data-node="1058:13508">지금까지 읽은 신년운세</p>
+      <p class="absolute inset-x-0 top-[38px] whitespace-nowrap font-flight text-[32px] leading-[46px] text-white" data-component="A / Main" data-node="1058:13509">누구에게나</p>
+      <p class="intro-texture-text absolute inset-x-0 top-[90px] font-flight text-[40px] leading-[50px]" data-texture="accent" data-component="A / Accent" data-node="1058:13510">똑같은 이야기들</p>
     </div>
-    <div class="absolute left-0 top-[300px] h-[140px] w-[390px]" data-component="Intro / Item 01 · 띠별 운세" data-node="998:326">
-      <img src="assets/img/intro-avatar-01.png" alt="" class="absolute left-[24px] top-0 size-[36px] rounded-full" data-component="Intro / Item 01 / Avatar" />
-      <p class="absolute left-[68px] top-[4px] whitespace-nowrap font-pretendard text-[15px] font-medium leading-[28px] text-[#8a909a]" data-component="Intro / Item 01 / Label">[띠별 운세]</p>
-      <div class="intro-bubble" data-component="Intro / Item 01 / Bubble">
-        <p class="intro-bubble__quote">“올해 이 띠는 귀인을 만납니다”</p>
-        <p class="intro-bubble__note">— 같은 해에 태어났다면 모두 같은 답</p>
-      </div>
-    </div>
-    <div class="absolute left-0 top-[468px] h-[140px] w-[390px]" data-component="Intro / Item 02 · 한 줄 운세" data-node="998:332">
-      <img src="assets/img/intro-avatar-02.png" alt="" class="absolute left-[24px] top-0 size-[36px] rounded-full" data-component="Intro / Item 02 / Avatar" />
-      <p class="absolute left-[68px] top-[4px] whitespace-nowrap font-pretendard text-[15px] font-medium leading-[28px] text-[#8a909a]" data-component="Intro / Item 02 / Label">[한 줄 운세]</p>
-      <div class="intro-bubble" data-component="Intro / Item 02 / Bubble">
-        <p class="intro-bubble__quote">“좋은 일이 생길 수 있는 하루”</p>
-        <p class="intro-bubble__note">— 누구에게 보여줘도 맞는 말</p>
-      </div>
-    </div>
-    <div class="absolute left-0 top-[636px] h-[140px] w-[390px]" data-component="Intro / Item 03 · 흔한 신년운세" data-node="998:338">
-      <img src="assets/img/intro-avatar-03.png" alt="" class="absolute left-[24px] top-0 size-[36px] rounded-full" data-component="Intro / Item 03 / Avatar" />
-      <p class="absolute left-[68px] top-[4px] whitespace-nowrap font-pretendard text-[15px] font-medium leading-[28px] text-[#8a909a]" data-component="Intro / Item 03 / Label">[흔한 신년운세]</p>
-      <div class="intro-bubble" data-component="Intro / Item 03 / Bubble">
-        <p class="intro-bubble__quote">“상반기엔 조심, 하반기엔 상승”</p>
-        <p class="intro-bubble__note">— 내 상황은 어디에도 없는 말</p>
-      </div>
-    </div>
-    <p class="text-texture absolute left-0 right-0 top-[822px] text-center font-sogang text-[18px] leading-normal" style="margin-left:1px;--tex:url('../assets/img/intro-question-lead-texture.png'), linear-gradient(270deg,#ffe19a,#ffeec4)" data-component="Intro / Question Lead" data-node="998:6814">그런데</p>
-    <p class="text-texture absolute left-0 right-0 top-[855px] text-center font-sogang text-[24px] leading-normal [text-shadow:0_4px_4px_rgba(248,248,248,0.29)]" style="margin-left:1px;--tex:url('../assets/img/intro-question-texture.png'), linear-gradient(270deg,#ffe19a,#ffeec4)" data-component="Intro / Question Main" data-node="998:325">정말 모두의 운명이 같을까요?</p>
+    <!-- Heavy Impact 카드 ×3 + 파편 : data.js › introSlam -->
+    <div class="absolute left-[13px] top-[276px] h-[423px] w-[364px]" data-component="Slam / Stack" data-node="1058:13511" id="intro-slam" data-motion-scope="#intro-slam-scene"></div>
+    <p class="intro-texture-text absolute inset-x-0 top-[699px] whitespace-nowrap text-center font-sogang text-[18px] leading-[21px]" style="margin-left:-1px" data-texture="question-lead" data-component="Intro / Question" data-node="1058:13587" data-motion="intro-q1">그런데</p>
+    <p class="intro-texture-text absolute inset-x-0 top-[732px] whitespace-nowrap text-center font-sogang text-[24px] leading-[28px]" style="margin-left:-1px" data-texture="question" data-component="Intro / Question" data-node="1058:13586" data-motion="intro-q2">정말 모두의 운명이 같을까요?</p>
   </div>
 
-  <!-- Intro / Scene 2 · New Perspective : 938 ~ 2792 (퀀타로는 다릅니다 — 두루마리 펼침 · 술사 소개) -->
-  <div class="absolute left-0 top-[938px] h-[1854px] w-[390px] overflow-hidden bg-[var(--x-paper-2)]" data-component="Intro / Scene 2 · New Perspective" data-node="982:1679">
-    <!-- 서재 배경: 좌우 반전 + 위 40%·좌우 8% 알파 마스크 + 채도 −25·노출 +10 (피그마 Intro / BG Library) -->
-    <div class="intro-library absolute bottom-[-20px] left-[-15px] h-[495px] w-[421px]" data-component="Intro / BG Library" data-node="982:1680">
-      <img data-slot="intro-library" alt="" class="absolute inset-0 size-full object-cover" />
+  <!-- ===== 장면 2 · 새로운 운세의 세계 (809 ~ 2658) ===== -->
+  <img src="assets/svg/intro-paper-edge.svg" alt="" class="absolute left-0 top-[809px] z-[1] h-[40px] w-[390px]" data-component="Intro / Paper Edge (찢긴 종이 가장자리)" data-node="1058:13589" />
+  <div class="absolute left-0 top-[849px] h-[1809px] w-[390px] overflow-hidden bg-[var(--x-paper-2)]" data-component="장면 2 · 새로운 운세의 세계 (STEP 02)" data-node="1058:13592">
+    <div class="intro-library absolute left-[-15px] top-[1318px] h-[495px] w-[421px]" data-component="Intro / BG Library (좌우·위 그라디언트 마스크)" data-node="1058:13593">
+      <img data-slot="intro-bg-library" alt="" class="absolute inset-0 size-full -scale-x-100 object-cover" />
     </div>
-    <img src="assets/svg/scene-lattice.svg" alt="" class="absolute left-0 top-0 h-[656px] w-[390px] object-cover object-top" style="clip-path:inset(0 0 40px 0)" data-component="Scene / Deco Lattice" data-node="982:1686" />
-    <!-- 구름 장식 2개 — 원본이 pngtree 스톡 이미지를 벡터화한 것 (HANDOFF 8-22: 라이선스 확인 전 사용 보류) -->
-    <img src="assets/svg/scene-cloud-left.svg" alt="" class="absolute left-[-103px] top-[-14px] h-[97px] w-[337.984px] max-w-none" data-component="Scene / Cloud Left (라이선스 확인 필요)" data-node="1015:6857" />
-    <img src="assets/svg/scene-cloud-right.svg" alt="" class="absolute left-[157px] top-[-1px] h-[94px] w-[357.641px] max-w-none" data-component="Scene / Cloud Right (라이선스 확인 필요)" data-node="1015:6827" />
-    <p class="absolute left-0 right-0 top-[110px] whitespace-nowrap text-center font-flight text-[58px] leading-none text-gradient" style="--g:linear-gradient(to left,#1b1b1b,#211c1a)" data-node="982:1748">퀀타로는</p>
-    <p class="absolute left-0 right-0 top-[172px] whitespace-nowrap text-center font-sogang text-[58px] leading-none text-[#8a5a1c]" data-node="982:1745">다릅니다</p>
-    <p class="absolute left-0 right-0 top-[246px] whitespace-nowrap text-center font-pretendard text-[16px] font-medium leading-[26px] text-[#4b5563]" data-node="982:1747">태어난 순간부터 열두 달의 흐름까지<br />당신의 2027년을 세밀하게 살핍니다.</p>
-    <!-- 금실 장식 + 두루마리 (Scene / BG Gold Thread) -->
-    <div class="absolute left-0 top-[339px] h-[890px] w-[390px] overflow-hidden" data-component="Scene / Deco Gold Thread" data-node="982:1750">
-      <img src="assets/svg/scene-gold-thread.svg" alt="" class="absolute left-[13.26px] top-[-0.74px] h-[492.17px] w-[370.48px] max-w-none" data-component="Gold Thread / Path" data-node="982:1751" />
-      <!-- Scroll / Component · 펼침 모션 (360×855.4) — 스크롤로 화면에 30% 보이면 1회 재생 (I-17)
-           모든 조각은 한 장의 두루마리 원화(scroll-sprite.png)를 잘라 쓴다(피그마와 동일한 크롭 값). -->
-      <div class="scroll-unroll absolute left-[15px] top-[17.6px] h-[855.4px] w-[360px]" data-component="Scroll / Component · 펼침 모션" data-node="1006:188" id="scroll-unroll">
-        <!-- 02 · 종이·텍스트·테두리 노출 마스크 (높이 0 → 708.9) -->
-        <div class="scroll-unroll__mask absolute left-0 top-[104px] h-[708.9px] w-[360px] overflow-hidden" data-component="02 · 종이·텍스트·테두리 노출 마스크" data-node="1006:189" data-motion="scroll-mask">
-          <div class="absolute left-0 top-0 h-[708.9px] w-[360px]" data-component="고정 원화">
-            <div class="absolute inset-y-0 left-[30.6px] right-[30.5px] bg-white" data-component="Paper Background"></div>
-            <div class="sprite absolute left-0 top-[619.7px] h-[89.2px] w-[360px]" data-component="수묵 산맥" data-motion="scroll-mountain">
-              <img src="assets/img/scroll-mountain-sprite.png" alt="" class="absolute left-[-10.38%] top-[-542.86%] h-[731.43%] w-[120.75%] max-w-none" />
+    <div class="absolute left-0 top-0 h-[656px] w-[390px] overflow-hidden" data-component="BG">
+      <img src="assets/svg/intro-lattice.svg" alt="" class="absolute left-0 top-0 h-[696px] w-[390px] max-w-none" data-component="Lattice Pattern (빗살 문양)" data-node="1058:13599" />
+    </div>
+    <p class="absolute inset-x-0 top-[73px] whitespace-nowrap text-center font-flight text-[58px] leading-none text-text-primary" data-node="1058:13660">퀀타로는</p>
+    <p class="absolute inset-x-0 top-[135px] whitespace-nowrap text-center font-sogang text-[58px] leading-none text-[#8a5a1c]" data-node="1058:13657">다릅니다</p>
+    <p class="absolute inset-x-0 top-[216px] whitespace-nowrap text-center font-pretendard text-[16px] font-medium leading-[26px] text-[var(--x-gray-text-3)]" style="margin-left:1px" data-component="Sub copy" data-node="1058:13659">당신만의 사주로<br />2027년을 다르게 읽습니다</p>
+
+    <div class="absolute left-0 top-[301px] h-[1508px] w-[390px] overflow-hidden" data-component="BG · Gold Thread (항목 연결선)" data-node="1058:13662">
+      <img src="assets/svg/intro-gold-thread.svg" alt="" class="absolute left-[13.26px] top-0 h-[838px] w-[370.49px] max-w-none" data-component="Gold Thread / Vector" data-node="1058:13663" />
+      <!-- 두루마리 · 위치·크기 고정 (360 × 855.4) — 모션: 위에서 아래로 펼쳐짐 -->
+      <div class="absolute left-[15px] top-[5.06px] h-[855.4px] w-[360px]" data-component="두루마리 · 위치·크기 고정" data-node="1058:13665" id="intro-scroll">
+        <div class="scroll-reveal absolute left-0 top-[104px] h-[708.9px] w-[360px] overflow-hidden" data-component="02 · 종이·텍스트·테두리 노출 마스크" data-node="1058:13666" data-motion="scroll-reveal">
+          <div class="absolute left-0 top-0 h-[708.9px] w-[360px]" data-component="고정 원화 · 산·종이·텍스트 위치 불변" data-node="1058:13667">
+            <div class="absolute bottom-0 left-[30.6px] right-[30.5px] top-0 bg-white" data-component="Scroll / Paper" data-node="1058:13668"></div>
+            <div class="scroll-part absolute left-0 top-[619.7px] h-[89.2px] w-[360px]" data-component="수묵 산맥" data-node="1058:13669" data-motion="scroll-mountain"><img data-slot="intro-scroll-mountain" alt="" style="height:731.43%;top:-542.86%" /></div>
+            <div class="absolute left-0 top-0 h-[40.3px] w-[360px] overflow-hidden" data-component="상단 골드 모서리" data-node="1058:13670">
+              <div class="scroll-part absolute left-0 top-[-34px] h-[74.3px] w-[360px]" data-component="Top Roller" data-node="1058:13671"><img data-slot="intro-scroll-parts" alt="" style="height:877.71%;top:-94.29%" /></div>
             </div>
-            <div class="absolute left-0 top-0 h-[40.3px] w-[360px] overflow-hidden" data-component="상단 골드 모서리">
-              <div class="sprite absolute left-0 top-[-34px] h-[74.3px] w-[360px]"><img src="assets/img/scroll-sprite.png" alt="" class="absolute left-[-10.38%] top-[-94.29%] h-[877.71%] w-[120.75%] max-w-none" /></div>
+            <div class="scroll-part absolute left-0 top-[40.3px] flex h-[588px] w-[360px] flex-col items-center pb-[40px] pl-[61px] pr-[62px] pt-[12px]" data-component="Scroll / Body (내부 텍스트·좌우 테두리)" data-node="1058:13672">
+              <img data-slot="intro-scroll-parts" alt="" style="height:307.2%;top:-100%" />
+              <div class="relative flex w-full flex-col items-center gap-[24px] text-center" data-component="Content" data-node="1058:13674" id="intro-scroll-content"></div>
             </div>
-            <div class="sprite absolute left-0 top-[40.3px] h-[588px] w-[360px]" data-component="내부 텍스트·좌우 테두리">
-              <img src="assets/img/scroll-sprite.png" alt="" class="absolute left-[-10.38%] top-[-100%] h-[307.2%] w-[120.75%] max-w-none" />
-              <div class="scroll-content absolute left-[61px] top-[12px] flex w-[237px] flex-col items-center gap-[24px] text-center" data-component="Content">
-                <p class="font-noto-sans text-[13px] font-medium leading-[20px] tracking-[1px] text-[#8c6d1f]" data-motion="scroll-text" style="--d:.55s">퀀타로가 다른 세 가지 이유</p>
-                <div class="flex w-full flex-col items-center gap-[8px]" data-component="Section 01">
-                  <p class="font-flight text-[28px] leading-[34px] text-[#b7833d]" data-motion="scroll-text" style="--d:.85s">01</p>
-                  <p class="font-sogang text-[21px] leading-[30px] text-[#222]" data-motion="scroll-text" style="--d:.93s">같은 띠, 서로 다른 사주</p>
-                  <p class="font-noto-sans text-[14px] leading-[22px] text-[#4b5563]" data-motion="scroll-text" style="--d:1.01s">띠로 한 해의 흐름을 살펴보고,<br />생년월일시로 나만의 사주 명식을 세워<br />더 깊이 읽습니다.</p>
-                  <p class="font-noto-sans text-[11px] leading-[16px] text-[#6b6f76]" data-motion="scroll-text" style="--d:1.09s">※ 태어난 시를 모르면 시주를 뺀<br />범위에서 풀이합니다.</p>
-                </div>
-                <div class="h-px w-[48px] bg-[rgba(183,131,61,0.5)]" data-component="Divider"></div>
-                <div class="flex w-full flex-col items-center gap-[8px]" data-component="Section 02">
-                  <p class="font-flight text-[28px] leading-[34px] text-[#b7833d]" data-motion="scroll-text" style="--d:1.2s">02</p>
-                  <p class="font-sogang text-[21px] leading-[30px] text-[#222]" data-motion="scroll-text" style="--d:1.28s">총운부터 열두 달까지</p>
-                  <p class="font-noto-sans text-[14px] leading-[22px] text-[#4b5563]" data-motion="scroll-text" style="--d:1.36s">총운부터 재물·건강·애정· 직장·학업, 열두 달의 흐름까지 살펴봅니다.</p>
-                </div>
-                <div class="h-px w-[48px] bg-[rgba(183,131,61,0.5)]" data-component="Divider"></div>
-                <div class="flex w-full flex-col items-center gap-[8px]" data-component="Section 03">
-                  <p class="font-flight text-[28px] leading-[34px] text-[#b7833d]" data-motion="scroll-text" style="--d:1.55s">03</p>
-                  <p class="font-sogang text-[21px] leading-[30px] text-[#222]" data-motion="scroll-text" style="--d:1.63s">예언이 아닌 흐름</p>
-                  <p class="font-noto-sans text-[14px] leading-[22px] text-[#4b5563]" data-motion="scroll-text" style="--d:1.71s">조심할 달과 밀어도 되는 달을<br />함께 살펴봅니다.</p>
-                </div>
-              </div>
-            </div>
-            <div class="absolute left-0 top-[628.3px] h-[80.6px] w-[360px] overflow-hidden" data-component="하단 골드 모서리">
-              <div class="sprite absolute left-0 top-0 h-[123.1px] w-[360px]"><img src="assets/img/scroll-sprite.png" alt="" class="absolute left-[-10.38%] top-[-400%] h-[529.66%] w-[120.75%] max-w-none" /></div>
+            <div class="absolute left-0 top-[628.3px] h-[80.6px] w-[360px] overflow-hidden" data-component="하단 골드 모서리" data-node="1058:13691">
+              <div class="scroll-part absolute left-0 top-0 h-[123.1px] w-[360px]" data-component="Bottom Roller" data-node="1058:13692"><img data-slot="intro-scroll-parts" alt="" style="height:529.66%;top:-400%" /></div>
             </div>
           </div>
         </div>
-        <!-- 03 · 하단 봉 이동 범위 (상단 고정봉 뒤에서 출발) -->
-        <div class="absolute left-0 top-[70px] h-[785.4px] w-[360px] overflow-hidden [perspective:2400px]" data-component="03 · 하단 봉 이동 범위">
-          <div class="scroll-unroll__paper absolute left-[30.6px] top-[743.89px] w-[298.9px]" data-component="04 · 말린 종이" data-node="1006:217" data-motion="scroll-paper"></div>
-          <div class="absolute left-0 top-[742.9px] h-[42.5px] w-[360px] overflow-hidden" data-component="03 · 하단 봉" data-node="1006:218" data-motion="scroll-rod">
-            <div class="sprite absolute left-0 top-[-80.6px] h-[123.1px] w-[360px]"><img src="assets/img/scroll-sprite.png" alt="" class="absolute left-[-10.38%] top-[-400%] h-[529.66%] w-[120.75%] max-w-none" /></div>
+        <div class="absolute left-0 top-[70px] h-[785.4px] w-[360px] overflow-hidden [perspective:2400px]" data-component="03 · 하단 봉 이동 범위" data-node="1058:13693">
+          <div class="scroll-curl absolute left-[30.6px] top-[743.89px] w-[298.9px]" data-component="04 · 말린 종이" data-node="1058:13694" data-motion="scroll-curl"></div>
+          <div class="absolute left-0 top-[742.9px] h-[42.5px] w-[360px] overflow-hidden" data-component="03 · 하단 봉" data-node="1058:13695" data-motion="scroll-roller">
+            <div class="scroll-part absolute left-0 top-[-80.6px] h-[123.1px] w-[360px]" data-component="Bottom Roller" data-node="1058:13696"><img data-slot="intro-scroll-parts" alt="" style="height:529.66%;top:-400%" /></div>
           </div>
         </div>
-        <!-- 01 · 상단 끈·고정봉 (고정) -->
-        <div class="absolute left-0 top-0 h-[104px] w-[360px] overflow-hidden" data-component="01 · 상단 끈·고정봉">
-          <div class="sprite absolute left-0 top-0 h-[70px] w-[360px]"><img src="assets/img/scroll-sprite.png" alt="" class="absolute left-[-10.38%] top-0 h-[930.91%] w-[120.75%] max-w-none" /></div>
-          <div class="sprite absolute left-0 top-[70px] h-[74.3px] w-[360px]"><img src="assets/img/scroll-sprite.png" alt="" class="absolute left-[-10.38%] top-[-94.29%] h-[877.71%] w-[120.75%] max-w-none" /></div>
+        <div class="absolute left-0 top-0 h-[104px] w-[360px] overflow-hidden" data-component="01 · 상단 끈·고정봉 · 고정" data-node="1058:13697">
+          <div class="scroll-part absolute left-0 top-0 h-[70px] w-[360px]" data-component="Hanging Rope" data-node="1058:13698"><img data-slot="intro-scroll-parts" alt="" style="height:930.91%;top:0" /></div>
+          <div class="scroll-part absolute left-0 top-[70px] h-[74.3px] w-[360px]" data-component="Top Roller" data-node="1058:13699"><img data-slot="intro-scroll-parts" alt="" style="height:877.71%;top:-94.29%" /></div>
         </div>
       </div>
     </div>
-    <div class="absolute bottom-[-25px] left-[-3px] h-[468px] w-[398px] bg-[linear-gradient(to_bottom,rgba(254,253,252,0)_47.455%,rgba(254,253,252,0.92)_94.91%)]" data-component="Intro / Fade" data-node="982:1780"></div>
-    <div class="absolute left-0 top-[1276px] h-[578px] w-[390px]" data-component="Intro / Block C · Master Intro" data-node="982:1781">
-      <p class="absolute left-0 right-0 top-0 text-center font-pretendard text-[24px] font-medium leading-[42px] text-text-primary" data-node="982:1784">단순한 운세 예측을 넘은</p>
-      <p class="absolute left-0 right-0 top-[46px] text-center font-sogang text-[32px] leading-[41px] text-text-primary" data-node="982:1785">술사의 <span class="text-[#8a5a1c]">깊이있는 해석</span></p>
-      <div class="absolute left-[9px] top-[141px] h-[437px] w-[372px] overflow-hidden" data-component="Intro / Image 차우진" data-node="982:1786">
-        <img data-slot="intro-master-cha-woojin" alt="서책을 읽는 차우진" class="absolute left-0 top-[-0.04%] h-[113.59%] w-full max-w-none" />
+
+    <div class="pointer-events-none absolute left-0 top-[1452px] h-[388px] w-[390px]" style="background:linear-gradient(to bottom,rgba(254,253,252,0) 47.455%,rgba(254,253,252,.92) 94.91%)" data-component="Intro / Fade" data-node="1058:13700"></div>
+    <div class="absolute left-[24px] top-[1234px] flex w-[342px] flex-col items-center gap-[52px] overflow-hidden" data-component="블록 C · 차우진 술사와 상품 연결" data-node="1058:13701">
+      <div class="relative h-[138px] w-[342px] text-center text-text-primary" data-component="C / Text" data-node="1058:13702">
+        <p class="absolute inset-x-0 top-0 font-pretendard text-[24px] font-bold leading-[42px]" data-node="1058:13704">차우진 술사가</p>
+        <p class="absolute inset-x-0 top-[46px] font-sogang text-[36px] leading-[46px]" data-node="1058:13705">당신의 <span class="text-[var(--x-gold-mid)]">정미년</span>을<br />읽어 드립니다</p>
+      </div>
+      <div class="relative h-[385px] w-[328px] shrink-0 overflow-hidden" data-component="Intro / Image 차우진" data-node="1058:13706">
+        <img data-slot="intro-cha-woojin" alt="사주풀이 책을 읽는 차우진" class="absolute left-0 top-[-0.04%] h-[113.59%] w-full max-w-none" />
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================ 06 Paid Preview ============================ -->
-<section id="s06" class="section relative h-[1924px] overflow-hidden bg-[var(--x-paper-2)]" data-screen="06 Paid Preview" data-node="982:1626">
-    <div data-component="Header" data-node="982:1671">
-      <p class="absolute left-0 right-0 top-[49px] text-center font-pretendard text-[24px] font-medium leading-[46px] text-text-primary" data-node="982:1676">자리에 멈추게 만드는</p>
-      <p class="absolute left-0 right-0 top-[99px] whitespace-nowrap text-center font-flight text-[36px] leading-[41px] text-gradient" style="--g:linear-gradient(to left,#1b1b1b,#211c1a)" data-node="982:1677">나만의 맞춤 결과지</p>
-      <p class="absolute left-0 right-0 top-[156px] text-center font-sogang text-[24px] leading-[36px] text-accent-default" style="margin-left:1px" data-node="982:1675">내 사주, 어디가 강하고<br />무엇이 부족할까?</p>
-      <p class="absolute left-0 right-0 top-[243px] text-center font-pretendard text-[14px] leading-[22px] text-[var(--x-gray-text)]" style="margin-left:-1px" data-node="982:1674">아래 분석은 유료 상세 결과에서 제공하는 시각화의 예시입니다.<br />무료 미리보기에는 포함되지 않아요.</p>
-      <div class="absolute left-[134px] top-[287px] size-[106px] overflow-hidden" data-component="Header / Scroll" data-node="877:1535">
-        <img data-slot="paid-scroll" alt="" class="absolute left-[-3px] top-[-3px] size-[112px] max-w-none object-cover" />
-      </div>
+<section id="s06" class="section relative h-[1924px] bg-[var(--x-paper-2)]" data-screen="06 Paid Preview" data-node="1058:13298">
+  <div data-component="Header" data-node="1058:13343">
+    <p class="absolute inset-x-0 top-[49px] whitespace-nowrap text-center font-pretendard text-[24px] font-medium leading-[46px] text-text-primary" style="margin-left:1px" data-node="1058:13348">자리에 멈추게 만드는</p>
+    <p class="text-gradient absolute inset-x-0 top-[99px] whitespace-nowrap text-center font-flight text-[36px] leading-[41px]" style="--g:linear-gradient(to left,#1b1b1b,#211c1a)" data-node="1058:13349">나만의 맞춤 결과지</p>
+    <p class="absolute inset-x-0 top-[156px] whitespace-nowrap text-center font-sogang text-[24px] leading-[36px] text-accent-default" style="margin-left:1px" data-node="1058:13347">내 사주, 어디가 강하고<br />무엇이 부족할까?</p>
+    <p class="absolute inset-x-0 top-[243px] whitespace-nowrap text-center font-pretendard text-[14px] leading-[22px] text-[var(--x-gray-text)]" style="margin-left:-1px" data-node="1058:13346">아래 분석은 유료 상세 결과에서 제공하는 시각화의 예시입니다.<br />무료 미리보기에는 포함되지 않아요.</p>
+    <div class="absolute left-[134px] top-[287px] size-[106px] overflow-hidden" data-component="Header / Scroll" data-node="1058:13344">
+      <img data-slot="paid-scroll" alt="" class="absolute left-[-3px] top-[-3px] size-[112px] max-w-none object-cover" />
     </div>
-    <!-- Preview 01~04 : JS 렌더 (data.js › paidPreviews) -->
-    <div id="paid-previews"></div>
+  </div>
+  <!-- Preview 01~04 : JS 렌더 (data.js › paidPreviews) -->
+  <div id="paid-previews"></div>
 </section>
 
 <!-- ============================ 07 Chapters ============================ -->
-<section id="s07" class="section relative h-[1880px] overflow-hidden bg-white" data-screen="07 Chapters" data-node="982:1470">
-  <div class="absolute left-0 top-[-116px] h-[2014px] w-[390px] overflow-hidden rounded-t-[80px] bg-gradient-to-b from-[#111a36] to-[#052354]" data-component="Chapters / Background" data-node="982:1471" id="chapters-bg">
-    <!-- 두루마리 + 도장 찍기: 섹션 진입 시 1회 (0.2~1.2s), 이어서 장별 낙관이 1.3s부터 0.5s 간격 -->
-    <div class="absolute left-[76px] top-[330px] h-[119px] w-[238px] overflow-hidden" data-component="Scroll Image" data-node="982:1473" id="chapters-scroll">
+<section id="s07" class="section relative h-[1880px] overflow-hidden bg-white" data-screen="07 Chapters" data-node="1058:13143">
+  <div class="absolute left-0 top-[-116px] h-[2014px] w-[390px] overflow-hidden rounded-t-[80px]" data-component="Chapters / Background" data-node="1058:13144" id="chapters-bg">
+    <div class="absolute left-0 top-[116px] h-[2014px] w-[390px] rounded-t-[80px] bg-gradient-to-b from-[#111a36] to-[#052354]" data-component="Background Gradient" data-node="1058:13145"></div>
+    <!-- 모션 트리거: 두루마리가 30% 보이면 #chapters-bg에 .is-in -->
+    <div class="absolute left-[76px] top-[330px] h-[119px] w-[238px]" data-component="Scroll Image" data-node="1058:13146" id="chapters-head" data-motion-scope="#chapters-bg">
       <img data-slot="chapters-scroll" alt="" class="absolute inset-0 size-full object-cover" />
     </div>
-    <div class="seal-ring" data-component="Scroll / Seal Impact Ring" data-node="982:1474" data-motion="seal-ring"></div>
-    <div class="stamp-tool" data-component="Chapters / Stamp Tool" data-node="982:1475" data-motion="stamp-tool">
-      <img data-slot="chapters-stamp-tool" alt="도장" class="absolute inset-0 size-full object-cover" />
+    <!-- Scroll / Seal Impact Ring : 6° 회전, 도장 도구가 찍는 순간 확산 -->
+    <span class="seal-ring" data-component="Scroll / Seal Impact Ring" data-node="1058:13147"><span data-motion="seal-ring"></span></span>
+    <div class="absolute left-[242px] top-[330px] size-[72px]" data-component="Chapters / Stamp Tool" data-node="1058:13148" data-motion="stamp-tool">
+      <img data-slot="chapters-stamp-tool" alt="" class="absolute inset-0 size-full object-cover" />
     </div>
   </div>
-  <div class="absolute left-[-215px] top-[-219px] h-[437px] w-[459px]" data-component="Chapters / Book Image" data-node="982:1617">
+  <div class="absolute left-[-215px] top-[-219px] h-[437px] w-[459px]" data-component="Chapters / Book Image" data-node="1058:13289">
     <img data-slot="chapters-book" alt="" class="absolute inset-0 size-full object-cover object-bottom opacity-80 mix-blend-soft-light" />
   </div>
-  <p class="absolute left-[24px] top-[66px] w-[342px] text-center font-pretendard text-[18px] font-medium leading-[28px] text-white" data-component="Chapters / Eyebrow" data-node="982:1619">한 번 읽고 끝나는 운세가 아닌</p>
-  <p class="absolute left-0 right-0 top-[106px] text-center font-pretendard text-[24px] font-medium leading-[36px] text-gradient" style="--g:linear-gradient(to bottom,#ffedbf,#ca8c0d)" data-component="Chapters / Title 1" data-node="982:1620">1년 내내 다시 펼쳐볼</p>
-  <p class="absolute left-0 right-0 top-[146px] text-center font-sogang text-[32px] leading-[48px] text-white" data-component="Chapters / Title 2" data-node="982:1621">내 2027년 <span class="text-[var(--x-gold-light)]">‘안내서’</span></p>
+  <p class="absolute left-[24px] top-[66px] w-[342px] text-center font-pretendard text-[18px] font-medium leading-[28px] text-white" data-component="Chapters / Eyebrow" data-node="1058:13291">한 번 읽고 끝나는 운세가 아닌</p>
+  <p class="text-gradient absolute left-0 right-0 top-[106px] whitespace-nowrap text-center font-pretendard text-[24px] font-medium leading-[36px]" style="margin-left:-1px;--g:linear-gradient(to bottom,#ffedbf,#a07419)" data-component="Chapters / Title 1" data-node="1058:13292">1년 내내 다시 펼쳐볼</p>
+  <p class="absolute left-0 right-0 top-[146px] whitespace-nowrap text-center font-sogang text-[32px] leading-[48px] text-white" style="margin-left:-1px" data-component="Chapters / Title 2" data-node="1058:13293">내 2027년 <span class="text-[var(--x-gold-light)]">‘안내서’</span></p>
+  <!-- Bracket Corner ×4 (1058:13294~4330): 4차 프레임에서 선이 빠진 빈 프레임 → 그리지 않음 (DECISIONS D-31) -->
 
-  <div class="paper-card absolute left-[15px] top-[345px] h-[1494px] w-[360px]" data-component="Chapters / TOC Card" data-node="982:1476">
-    <div class="paper-card__inner absolute left-[6px] top-[8px] h-[1472px] w-[342px] bg-white" data-component="TOC / Content" data-node="613:160">
+  <div class="paper-card absolute left-[15px] top-[345px] h-[1494px] w-[360px]" data-component="Chapters / TOC Card" data-node="1058:13149">
+    <div class="paper-card__inner absolute left-[9px] top-[11px] h-[1472px] w-[342px] bg-white" data-component="TOC / Content" data-node="1058:13150" id="toc-content">
       <!-- Numbered List -->
-      <div class="absolute left-0 top-[139px] h-[1174px] w-[342px] overflow-hidden" data-component="Numbered List" data-node="982:1478">
+      <div class="absolute left-0 top-[139px] h-[1174px] w-[342px] overflow-hidden" data-component="Numbered List" data-node="1058:13151">
         <div class="absolute left-[-297px] top-[-174px] h-[1507px] w-[848px]" data-component="한지 1"><img data-slot="hanji" alt="" class="absolute inset-0 size-full object-cover" /></div>
-        <div id="chapter-list" class="relative"></div>
+        <!-- 모션 트리거: 목차 목록이 30% 보이면 #toc-content에 .is-in (도장 10개) -->
+        <div id="chapter-list" class="relative" data-motion-scope="#toc-content"></div>
       </div>
       <!-- Header -->
-      <div class="absolute left-0 top-0 h-[139px] w-[342px] bg-[var(--x-paper-2)]" data-component="Header" data-node="613:246">
+      <div class="absolute left-0 top-0 h-[139px] w-[342px] bg-[var(--x-paper-2)]" data-component="Header" data-node="1058:13275">
         <div class="absolute left-[20px] top-[24px] flex h-[22px] w-[302px] items-center justify-between" data-component="Label Row">
-          <p class="font-pretendard text-[11.5px] font-semibold leading-[17.25px] tracking-[0.69px] text-[var(--x-gold-dark)]" data-component="Label · 결과지 화면 예시">결과지 화면 예시</p>
+          <p class="font-pretendard text-[12px] font-semibold leading-[18px] tracking-[0.72px] text-[var(--x-gold-dark)]" data-component="Label · 결과지 화면 예시">결과지 화면 예시</p>
           <span class="badge-outline" data-component="Badge · 가상 생년월일">가상 생년월일</span>
         </div>
-        <p class="absolute left-0 right-0 top-[66px] text-center font-pretendard text-[17.5px] font-bold leading-[25.375px] tracking-[-0.525px] text-accent-default">1999년 11월 18일생의 2027 신년운세</p>
-        <p class="absolute left-0 right-0 top-[98px] text-center font-pretendard text-[13px] leading-[20px] text-[var(--x-gray-text)]">총 10개 장</p>
+        <p class="absolute left-0 right-0 top-[66px] text-center font-pretendard text-[18px] font-bold leading-[26px] tracking-[-0.54px] text-accent-default">1999년 11월 18일생의 2027 신년운세</p>
+        <p class="absolute left-0 right-0 top-[98px] text-center font-pretendard text-[14px] leading-[22px] text-[var(--x-gray-text)]">총 10개 장</p>
         <span class="corner-ornament" data-pos="tl"></span><span class="corner-ornament" data-pos="tr"></span>
       </div>
       <!-- Footer -->
-      <div class="absolute left-0 top-[1327px] h-[145px] w-[342px] bg-[var(--x-paper-2)]" data-component="Footer" data-node="613:234">
-        <div class="absolute left-[15.5px] top-[21px] flex items-center gap-[8px] font-pretendard text-[13px] leading-[19.5px] text-[rgba(34,34,34,0.75)]" data-component="Footer / Meta">
+      <div class="absolute left-0 top-[1327px] h-[145px] w-[342px] bg-[var(--x-paper-2)]" data-component="Footer" data-node="1058:13263">
+        <div class="absolute left-[15.5px] top-[21px] flex items-center gap-[8px] font-pretendard text-[14px] leading-[21px] text-[rgba(34,34,34,0.75)]" data-component="Footer / Meta">
           <span>A4 약 20쪽</span><span class="meta-dot"></span><span>내 생년월일로 새로 쓰여요</span><span class="meta-dot"></span><span>첫 장 약 1분</span>
         </div>
-        <button type="button" class="cta-primary absolute left-[20px] top-[57px] w-[302px]" data-component="CTA Button" data-node="613:244" data-action="external">
+        <button type="button" class="cta-primary absolute left-[20px] top-[57px] w-[302px]" data-component="CTA Button" data-node="1058:13273" data-action="external">
           <span class="cta-primary__label">내 풀이 확인하기 · 33,000원</span>
         </button>
       </div>
@@ -448,37 +380,37 @@
 </section>
 
 <!-- ============================ 08 Timing ============================ -->
-<section id="s08" class="section relative h-[2068px] overflow-hidden" data-screen="08 Timing" data-node="982:1355">
+<section id="s08" class="section relative h-[2068px] overflow-hidden" data-screen="08 Timing" data-node="1058:13028">
   <div class="absolute inset-0 bg-gradient-to-b from-[#001026] to-[#1b3b6f]"></div>
   <img data-slot="hanji" alt="" class="absolute inset-0 size-full object-cover" />
-  <div class="absolute left-[305px] top-[3px] h-[130.5px] w-[90.38px] origin-top-left scale-[0.98]" data-component="Timing / Lantern Deco (벡터 51개)" data-node="982:1357" id="lantern"></div>
-  <p class="absolute left-0 right-0 top-[41px] text-center font-pretendard text-[18px] font-medium leading-[28px] text-text-primary" data-node="982:2105">인생은 타이밍이라는데</p>
-  <p class="absolute left-0 right-0 top-[73px] text-center font-sogang text-[32px] leading-[48px]" data-node="982:2106"><span class="text-gradient" style="--g:linear-gradient(to left,#1b1b1b,#3b3b3b)">내 운의 타이밍은</span><br /><span class="text-[#8a5a1c]">언제일까?</span></p>
-  <p class="absolute left-[24px] top-[173px] w-[342px] text-center font-pretendard text-[16px] leading-[27px] text-[#4b5563]" data-component="Timing / Sub" data-node="982:1467">인연, 돈, 직장, 건강까지.<br />중요한 흐름을 맞춤으로 제공해드립니다</p>
-  <div class="absolute left-[24px] top-[267px] flex w-[342px] flex-col gap-[20px]" data-component="Timing / Cards" data-node="982:1414" id="timing-cards"></div>
-  <p class="absolute left-0 right-0 top-[1917px] text-center font-pretendard text-[14px] leading-[24px] text-[var(--x-gray-text-2)]" style="margin-left:-1px" data-node="982:1356">나머지 아홉 달과 각 달의 전체 풀이는<br />제7장 12개월 흐름에서 이어집니다</p>
-  <button type="button" class="cta-primary absolute left-[20px] top-[1981px] w-[350px] bg-[var(--x-navy-deep)]" data-component="CTA / Full Reading" data-node="982:1412" data-action="external">
+  <img src="assets/svg/timing-lantern.svg" alt="" class="absolute left-[304.98px] top-[2.9px] h-[128.44px] w-[90.37px] max-w-none" data-component="Timing / Lantern Deco" data-node="1058:13030" />
+  <p class="absolute left-0 right-0 top-[41px] whitespace-nowrap text-center font-pretendard text-[18px] font-medium leading-[28px] text-text-primary" data-node="1058:13141">인생은 타이밍이라는데</p>
+  <p class="text-gradient absolute left-0 right-0 top-[73px] whitespace-nowrap text-center font-sogang text-[32px] leading-[48px]" style="margin-left:1px;--g:linear-gradient(to left,#1b1b1b,#3b3b3b)" data-node="1058:13142">내 운의 타이밍은<br /><span class="text-[#8a5a1c]" style="-webkit-text-fill-color:#8a5a1c">언제일까?</span></p>
+  <p class="absolute left-[24px] top-[173px] w-[342px] text-center font-pretendard text-[16px] leading-[27px] text-[var(--x-gray-text-3)]" style="margin-left:1px" data-component="Timing / Sub" data-node="1058:13140">인연, 돈, 직장, 건강까지.<br />중요한 흐름을 맞춤으로 제공해드립니다</p>
+  <div class="absolute left-[24px] top-[267px] flex w-[342px] flex-col gap-[20px]" data-component="Timing / Cards" data-node="1058:13087" id="timing-cards"></div>
+  <p class="absolute left-0 right-0 top-[1917px] text-center font-pretendard text-[14px] leading-[24px] text-[var(--x-gray-text-2)]" style="margin-left:-1px" data-node="1058:13029">나머지 아홉 달과 각 달의 전체 풀이는<br />제7장 12개월 흐름에서 이어집니다</p>
+  <button type="button" class="cta-primary absolute left-[20px] top-[1981px] w-[350px] bg-[var(--x-navy-deep)]" data-component="CTA / Full Reading" data-node="1058:13085" data-action="external">
     <span class="cta-primary__label">전체 풀이 확인하기</span>
   </button>
 </section>
 
 <!-- ============================ 09 Before After Reviews ============================ -->
-<section id="s09" class="section relative h-[1368px] bg-[var(--x-cream)]" data-screen="09 Before After Reviews" data-node="982:1291">
-  <div class="reviews-heading absolute left-[24px] top-[31px] h-[162px] w-[342px] text-center" data-component="Reviews / Heading" data-node="982:1292">
-    <p class="absolute left-0 right-0 top-[16px] font-pretendard text-[18px] font-semibold leading-[30px] text-text-primary">평범한 하루를 보내던 사람들</p>
-    <p class="absolute left-0 right-0 top-[50px] font-sogang text-[24px] leading-[39px] text-accent-default">2027년을 먼저 본 뒤</p>
-    <p class="absolute left-0 right-0 top-[93px] whitespace-nowrap font-flight text-[34px] leading-[43px] text-gradient" style="--g:linear-gradient(to left,#1b1b1b,#211c1a)">무엇이 달라졌을까요?</p>
+<section id="s09" class="section relative h-[1368px] bg-[var(--x-cream)]" data-screen="09 Before After Reviews" data-node="1058:12964">
+  <div class="reviews-heading absolute left-[24px] top-[31px] h-[162px] w-[342px] text-center" data-component="Reviews / Heading" data-node="1058:12965">
+    <p class="absolute inset-x-0 top-[16px] font-pretendard text-[18px] font-semibold leading-[30px] text-text-primary" data-node="1058:12966">평범한 하루를 보내던 사람들</p>
+    <p class="absolute inset-x-0 top-[50px] whitespace-nowrap font-flight-bold text-[24px] font-bold leading-[39px] text-accent-default" data-node="1058:12967">2027년을 먼저 본 뒤</p>
+    <p class="absolute inset-x-0 top-[89px] whitespace-nowrap font-flight text-[34px] leading-[43px] text-accent-default" style="margin-left:1px" data-node="1058:12968">무엇이 달라졌을까요?</p>
   </div>
-  <img src="assets/svg/reviews-down-arrow.svg" alt="" class="absolute left-[159px] top-[199px] h-[40px] w-[72px]" data-component="Reviews / Down Arrow" data-node="982:1353" />
-  <div class="absolute left-[24px] top-[266px] flex w-[342px] flex-col gap-[32px]" data-component="Reviews / Cards" data-node="982:1296" id="ba-reviews"></div>
+  <img src="assets/svg/reviews-down-arrow.svg" alt="" class="absolute left-[159px] top-[199px] h-[40px] w-[72px]" data-component="Reviews / Down Arrow" data-node="1058:13026" />
+  <div class="absolute left-[24px] top-[266px] flex w-[342px] flex-col gap-[32px]" data-component="Reviews / Cards" data-node="1058:12969" id="ba-reviews"></div>
 </section>
 
 <!-- ============================ 10 Review List ============================ -->
-<section id="s10" class="section relative h-[394px] overflow-hidden bg-white" data-screen="10 Review List" data-node="982:1163">
-  <div class="absolute left-0 top-[42px] flex flex-col gap-[12px] px-[24px]" data-component="Review List / Slider" data-node="982:1164">
-    <p class="font-sogang text-[24px] leading-[38px] text-accent-default" data-node="982:1165">직접 경험한 분들의 생생한 후기</p>
-    <p class="pb-[8px] font-pretendard text-[14px] leading-[22px] text-[var(--x-gray-text-2)]" data-component="Review List / Sub" data-node="982:1167">2027년을 먼저 살펴본 사람들의<br />소중한 실제 후기들을 확인해 보세요</p>
-    <div class="review-marquee relative h-[206px] w-[1458px]" data-component="Review List / Motion — RTL · Linear · 36.489s" data-node="982:1168" data-motion="marquee">
+<section id="s10" class="section relative h-[394px] overflow-hidden bg-white" data-screen="10 Review List" data-node="1058:12836">
+  <div class="absolute left-0 top-[42px] h-[320px] w-[1518px]" data-component="Review List / Slider" data-node="1058:12837">
+    <p class="absolute left-[24px] top-0 whitespace-nowrap font-sogang text-[24px] leading-[38px] text-accent-default" data-node="1058:12838">직접 경험한 분들의 생생한 후기</p>
+    <p class="absolute left-[24px] top-[50px] whitespace-nowrap font-pretendard text-[14px] leading-[22px] text-[var(--x-gray-text-2)]" data-component="Review List / Sub Group" data-node="1058:12839">2027년을 먼저 살펴본 사람들의<br />소중한 실제 후기들을 확인해 보세요</p>
+    <div class="review-marquee absolute left-[24px] top-[114px] h-[206px] w-[1458px]" data-component="Review List / Motion — RTL · Linear · 36.489s" data-node="1058:12841" data-motion="marquee">
       <div class="absolute left-0 top-0 flex items-center gap-[12px]" data-component="Review List / Cards" id="review-list"></div>
       <div class="absolute left-[1470px] top-0 flex items-center gap-[12px]" data-component="Review List / Cards — Loop Copy" id="review-list-copy" aria-hidden="true"></div>
     </div>
@@ -486,29 +418,29 @@
 </section>
 
 <!-- ============================ 11 Closing Headline ============================ -->
-<section id="s11" class="section relative h-[437px] overflow-hidden bg-white" data-screen="11 Closing Headline" data-node="982:721">
-  <img src="assets/svg/closing-glow.svg" alt="" class="absolute left-[-10px] top-0 h-[270px] w-[410px] max-w-none" data-component="Closing / Glow" data-node="982:722" />
-  <img src="assets/svg/closing-triangle.svg" alt="" class="absolute left-[-116.55px] top-[197px] h-[279px] w-[623.041px] max-w-none" data-component="Closing / Blue Triangle" data-node="982:723" />
-  <img src="assets/svg/closing-stars.svg" alt="" class="absolute left-0 top-[230px] h-[221px] w-[390px] max-w-none" data-component="Closing / Deco Stars (점 416개)" data-node="982:724" />
-  <div class="absolute left-0 top-[401px] h-[36px] w-[390px] bg-gradient-to-b from-[rgba(11,23,43,0)] to-[#0b172b]" data-component="Closing / Bottom Blend" data-node="982:1141"></div>
-  <img src="assets/svg/closing-corner-left.svg" alt="" class="absolute left-[5px] top-[2px] h-[57.375px] w-[54px]" data-component="Closing / Deco Corner Left" data-node="982:1142" />
-  <img src="assets/svg/closing-corner-right.svg" alt="" class="absolute left-[331px] top-[2px] h-[57.375px] w-[54px]" data-component="Closing / Deco Corner Right" data-node="982:1148" />
-  <div class="absolute left-[24px] top-[60px] h-[78px] w-[342px] text-center" data-component="Closing / Headline" data-node="982:1159">
-    <p class="absolute left-0 right-0 top-0 font-sogang text-[24px] leading-[29px] text-[var(--x-navy-title)]" data-node="982:1160">사주는 못 바꿔도</p>
-    <p class="absolute left-0 right-0 top-[33px] whitespace-nowrap font-flight text-[34px] leading-[45px] text-gradient" style="--g:linear-gradient(to left,#1b1b1b,#211c1a)" data-node="982:1161">미래는 바꿀 수 있습니다</p>
+<section id="s11" class="section relative h-[437px] overflow-hidden bg-white" data-screen="11 Closing Headline" data-node="1058:12407">
+  <img src="assets/svg/closing-glow.svg" alt="" class="absolute left-[-10px] top-0 h-[270px] w-[410px] max-w-none" data-component="Closing / Glow" data-node="1058:12408" />
+  <img src="assets/svg/closing-triangle.svg" alt="" class="absolute left-[-116.55px] top-[197px] h-[279px] w-[623.04px] max-w-none" data-component="Closing / Blue Triangle" data-node="1058:12409" />
+  <img src="assets/svg/closing-stars.svg" alt="" class="absolute left-0 top-[230px] h-[243px] w-[390px] max-w-none" data-component="Closing / Deco Stars" data-node="1058:12410" />
+  <div class="absolute left-0 top-[401px] h-[36px] w-[390px] bg-gradient-to-b from-[rgba(11,23,43,0)] to-[var(--x-navy-ink)]" data-component="Closing / Bottom Blend" data-node="1058:12827"></div>
+  <img src="assets/svg/closing-corner-left.svg" alt="" class="absolute left-[5px] top-[2px] h-[57.375px] w-[54px]" data-component="Closing / Deco Corner Left" data-node="1058:12828" />
+  <img src="assets/svg/closing-corner-right.svg" alt="" class="absolute left-[331px] top-[2px] h-[57.375px] w-[54px] max-w-none" data-component="Closing / Deco Corner Right" data-node="1058:12830" />
+  <div class="absolute left-[24px] top-[59.5px] flex w-[342px] flex-col items-center gap-[4px] text-center" data-component="Closing / Headline" data-node="1058:12832">
+    <p class="w-[342px] font-sogang text-[24px] leading-[29px] text-[var(--x-navy-title)]" data-component="Closing / Lead" data-node="1058:12833">다가올 2027년,</p>
+    <p class="text-gradient w-[342px] font-flight text-[32px] leading-[45px]" style="--g:linear-gradient(to left,#1b1b1b,#211c1a)" data-component="Closing / Main" data-node="1058:12834">막연하게 맞이하지 마세요</p>
   </div>
-  <p class="absolute left-[24px] top-[158px] w-[342px] text-center font-pretendard text-[16px] leading-[27px] text-[#4b5563]" data-component="Closing / Sub" data-node="982:1162">열두 달의 흐름, 재물과 인연, 차우진의 편지까지.<br />한 해가 시작되기 전에 먼저 펼쳐보세요</p>
+  <p class="absolute left-[24px] top-[158px] w-[342px] text-center font-pretendard text-[16px] leading-[27px] text-[var(--x-gray-text-3)]" data-component="Closing / Sub" data-node="1058:12835">열두 달의 흐름, 재물과 인연, 차우진의 편지까지.<br />한 해가 시작되기 전에 먼저 펼쳐보세요</p>
 </section>
 
 <!-- ============================ 12 Purchase ============================ -->
-<section id="s12" class="section relative h-[1041px] overflow-hidden bg-white" data-screen="12 Purchase" data-node="982:666">
-  <div class="absolute left-0 top-0 h-[190px] w-[390px] bg-[#0b172b]" data-component="Purchase / Header Bg" data-node="982:667"></div>
-  <p class="absolute left-[24px] top-[28px] w-[342px] text-center font-sogang text-[32px] leading-[41px] text-white" data-component="C / Title" data-node="982:2095">당신의 <span class="text-[var(--x-gold-light)]">정미년</span>을<br />읽어 드립니다</p>
-  <p class="absolute left-[24px] top-[114px] w-[342px] text-center font-noto-sans text-[15px] leading-[24px] text-[#c8d2e0]" data-component="Purchase / Sub" data-node="982:720">열두 달의 흐름부터 중요한 선택의 순간까지.<br />차우진의 2027 신년운세.</p>
-  <div class="absolute left-[-96px] top-[190px] h-[878px] w-[582px]" data-component="Purchase / Image 차우진" data-node="982:668">
+<section id="s12" class="section relative h-[1041px] overflow-hidden bg-white" data-screen="12 Purchase" data-node="1058:12352">
+  <div class="absolute left-0 top-0 h-[190px] w-[390px] bg-[var(--x-navy-ink)]" data-component="Purchase / Header Bg" data-node="1058:12353"></div>
+  <p class="absolute left-[24px] top-[36px] w-[342px] text-center font-sogang text-[32px] leading-[41px] text-white" data-component="C / Title" data-node="1058:12354">나만의 2027년<span class="text-[var(--x-gold-light)]"> 안내서</span></p>
+  <p class="absolute left-[24px] top-[85px] w-[342px] text-center font-noto-sans text-[15px] leading-[24px] text-[var(--x-mist)]" data-component="Purchase / Sub" data-node="1058:12406">열두 달의 흐름부터 중요한 선택의 순간까지.<br />차우진의 2027 신년운세.</p>
+  <div class="absolute left-[-96px] top-[173px] h-[878px] w-[582px]" data-component="Purchase / Image 차우진" data-node="1058:12355">
     <img data-slot="purchase-portrait" alt="차우진" class="absolute inset-0 size-full object-cover object-bottom" />
   </div>
-  <div class="product-card absolute left-[24px] top-[517px] h-[508px] w-[342px]" data-component="Purchase / Product Card" data-node="982:669">
+  <div class="product-card absolute left-[24px] top-[500px] h-[508px] w-[342px]" data-component="Purchase / Product Card" data-node="1058:12356">
     <div class="absolute left-[76px] top-[16px] flex w-[189.2px] flex-col text-center" data-component="Purchase / Title">
       <p class="h-[24px] font-serif-kr text-[16px] leading-[24px] text-white">차우진의 2027</p>
       <p class="h-[44px] font-serif-kr text-[36px] font-bold leading-[44px] text-[var(--x-gold-title)]">신년운세</p>
@@ -517,7 +449,7 @@
     <div class="absolute left-[38px] top-[402px] flex items-center gap-[12px]" data-component="Purchase / Includes">
       <span class="feature">A4 약 20쪽</span><span class="feature">10개 장</span><span class="feature">맞춤 삽화</span><span class="feature">질문 답장</span>
     </div>
-    <button type="button" class="purchase-button absolute bottom-[16px] left-[16px] w-[310px]" data-component="PurchaseButton" data-node="581:2011" data-action="external">
+    <button type="button" class="purchase-button absolute bottom-[16px] left-[16px] w-[310px]" data-component="Purchase / Button" data-node="1058:12388" data-action="external">
       <span id="purchase-button-label">33,000원 구매하기</span>
       <img src="assets/svg/icon-chevron-right.svg" alt="" class="size-[18px]" data-component="Icon" />
     </button>
@@ -525,31 +457,31 @@
 </section>
 
 <!-- ============================ 13 Footer ============================ -->
-<section id="s13" class="section relative bg-white" data-screen="13 Footer" data-node="982:618">
-  <footer class="flex w-[390px] flex-col items-start bg-[var(--x-footer-bg)] px-space-6 py-[40px]" data-component="Footer" data-node="581:1922">
-    <div class="h-[22px] w-[94.641px]" data-component="Image (퀀타로)"><img data-slot="logo-quantaro" alt="퀀타로" class="size-full object-cover" /></div>
-    <nav class="flex gap-space-4 pt-space-6" data-component="Footer / Links">
+<section id="s13" class="section relative bg-white" data-screen="13 Footer" data-node="1058:12296">
+  <footer class="flex h-[366px] w-[390px] flex-col items-start bg-[var(--x-footer-bg)] px-space-6 py-[40px]" data-component="Footer / Content" data-node="1058:12297">
+    <div class="h-[22px] w-[94.641px]" data-component="Footer / Logo" data-node="1058:12298"><img data-slot="logo-quantaro" alt="퀀타로" class="size-full object-cover" /></div>
+    <nav class="flex gap-space-4 pt-space-6" data-component="Footer / Links" data-node="1058:12299">
       <a href="#" class="footer-link" data-action="temp-link" data-label="고객센터">고객센터</a>
       <a href="#" class="footer-link" data-action="temp-link" data-label="이용약관">이용약관</a>
       <a href="#" class="footer-link" data-action="temp-link" data-label="개인정보처리방침">개인정보처리방침</a>
     </nav>
-    <dl class="flex w-[342px] flex-col pt-gutter-mobile" data-component="Definition List" id="company-info"></dl>
-    <p class="pt-space-6 font-pretendard text-[11.5px] leading-[17.25px] text-[#a0a0a0]" data-component="Footer / Copyright">© 2026 QUANTARO.</p>
+    <dl class="flex w-[342px] flex-col pt-gutter-mobile" data-component="Footer / Company Info" data-node="1058:12306" id="company-info"></dl>
+    <p class="pt-space-6 font-poppins text-[11.5px] leading-[17.25px] text-[#a0a0a0]" data-component="Footer / Copyright" data-node="1058:12342">© 2026 QUANTARO.</p>
   </footer>
-  <!-- Sticky / Bottom CTA(하단 고정)가 덮는 높이만큼 여백 — 피그마 13 Footer 아래 Sticky 영역(113px)과 동일 -->
-  <div class="h-[113px] bg-white" aria-hidden="true"></div>
+  <!-- Sticky / Bottom CTA(하단 고정)가 덮는 높이만큼 여백 — 피그마 13 Footer 안 Footer / Content(366) 아래 영역 115px(간격 2 + Sticky / Bottom CTA 113)과 동일 -->
+  <div class="h-[115px] bg-white" aria-hidden="true"></div>
 </section>
 
         </main>
       </div>
 
-      <!-- ===== Sticky / Bottom CTA : 하단 고정 (스크롤 영역 밖) ===== -->
-      <div class="bottom-bar" data-component="Sticky / Bottom CTA" data-node="982:2046">
-        <div class="flex w-full items-center justify-center gap-space-2" data-component="Bottom Bar / Countdown" data-node="982:2047">
+      <!-- ===== Sticky / Bottom CTA (작업 지시서의 BottomBar) : 하단 고정 (스크롤 영역 밖) ===== -->
+      <div class="bottom-bar" data-component="Sticky / Bottom CTA" data-node="1058:12344">
+        <div class="flex w-full items-center justify-center gap-space-2" data-component="Sticky / Countdown" data-node="1058:12345">
           <p class="font-pretendard text-[14px] leading-[20px] text-[rgba(34,34,34,0.8)]" data-component="Countdown Label">묶음 할인 마감까지</p>
-          <p class="font-pretendard text-[14px] font-semibold leading-[20px] text-accent-default tabular-nums" data-component="Countdown Time" id="countdown">52일 10:07:15</p>
+          <p class="font-poppins text-[14px] font-semibold leading-[20px] text-accent-default tabular-nums" data-component="Countdown Time" id="countdown">52일 10:07:15</p>
         </div>
-        <button type="button" class="cta-primary w-full" data-component="Bottom Bar / CTA" data-node="982:2052" data-action="external">
+        <button type="button" class="cta-primary w-full" data-component="Sticky / CTA Button" data-node="1058:12350" data-action="external">
           <span class="cta-primary__label">내 풀이 전체 열기 · 33,000원</span>
         </button>
       </div>
@@ -563,7 +495,7 @@
        ================================================================ -->
   <aside class="panel" id="demo-panel" data-demo="panel">
     <h1 class="panel__title">2027 신년운세 · 핸드오프 데모</h1>
-    <p class="panel__meta">기준 390px 웹뷰 · Figma 노드 982:617 (11/19 최종)</p>
+    <p class="panel__meta">기준 390px 웹뷰 · Figma 노드 1058:12294</p>
 
     <h2 class="panel__h">화면 바로가기</h2>
     <div class="panel__chips" id="panel-screens"></div>
@@ -593,9 +525,34 @@
 </div>
 
 <!-- ===== 컴포넌트 템플릿 ===== -->
+<template id="tpl-need-check">
+  <div class="need-check" data-component="Need / Check Card" data-align="start" data-motion="need-check">
+    <span class="need-check__icon" data-component="Check / Icon Wrap"><img src="assets/svg/check-icon.svg" alt="" data-component="Check Icon" /></span>
+    <p class="need-check__text"></p>
+  </div>
+</template>
+
+<template id="tpl-slam-card">
+  <div class="absolute flex items-center justify-center" data-component="Heavy Impact (회전 상자)">
+    <div class="slam-card relative h-[116px] w-[342px] shrink-0" data-component="NN · Heavy Impact">
+      <div class="slam-card__body absolute inset-0" data-motion="slam-card">
+        <img class="slam-card__slab absolute left-[-12px] top-[-8px] h-[140px] w-[366px] max-w-none" alt="" data-component="Slab" />
+        <div class="slam-card__parts absolute inset-0" data-component="Chip / Edge Highlight · Crack / Gap · Crack / Edge Light"></div>
+        <div class="slam-card__text absolute top-[18px] flex flex-col items-center gap-[12px] text-center">
+          <p class="slam-card__label"></p>
+          <div class="flex w-full flex-col items-center gap-[6px]">
+            <p class="slam-card__quote"></p>
+            <p class="slam-card__note"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <template id="tpl-month-cell">
   <div class="month-cell" data-component="Month · N월" data-variant="default">
-    <p class="month-cell__num"><span></span><span>월</span></p>
+    <p class="month-cell__num"><span class="font-poppins text-[13px] leading-[19.5px]"></span><span>월</span></p>
     <p class="month-cell__label"></p>
   </div>
 </template>
@@ -616,7 +573,7 @@
       <p class="paid-preview__desc"></p>
     </div>
     <div class="paid-preview__card paper-card absolute left-0 w-[360px] overflow-hidden" data-component="Card">
-      <div class="absolute left-[-21.5px] top-[-12.5px] h-[253px] w-[399px]" data-component="Card / Paper Texture"><img data-slot="card-paper-texture" alt="" class="absolute inset-0 size-full object-cover object-bottom" /></div>
+      <div class="absolute left-[-20px] top-[-11px] h-[253px] w-[399px]" data-component="Card / Paper Texture"><img data-slot="card-paper-texture" alt="" class="absolute inset-0 size-full object-cover object-bottom" /></div>
       <div class="paid-preview__inner absolute w-[342px] overflow-hidden border border-[var(--x-line)]" data-component="Card / Inner">
         <div class="paid-preview__img absolute left-[1px] w-[341px] overflow-hidden rounded-[16px]" data-component="Card / Result Image"><img data-slot="paid-result-sheet" alt="유료 결과 예시" class="absolute max-w-none" /></div>
         <div class="paid-preview__blur absolute overflow-hidden bg-bg-page" data-component="Card / Blur Area">
@@ -649,12 +606,12 @@
     <div class="timing-card__img relative w-[342px] overflow-hidden rounded-[14px]" data-component="Timing / Image / bka"></div>
     <div class="flex w-full flex-col gap-[8px]" data-component="Timing / Body">
       <div class="flex w-full flex-col gap-[8px]" data-component="Timing / Text">
-        <p class="flex items-center gap-[4px] leading-[20px]" data-component="Timing / Tag"><span class="font-sogang text-[10px] text-[var(--x-gold-dark)]"></span><span class="font-pretendard text-[14px] font-bold text-accent-default"></span></p>
+        <p class="flex items-center gap-[4px] leading-[20px]" data-component="Timing / Tag"><span class="font-sogang text-[12px] leading-[24px] text-[var(--x-gold-dark)]"></span><span class="font-pretendard text-[14px] font-bold text-accent-default"></span></p>
         <div class="flex w-full items-stretch gap-[8px]" data-component="Timing / Line + Copy">
           <div class="w-[2px] shrink-0 bg-[var(--x-gold-line)]" data-component="Timing / Line"></div>
           <div class="flex min-w-px flex-1 flex-col" data-component="Timing / Copy">
-            <p class="timing-card__head whitespace-nowrap font-serif-kr text-[20px] font-bold tracking-[-0.2px] text-text-body"></p>
-            <p class="timing-card__quote whitespace-nowrap font-serif-kr text-[17px] leading-[28px] tracking-[-0.17px] text-[#1f2233]"></p>
+            <p class="timing-card__head text-[20px] tracking-[-0.12px] text-text-body"></p>
+            <p class="timing-card__quote font-gowun text-[18px] leading-[28px] tracking-[-0.2px] text-[#1f2233]"></p>
           </div>
         </div>
       </div>
@@ -677,9 +634,9 @@
       </div>
     </div>
     <div class="flex flex-col items-center gap-[12px]" data-component="Review / Text">
-      <p class="flex items-center gap-[12px] tracking-[-0.2708px]" data-component="Review / Author">
-        <span class="font-pretendard text-[13.538px] font-bold leading-[20.308px] text-accent-default"></span>
-        <span class="font-pretendard text-[11.282px] leading-[16.923px] text-[var(--x-gray-text)]"></span>
+      <p class="flex items-center gap-[12px]" data-component="Review / Author">
+        <span class="font-pretendard text-[14px] font-bold leading-[21px] tracking-[-0.28px] text-accent-default"></span>
+        <span class="font-pretendard text-[12px] leading-[18px] tracking-[-0.29px] text-[var(--x-gray-text)]"></span>
       </p>
       <p class="ba-headline" data-component="Review / Headline"></p>
       <p class="ba-body" data-component="Review / Body"></p>

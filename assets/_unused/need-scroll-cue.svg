@@ -1,0 +1,7 @@
+<svg width="76" height="122" viewBox="0 0 76 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Need / Scroll Cue (1016:5819) : 점선 + 빛 번짐 + 점. 점 중심(38,84)이 02 Need 아래 경계에 걸침 -->
+<path d="M38 0L38 84" stroke="#F0D9A0" stroke-dasharray="4 4"/>
+<g filter="url(#f)"><circle cx="38" cy="84" r="20" fill="#F0D9A0" fill-opacity="0.45"/></g>
+<circle cx="38" cy="84" r="4" fill="#F0D9A0"/>
+<defs><filter id="f" x="0" y="46" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="9"/></filter></defs>
+</svg>

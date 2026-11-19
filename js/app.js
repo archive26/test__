@@ -10,6 +10,96 @@
   const tpl = (id) => $(id).content.firstElementChild.cloneNode(true);
 
   /* ------------------------------------------------------------------
+     렌더: 01-2 Need / Check Card ×6
+     ------------------------------------------------------------------ */
+  function renderNeed() {
+    const wrap = $('#need-checklist');
+    const { start, step, dur } = D.needTiming;
+    D.needChecks.forEach((c, i) => {
+      const el = tpl('#tpl-need-check');
+      el.dataset.node = c.node;
+      el.dataset.align = c.align;
+      Object.assign(el.style, { left: c.left + 'px', top: c.top + 'px', width: c.w + 'px', background: c.bg });
+      el.style.setProperty('--delay', (start + step * i).toFixed(2) + 's');
+      el.style.setProperty('--dur', dur + 's');
+      el.querySelector('.need-check__text').innerHTML = `${c.text}<b>${c.bold}</b>`;
+      wrap.appendChild(el);
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     렌더: 05 Intro — Sequential Slam 카드 ×3 / 두루마리 Content
+     ------------------------------------------------------------------ */
+  function renderIntro() {
+    const S = D.introSlam;
+    const stack = $('#intro-slam');
+    const sh = S.shards;
+    const shard = document.createElement('div');
+    shard.className = 'slam-shards absolute';
+    Object.assign(shard.dataset, { component: sh.name, node: sh.node, motion: 'slam-shards' });
+    Object.assign(shard.style, { left: sh.left + 'px', top: sh.top + 'px', width: sh.w + 'px', height: sh.h + 'px' });
+    shard.style.setProperty('--delay', sh.delay + 's');
+    shard.innerHTML = '<img src="assets/svg/intro-slam/shards.svg" alt="" class="absolute left-0 top-[-1.43px] h-[74.43px] w-[32.29px] max-w-none" />';
+    stack.appendChild(shard);
+    S.cards.forEach((c) => {
+      const el = tpl('#tpl-slam-card');
+      const [l, t, w, h] = c.wrap;
+      Object.assign(el.style, { left: l + 'px', top: t + 'px', width: w + 'px', height: h + 'px' });
+      el.dataset.node = c.node;
+      const card = el.querySelector('.slam-card');
+      card.dataset.component = c.name;
+      card.style.transform = `rotate(${c.rot}deg)`;
+      const body = el.querySelector('.slam-card__body');
+      body.style.setProperty('--delay', c.delay + 's');
+      body.style.setProperty('--drop', -c.drop + 'px');
+      body.style.setProperty('--s0', c.scale);
+      body.style.setProperty('--sq', c.squash);
+      body.style.setProperty('--shake', c.shake + 'px');
+      body.querySelector('.slam-card__slab').src = `assets/svg/intro-slam/${c.slab}.svg`;
+      const parts = body.querySelector('.slam-card__parts');
+      c.parts.forEach(([f, inset, inner]) => {
+        const p = document.createElement('div');
+        p.className = 'absolute';
+        p.style.inset = inset;
+        p.innerHTML = inner
+          ? `<div class="absolute" style="inset:${inner}"><img src="assets/svg/intro-slam/${f}.svg" alt="" class="block size-full max-w-none" /></div>`
+          : `<img src="assets/svg/intro-slam/${f}.svg" alt="" class="absolute inset-0 block size-full max-w-none" />`;
+        parts.appendChild(p);
+      });
+      const tx = body.querySelector('.slam-card__text');
+      Object.assign(tx.style, { left: c.text.left + 'px', width: c.text.w + 'px' });
+      tx.querySelector('.slam-card__label').textContent = c.text.label;
+      tx.querySelector('.slam-card__quote').textContent = c.text.quote;
+      const note = tx.querySelector('.slam-card__note'); note.textContent = c.text.note; note.style.lineHeight = c.text.noteLh + 'px';
+      stack.appendChild(el);
+    });
+    $('[data-motion="intro-q1"]').style.setProperty('--delay', S.questions.lead + 's');
+    $('[data-motion="intro-q2"]').style.setProperty('--delay', S.questions.main + 's');
+
+    /* 두루마리 Content */
+    const C = D.introScroll;
+    const box = $('#intro-scroll-content');
+    const add = (parent, cls, html, d, node) => {
+      const p = document.createElement('p');
+      p.className = cls; p.innerHTML = html; p.dataset.motion = 'scroll-text';
+      p.style.setProperty('--delay', d + 's');
+      if (node) p.dataset.node = node;
+      parent.appendChild(p); return p;
+    };
+    add(box, 'scroll-eyebrow', C.eyebrow.text, C.eyebrow.d, C.eyebrow.node).dataset.component = 'Eyebrow';
+    C.items.forEach((it, i) => {
+      if (i > 0) { const dv = document.createElement('div'); dv.className = 'scroll-divider'; dv.dataset.component = 'Divider'; box.appendChild(dv); }
+      const sec = document.createElement('div');
+      sec.className = 'scroll-section'; sec.dataset.component = `Section ${it.no}`; sec.dataset.node = it.node;
+      add(sec, 'scroll-section__no', it.no, it.d.no).dataset.component = 'Number';
+      add(sec, 'scroll-section__title', it.title, it.d.title).dataset.component = 'Title';
+      add(sec, 'scroll-section__desc', it.desc.join('<br>'), it.d.desc).dataset.component = 'Desc';
+      if (it.note) add(sec, 'scroll-section__note', it.note.join('<br>'), it.d.note).dataset.component = 'Note';
+      box.appendChild(sec);
+    });
+  }
+
+  /* ------------------------------------------------------------------
      렌더: 03 Month Grid / Legend
      ------------------------------------------------------------------ */
   function renderMonths() {
@@ -49,11 +139,11 @@
       el.dataset.component = `Preview ${p.no} · ${p.name}`;
       el.dataset.node = p.node;
       Object.assign(el.style, { top: p.top + 'px', height: p.h + 'px' });
-      const num = el.querySelector('.paid-preview__num'); num.textContent = p.no; num.style.top = p.t.num + 'px';
+      const num = el.querySelector('.paid-preview__num'); num.textContent = p.no; num.style.top = p.t.num + 'px'; num.dataset.font = p.numFont;
       const q = el.querySelector('.paid-preview__q'); q.textContent = p.q; q.style.top = p.t.q + 'px';
       const d = el.querySelector('.paid-preview__desc'); d.innerHTML = p.desc.join('<br>'); d.style.top = p.t.desc + 'px';
       const card = el.querySelector('.paid-preview__card'); Object.assign(card.style, { top: p.card.top + 'px', height: p.card.h + 'px' });
-      const inner = el.querySelector('.paid-preview__inner'); Object.assign(inner.style, { left: '6px', top: p.inner.top + 'px', height: p.inner.h + 'px' });
+      const inner = el.querySelector('.paid-preview__inner'); Object.assign(inner.style, { left: '9px', top: p.inner.top + 'px', height: p.inner.h + 'px' });
       const imgBox = el.querySelector('.paid-preview__img'); Object.assign(imgBox.style, { top: p.img.top + 'px', height: p.img.h + 'px' });
       Object.assign(imgBox.querySelector('img').style, { left: '-1.09%', width: '101.89%', top: p.img.crop.t + '%', height: p.img.crop.h + '%' });
       const blur = el.querySelector('.paid-preview__blur');
@@ -79,8 +169,9 @@
       const st = el.querySelector('.stamp');
       st.dataset.component = `Stamp_0${i}_${(c.no + c.name).replace(/^제\d장/, '').replace(/\s/g, '')}`;
       st.dataset.node = s.node;
-      Object.assign(st.style, { left: s.x + 'px', top: s.y + 'px', width: s.w + 'px', transform: `rotate(${-s.rot}deg)` });
-      st.querySelector('.stamp__text').textContent = s.text; // 11/18: 장 제목과 겹치지 않는 질문형 문구
+      // 중심(cx, 70) 기준 배치 + 중심 회전
+      Object.assign(st.style, { left: (s.cx - s.w / 2) + 'px', top: '51px', width: s.w + 'px', transform: `rotate(${-s.rot}deg)` });
+      st.querySelector('.stamp__text').textContent = s.text;
       st.querySelector('.stamp__body').style.setProperty('--delay', (D.stampTiming.start + D.stampTiming.step * i).toFixed(2) + 's');
       list.appendChild(el);
     });
@@ -101,18 +192,10 @@
       c.slot.forEach((s) => { const im = document.createElement('img'); im.dataset.slot = s; im.alt = ''; img.appendChild(im); });
       const tagSpans = el.querySelectorAll('[data-component="Timing / Tag"] span');
       tagSpans[0].textContent = c.ch; tagSpans[1].textContent = c.name;
-      const head = el.querySelector('.timing-card__head'); head.innerHTML = c.head.join('<br>'); head.style.lineHeight = c.lh + 'px';
+      const head = el.querySelector('.timing-card__head'); head.innerHTML = c.head.join('<br>'); head.style.lineHeight = c.lh + 'px'; head.className += ' ' + c.headFont;
       el.querySelector('.timing-card__quote').innerHTML = c.quote.join('<br>');
       const more = el.querySelector('.timing-card__more'); more.textContent = c.more; more.classList.add('font-' + c.moreFont);
       wrap.appendChild(el);
-    });
-    const lantern = $('#lantern');
-    const ox = 295, oy = 3.93;
-    D.lantern.forEach(([f, x, y, w, h, flip]) => {
-      const im = document.createElement('img');
-      im.src = `assets/svg/lantern/${f}.svg`; im.alt = ''; im.className = 'lantern-part'; im.dataset.flip = flip;
-      Object.assign(im.style, { left: (x - ox) + 'px', top: (y - oy) + 'px', width: w + 'px', height: h + 'px' });
-      lantern.appendChild(im);
     });
   }
 
@@ -308,7 +391,7 @@
   }
 
   /* ------------------------------------------------------------------
-     Sticky / Bottom CTA 카운트다운
+     Sticky / Bottom CTA(BottomBar) 카운트다운
      ------------------------------------------------------------------ */
   function tickCountdown() {
     const ms = Math.max(0, new Date(D.countdownTarget) - Date.now());
@@ -327,7 +410,6 @@
       if (!a) return;
       const act = a.dataset.action;
       if (act === 'scroll-to-free-check') scrollToEl($('#free-check'), 400, 24);
-      if (act === 'scroll-to-paid') scrollToEl($('#s06'), 400, 0);
       else if (act === 'scroll-to-purchase') scrollToEl($('#s12'), 400, 0);
       else if (act === 'external') {
         window.open(D.externalUrl, D.externalTarget, 'noopener');
@@ -364,28 +446,22 @@
      모션 트리거 (섹션이 30% 보이면 .is-in)
      ------------------------------------------------------------------ */
   let io;
-  // [관찰 대상, .is-in을 붙일 요소] — 큰 섹션은 모션이 있는 영역을 직접 관찰한다.
-  const MOTION_TARGETS = [
-    ['#s01', '#s01'],                         // 01 인물 슬라이드 (첫 화면 로드 시)
-    ['#need-checklist', '#need-checklist'],   // 02 체크 카드 6장
-    ['#scroll-unroll', '#scroll-unroll'],     // 05 두루마리 펼침 + 글 차례로 등장
-    ['#chapters-scroll', '#chapters-bg'],     // 07 도장 손잡이·금색 링
-    ['#chapter-list', '#chapter-list'],       // 07 장별 낙관 10종
-  ];
-  function observeAll() { MOTION_TARGETS.forEach(([watch]) => io.observe($(watch))); }
   function bindMotion() {
     io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      // data-motion-scope가 있으면 그 요소(모션 요소들의 부모)에 .is-in을 붙인다
       if (!en.isIntersecting) return;
-      const pair = MOTION_TARGETS.find(([w]) => en.target.matches(w));
-      if (pair) $(pair[1]).classList.add('is-in');
+      const scope = en.target.dataset.motionScope;
+      (scope ? $$(scope) : [en.target]).forEach((el) => el.classList.add('is-in'));
       io.unobserve(en.target);
     }), { root: viewport, threshold: 0.3 });
-    observeAll();
+    MOTION_TARGETS.forEach((s) => io.observe($(s)));
   }
+  // 모션 묶음: 01 인물 · 02 체크 카드 · 05 충돌 카드(장면 1) · 05 두루마리 · 07 도장 도구(머리말) · 07 도장(목차 목록)
+  const MOTION_TARGETS = ['#s01', '#need-checklist', '#intro-slam', '#intro-scroll', '#chapters-head', '#chapter-list'];
   function replayMotion() {
     $$('.is-in').forEach((el) => el.classList.remove('is-in'));
     void document.body.offsetWidth;
-    observeAll();
+    MOTION_TARGETS.forEach((s) => io.observe($(s)));
   }
 
   /* ------------------------------------------------------------------
@@ -444,7 +520,7 @@
      ------------------------------------------------------------------ */
   if (/[?&]flat\b/.test(location.search)) document.body.classList.add('flat');
   if (innerWidth < 390 + 2 * 340) document.body.classList.add('panel-closed');
-  renderMonths(); renderPaid(); renderChapters(); renderTiming(); renderReviews(); renderFooter();
+  renderNeed(); renderIntro(); renderMonths(); renderPaid(); renderChapters(); renderTiming(); renderReviews(); renderFooter();
   renderOptions(); bindFreeCheck(); bindActions(); bindMotion(); bindOuterScroll();
   tickCountdown(); setInterval(tickCountdown, 1000);
   window.SlotLoader.loadAll().then(bindPanel);
