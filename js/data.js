@@ -8,7 +8,7 @@ window.DEMO_DATA = {
   freeCheck: {
     yearRange: [1930, 2012],          // DECISIONS D-06
     initial: { year: 1999, month: 11, day: 18 }, // 피그마 표시값
-    initialState: 'result',           // 'result'(피그마) | 'empty'  — DECISIONS D-05
+    initialState: 'empty',            // 최초 진입 = 입력 전 봉인 결과지(1086:2427). 'result'로 바꾸면 예시 값 결과(1086:211)로 시작 — DECISIONS D-05·D-37
     loadingMs: 1200,                  // DECISIONS D-07
     messages: {
       invalid: '생년월일을 모두 선택해 주세요.',

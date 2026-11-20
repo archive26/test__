@@ -300,7 +300,7 @@
   }
   function initSelects() {
     const [a, b] = D.freeCheck.yearRange;
-    fillOptions(sel.year, Array.from({ length: b - a + 1 }, (_, i) => b - i), '년도');
+    fillOptions(sel.year, Array.from({ length: b - a + 1 }, (_, i) => b - i), '년');
     fillOptions(sel.month, Array.from({ length: 12 }, (_, i) => i + 1), '월');
     syncDays();
   }
@@ -325,6 +325,9 @@
     if (state === 'loading') resultBox.dataset.keep = resultBox.dataset.state === 'loading' ? resultBox.dataset.keep : resultBox.dataset.state;
     else delete resultBox.dataset.keep;
     resultBox.dataset.state = state === 'invalid' ? 'empty' : state;
+    // 03 연결선 문구: 결과가 표시된 뒤에만 「무료 결과 요약」, 그 전(입력 전·에러·로딩 중 봉인 화면)은 「봉인된 결과지」
+    const shown = state === 'loading' ? resultBox.dataset.keep : state;
+    $('#free-connector-label').textContent = shown === 'result' ? '무료 결과 요약' : '봉인된 결과지';
     if (state === 'result') {
       const y = sel.year.value || D.freeCheck.initial.year, m = sel.month.value || D.freeCheck.initial.month, d = sel.day.value || D.freeCheck.initial.day;
       $('#free-result-title').textContent = `${y}년 ${m}월 ${d}일생의 2027년`;
@@ -456,8 +459,8 @@
     }), { root: viewport, threshold: 0.3 });
     MOTION_TARGETS.forEach((s) => io.observe($(s)));
   }
-  // 모션 묶음: 01 인물 · 02 체크 카드 · 05 충돌 카드(장면 1) · 05 두루마리 · 07 도장 도구(머리말) · 07 도장(목차 목록)
-  const MOTION_TARGETS = ['#s01', '#need-checklist', '#intro-slam', '#intro-scroll', '#chapters-head', '#chapter-list'];
+  // 모션 묶음: 01 인물 · 02 체크 카드 · 04 봉인 결과지 낙관 · 05 충돌 카드(장면 1) · 05 두루마리 · 07 도장 도구(머리말) · 07 도장(목차 목록)
+  const MOTION_TARGETS = ['#s01', '#need-checklist', '#sealed-visual', '#intro-slam', '#intro-scroll', '#chapters-head', '#chapter-list'];
   function replayMotion() {
     $$('.is-in').forEach((el) => el.classList.remove('is-in'));
     void document.body.offsetWidth;

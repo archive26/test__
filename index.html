@@ -102,7 +102,7 @@
   <form id="free-check" class="mx-[24px] mt-[31px] flex w-[342px] flex-col gap-[12px]" data-component="Free Check / Input + CTA" data-node="1058:13721" data-state="filled" novalidate>
     <div class="flex w-full items-center gap-[12px]" data-component="Free Check / Birth Date" data-node="1058:13722">
       <label class="birth-select w-[158px]" data-component="Birth Select · Year" data-variant="year" data-node="1058:13723">
-        <span class="birth-select__value" data-placeholder="년도">1999</span>
+        <span class="birth-select__value" data-placeholder="년">1999</span>
         <img src="assets/svg/chevron-down.svg" alt="" class="size-[16px] shrink-0" data-component="Chevron Icon" />
         <select name="year" aria-label="태어난 해"></select>
       </label>
@@ -126,7 +126,8 @@
   <div class="relative mx-[24px] mt-[18px] h-[96px] w-[342px]" data-component="Connector" data-node="1058:13716">
     <div class="absolute left-[171px] top-[4px] h-[44px] w-px bg-[var(--x-line)]" data-component="Divider"></div>
     <div class="absolute left-[167px] top-[56px] size-[8px] rotate-45 border border-[var(--x-gold-dark)]" data-component="Accent Dot"></div>
-    <p class="absolute left-0 right-0 top-[71.58px] text-center font-pretendard text-[12px] font-semibold leading-[18px] text-text-primary">무료 결과 요약</p>
+    <!-- 입력 전(최초 진입) 「봉인된 결과지」 / 입력 후 「무료 결과 요약」 — app.js setState에서 전환 -->
+    <p class="absolute left-0 right-0 top-[71.58px] text-center font-pretendard text-[12px] font-semibold leading-[18px] text-text-primary" id="free-connector-label" data-component="Connector / Label">봉인된 결과지</p>
   </div>
 </section>
 
@@ -204,11 +205,15 @@
       </div>
     </div>
 
-    <!-- [empty] 데모 추가 상태 (피그마 미정의) -->
-    <div class="free-result__view" data-view="empty">
-      <div class="state-card">
-        <p class="state-card__title">생년월일을 선택하면<br />무료 결과 요약이 여기에 표시돼요</p>
-        <p class="state-card__desc">타고난 일간과 2027년 열두 달 지도를 먼저 보여 드려요.</p>
+    <!-- [empty] 입력 전 · 최초 진입 — 피그마 「2027 신년운세 · 입력 전 봉인 결과지」(1086:2427) › 04 Sealed Result · 입력 전 (1086:3945, 390×750)
+         유효성 에러(빈 칸) 상태에서도 이 화면을 그대로 보여 준다. -->
+    <div class="free-result__view relative h-[750px]" data-view="empty" data-component="04 Sealed Result · 입력 전" data-node="1086:3945">
+      <p class="absolute left-[24px] top-[20px] w-[342px] text-center font-sogang text-[26px] leading-[38px] text-accent-default" data-component="Sealed / Title" data-node="1086:3946">아직 펼쳐지지 않은<br />당신의 <span class="text-[#8a6a22]">2027년</span></p>
+      <p class="absolute left-[24px] top-[110px] w-[342px] text-center font-pretendard text-[15px] leading-[24px] text-[#5b5650]" data-component="Sealed / Sub" data-node="1086:3947">태어난 날을 알려주시면<br />당신만의 운세 결과지가 펼쳐집니다.</p>
+      <!-- Sealed / Visual: 빛·한지·빈 결과지·한지 덮개·띠지를 한 장으로 내보낸 이미지(낙관 제외) + 낙관(Stamp / Seal) 따로 -->
+      <div class="absolute left-0 top-[192px] h-[540px] w-[390px]" data-component="Sealed / Visual" data-node="1086:3948" id="sealed-visual">
+        <img src="assets/img/sealed-visual.png" alt="한지로 봉인된 빈 결과지" class="absolute left-[-35px] top-0 h-[540px] w-[460px] max-w-none" />
+        <img src="assets/img/sealed-seal.png" alt="" class="sealed-seal absolute left-[112px] top-[128px] h-[226.775px] w-[157.917px] max-w-none" data-component="Stamp / Seal" data-node="1086:4082" data-motion="sealed-seal" />
       </div>
     </div>
 

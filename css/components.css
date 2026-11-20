@@ -89,7 +89,9 @@
 /* Birth Select · Year / Month / Day */
 .birth-select { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border: 1px solid var(--x-line); border-radius: 12px; background: #fff; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
 .birth-select__value { font-family: var(--font-pretendard); font-weight: 500; font-size: 18px; line-height: 27px; color: var(--accent\/default); white-space: nowrap; }
-.birth-select__value:empty::before { content: attr(data-placeholder); color: #b3b6bc; }
+/* 입력 전 placeholder — 피그마 1086:2427: Noto Sans KR Medium 18/27 #9e9991 */
+.birth-select__value:empty::before { content: attr(data-placeholder); color: #9e9991; font-family: var(--font-noto-sans); font-weight: 500; }
+.birth-select__value:empty { display: block; height: 27px; } /* Noto Sans KR 글자 높이로 칸이 1px 늘어나지 않게 고정 */
 .birth-select select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; font-size: 16px; /* iOS 확대 방지 */ }
 .birth-select:focus-within { border-color: var(--accent\/default); box-shadow: 0 0 0 3px rgba(27,59,111,.12); }
 .birth-select[data-invalid="true"] { border-color: #d14343; }
@@ -356,6 +358,21 @@
 .flat [data-motion="cue-line"] { height: 84px !important; }
 [data-motion="marquee"] { animation: marquee 36.489s linear infinite; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-1470px); } }
+
+/* 04 Sealed Result · 입력 전 — 낙관(Stamp / Seal) 찍기: 봉인 결과지가 30% 보이면 1회 (I-18)
+   피그마 키프레임 1.30→1.95s(0.65s)를 0.3s 지연으로 옮김. 회전 부호: 피그마 +10°(반시계) = CSS −10deg */
+[data-motion="sealed-seal"] { opacity: 0; transform-origin: 50% 50%; }
+.is-in [data-motion="sealed-seal"] { animation: sealed-seal .65s .3s both; }
+@keyframes sealed-seal {
+  /* 피그마는 「도착 키프레임」에 이징이 붙고 CSS는 「출발 키프레임」에 붙으므로 한 칸씩 앞으로 옮겨 적음 */
+  0%     { opacity: 0; transform: translate(236.84px, -143.13px) rotate(-10deg) scale(2.2); animation-timing-function: cubic-bezier(.55,0,.9,.5); }
+  15.38% { opacity: 1; transform: translate(125.39px, -77.07px) rotate(-7deg) scale(1.65); animation-timing-function: cubic-bezier(.6,0,1,.6); }
+  38.46% { opacity: 1; transform: translate(0, 2.71px) rotate(0) scale(1.08, .89); animation-timing-function: cubic-bezier(.2,.8,.4,1); }
+  52.31% { opacity: 1; transform: translate(0, -5.42px) rotate(-1deg) scale(.98, 1.035); animation-timing-function: cubic-bezier(.45,0,.55,1); }
+  72.31% { opacity: 1; transform: translate(0, 0) rotate(0) scale(1.015, .985); animation-timing-function: cubic-bezier(0,0,.58,1); }
+  100%   { opacity: 1; transform: none; }
+}
+}
 
 @media (prefers-reduced-motion: reduce) {
   [data-motion] { animation: none !important; opacity: 1 !important; transform: none !important; }
